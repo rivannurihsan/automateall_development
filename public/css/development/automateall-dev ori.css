@@ -1,0 +1,1159 @@
+/* Automate All CSS Minified */
+:root {
+    --primary-color: #0F4C75;
+    --secondary-color: #90ACBF;
+    --secondary-font: 'Varela', sans-serif;
+    --varela-400: 400;
+    --biryani-600: 600;
+    --biryani-700: 700;
+    --biryani-800: 800;
+    --biryani-900: 900;
+}
+
+body {
+    font-family: 'Biryani', sans-serif;
+}
+
+.noselect {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.sorry {
+    margin-top: 150px;
+}
+
+/* Primary Color  */
+.nav-item a,
+footer,
+footer span,
+section.headline,
+section.why,
+section.solution span,
+section.blog h1,
+section.blog p,
+section.blog h4,
+section.blog a,
+.products,
+.products a,
+section.services,
+section.detail h1,
+section.detail h3,
+section.omv,
+a.list-group-item,
+.contact-us a,
+section.contact-us .btn,
+section.contact-us h1,
+section.contact-us h4,
+section.contact-us p,
+section.contact-us input,
+section.contact-us textarea,
+section.contact-us span,
+.modal.message-sent p,
+.modal.message-sent button,
+.sorry {
+    color: #0F4C75 !important;
+}
+
+/* Secondary Color */
+section.solution h2,
+section.solution h3,
+.products p,
+section.detail p,
+.carousel-control-next-icon:after,
+.carousel-control-prev-icon:after,
+section.contact-us textarea::placeholder,
+section.contact-us input::placeholder,
+.text-muted {
+    color: #90ACBF !important;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(255, 255, 255, .8)
+}
+
+.navbar img {
+    height: 82px;
+    width: 290px;
+}
+
+.navbar-brand {
+    margin-left: 15px;
+}
+
+.nav-item {
+    margin-top: 5px;
+}
+
+.nav-link {
+    padding: 0 1rem;
+}
+
+.nav-item a {
+    font-weight: 600;
+    font-size: 22px;
+    margin: 20px auto;
+}
+
+.nav-item a::before {
+    display: block;
+    font-weight: 900;
+    content: attr(title);
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.nav-item a:hover {
+    font-weight: 900;
+}
+
+.nav-item.active a {
+    font-weight: 900;
+    border-bottom: 2px solid #0F4C75;
+}
+
+.navbar-collapse {
+    background-color: white;
+}
+
+/* Akhir Navbar */
+
+/* Footer */
+footer.border-top {
+    border-color: #C9E3F4;
+}
+
+footer {
+    margin-top: 120px;
+    box-sizing: border-box;
+    box-shadow: 0px -1px 15px rgba(15, 76, 117, 0.25);
+    border-radius: 35px 35px 0px 0px;
+    background-color: white !important;
+}
+
+footer a {
+    text-decoration: none !important;
+}
+
+footer span {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+footer h4 {
+    font-weight: 700;
+}
+
+footer .partners {
+    height: 128px;
+    background-color: #0F4C75;
+    border-radius: 16px;
+}
+
+footer .socials-mr {
+    margin-right: 28px;
+}
+
+/* Akhir Footer */
+
+/* LANDING PAGE */
+
+/*Flash News Pop Up*/
+#flash-container {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,0,.7);   
+}
+
+@keyframes appear {
+    from {
+        height: 0;
+    }
+    to {
+        height: 570px;
+    }
+}
+
+#flash {
+    z-index: 11;
+    color: #0F4C75;
+    position: fixed;
+    top: 3vh;
+    left: 50%;
+    width: 90vmin;
+    transform: translate(-50%);
+    text-align: center;
+    background-color: white;
+    border-radius: 2%;
+    overflow: hidden;
+    animation: appear 1.5s ease-in forwards;
+    box-shadow: 0 0 12px 8px rgba(174, 205, 226, .25);
+}
+
+#flash button {
+    position: absolute;
+    right: 0;
+    padding: 8px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+#flash h2{
+    font-size: 1.3rem;
+    margin: 15px;
+}
+
+#flash a {
+    font-size: .8rem;
+    color: inherit;
+    text-decoration: underline;
+}
+
+.flash-img img{
+    max-width: 100%;
+    height: auto;
+}
+/* Section Headline */
+.contact-us hr {
+    background-color: #0F4C75;
+}
+
+.contact-us .btn,
+.products .btn,
+.referral .btn{
+    background-color: #FFF742;
+    border-radius: 35px;
+    top: 43px;
+}
+
+.contact-us a {
+    font-weight: 800;
+    font-size: 25px;
+    padding: 10px 15px 5px 15px;
+}
+
+.contact-us a:hover,
+.products a:hover {
+    color: white !important;
+}
+
+section.headline {
+    margin-top: 130px;
+}
+
+section.headline .landingvideo{
+    width: 100%;
+    height: auto;
+}
+
+section.headline p {
+    margin-top: 35px;
+    font-family: 'Varela', sans-serif;
+}
+
+/* Akhir Section Headline */
+/* Section Solution */
+section.solution {
+    margin-top: 70px;
+}
+
+section.solution h2 {
+    font-weight: 700;
+    font-size: 38px;
+    margin-bottom: 8vh;
+}
+
+section.solution h2 span {
+    font-weight: 900;
+    display: block;
+}
+
+section.solution h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    line-height: 35px;
+    font-weight: 700;
+}
+
+section.solution h3 span {
+    font-weight: 900;
+}
+
+/* Akhir Section Solution */
+/* Selection Why */
+section.why {
+    margin-top: 120px;
+}
+
+section.why .card {
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 0px 75px;
+    transition: 0.3s ease;
+}
+
+section.why h3 {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 43px;
+}
+
+section.why h1 {
+    font-weight: 900;
+    font-size: 170px;
+    color: #C9E3F4;
+    line-height: 150px;
+}
+
+#aa {
+    font-size: 22px;
+    margin-left: 25px;
+}
+
+section.why .why-text {
+    margin-left: 0;
+}
+
+section.why .two-card {
+    margin-top: 80px;
+}
+
+section.why p {
+    font-family: 'Varela', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+section.why .card:hover {
+    transform: scale(1.1);
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.7), 8px 8px 12px rgba(174, 205, 226, 0.9);
+}
+
+section.why .card-img-top {
+    width: 100%;
+    height: auto;
+    padding: 10px 15px !important;
+}
+
+/* Akhir Section Why */
+
+/* Section our videos */
+section.our-videos {
+    margin-top: 15vh;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+    text-underline-position: under;
+}
+
+section.our-videos h1 {
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 5vh;
+}
+
+section.our-videos iframe {
+    margin-top: 5vh;
+    max-width: 100%;
+}
+
+/* Akhir section our videos */
+
+/* Absolute Vector */
+.v1 {
+    display: none;
+    z-index: -1;
+    right: 0;
+    top: 740px;
+}
+
+.v2 {
+    z-index: -1;
+    right: 0;
+    visibility: hidden;
+}
+
+/* AKHIR LANDING PAGE */
+
+/* BLOG PAGE */
+section.blog {
+    margin-top: 150px;
+}
+
+section.blog img {
+    margin-bottom: 10px;
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 0px 75px;
+}
+
+section.blog h1 {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+section.blog h1,
+section.blog p {
+    padding: 0 15px;
+}
+
+section.blog p {
+    font-size: 18px;
+}
+
+section.blog p,
+section.blog a.small-link {
+    font-family: 'Varela', sans-serif;
+}
+
+section.blog a.small-link {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+section.blog h4 {
+    font-weight: 700;
+    padding: 0 15px;
+}
+
+section.blog a.big-link {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+section.blog a.big-link:hover {
+    font-weight: 900;
+}
+
+
+/* AKHIR BLOG PAGE */
+
+/* ARTICLE LIST PAGE */
+section.article_list {
+    margin-top: 20vh;
+}
+
+section.article_list h5 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    color: var(--primary-color);
+}
+
+section.article_list p {
+    line-height: 20px;
+    color: var(--primary-color);
+    font-family: var(--secondary-font);
+    font-weight: var(--varela-400);
+}
+
+section.article_list .article-img {
+    position: relative;
+    height: 200px;
+}
+
+section.article_list img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 0px 75px;
+}
+
+.article-item {
+    margin-top: 20px;
+}
+
+.article-content {
+    margin-top: 10px;
+    padding: 0 5px;
+}
+
+.date {
+    font-size: 13px;
+    color: grey;
+    display: block;
+    margin-top: 10px;
+}
+
+.article-content a {
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+/* AKHIR ARTICLE LIST PAGE */
+
+/* ARTICLE DETAILS PAGE */
+section.articleDetails {
+    margin-top: 22vh;
+}
+
+.detailImage {
+    position: relative;
+    height: 250px;
+}
+
+.detailImage img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.detailContent {
+    padding: 20px 10px;
+}
+
+section.articleDetails h1 {
+    display: inline-block;
+    color: var(--primary-color);
+    line-height: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 10px 0 10px 0;
+    padding: 0;
+}
+
+section.articleDetails p {
+    font-family: var(--secondary-font);
+    font-size: 16px;
+    color: var(--primary-color);
+    padding: 0;
+}
+
+section.articleDetails h2 {
+    color: var(--primary-color);
+    font-family: var(--secondary-font);
+    margin-top: 1em;
+    margin-bottom: .3em;
+    font-size: 1.5rem;
+}
+
+section.articleDetails ul li,
+section.articleDetails ol li{
+    color: var(--primary-color);
+    font-family: var(--secondary-font);
+    font-size: 24px;
+}
+
+section.articleDetails a {
+    color: var(--primary-color);
+    margin-top: 5px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* AKHIR ARTICLE DETAILS PAGE */
+
+/* PRODUCTS AND SERVICES PAGE*/
+/* Carousel Products */
+.products h1,
+section.services h1,
+section.services h2 {
+    font-weight: 900;
+}
+
+.products {
+    animation: fadeIn 2.5s ease;
+}
+
+.products h2 {
+    font-weight: 700;
+    font-size: 34px;
+}
+
+.products p {
+    font-family: 'Varela', sans-serif;
+    line-height: 23.4px;
+    text-align: justify;
+}
+
+.products a {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    outline: #90ACBF;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-weight: 900;
+    font-size: 40px;
+
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-weight: 900;
+    font-size: 40px;
+}
+
+/* Section Our Services */
+section.services .card {
+    background: #FFFFFF;
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 0px 75px;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
+
+section.services .card:hover {
+    transform: scale(1.1);
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.7), 8px 8px 12px rgba(174, 205, 226, 0.9);
+}
+
+section.services h2 {
+    margin-top: 15px;
+    font-size: 24px;
+    margin-bottom: 15px !important;
+}
+
+section.services .card-img-top {
+    padding: 10px 25px;
+    width: 100%;
+    height: auto;
+}
+
+/* Section Detail */
+section.detail {
+    margin-top: 180px;
+}
+
+section.detail p {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+}
+
+section.detail h1 {
+    font-weight: 900;
+}
+
+.display-3 {
+    font-size: 3.5rem;
+}
+
+section.detail h3 {
+    font-weight: 600;
+}
+
+/* Akhir Section Detail */
+
+/* Section Our Main Value */
+
+section.omv {
+    margin-top: 110px;
+}
+
+a.list-group-item {
+    font-weight: 600;
+    font-size: 11px;
+}
+
+a.list-group-item:hover {
+    font-weight: 900;
+    text-decoration: none;
+}
+
+a.list-group-item::before {
+    display: block;
+    font-weight: 900;
+    content: attr(title);
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+a.list-group-item.active {
+    font-weight: 900;
+    background-color: white;
+    border: none;
+}
+
+#ocr {
+    animation: fadeIn 3.5s ease;
+}
+
+section.omv h1 {
+    font-weight: 700;
+    font-size: 64px;
+}
+
+section.omv p {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+    padding-top: 20px;
+}
+
+.tab-content {
+    margin-top: 30px;
+}
+
+
+/* Akhir Section Our Main Value */
+
+/* Section Contact Us */
+section.contact-us {
+    margin-top: 150px;
+}
+
+#map {
+    animation: fadeIn 6s ease;
+}
+
+section.contact-us h1 {
+    font-weight: 900;
+    font-size: 55px;
+    margin-bottom: 0 !important;
+}
+
+section.contact-us p {
+    font-family: 'Varela', sans-serif;
+    font-size: 20px;
+    line-height: normal;
+}
+
+section.contact-us form {
+    margin-top: 34px;
+}
+
+section.contact-us input.form-control {
+    font-size: 18px;
+    border: 1px solid #90ACBF;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+section.contact-us .form-control {
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+section.contact-us .form-control:focus {
+    box-shadow: 0 0 0 5px #90ACBF !important;
+}
+
+a.btn:focus,
+section.contact-us button.btn:focus {
+    box-shadow: none !important;
+}
+
+section.contact-us input {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+}
+
+section.contact-us textarea {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px !important;
+}
+
+section.contact-us textarea.form-control {
+    font-size: 18px;
+    border: 1px solid #90ACBF;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+section.contact-us textarea::placeholder {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+}
+
+
+section.contact-us input::placeholder {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+}
+
+section.contact-us .btn {
+    background-color: #FFF742;
+    border-radius: 17px;
+    font-family: 'Varela', sans-serif;
+    font-size: 30px;
+}
+
+section.contact-us h4 {
+    font-weight: 600;
+}
+
+section.contact-us span {
+    font-weight: 400;
+    font-size: 14px;
+    display: block;
+}
+
+section.contact-us .spaceatas1,
+section.contact-us .spaceatas2 {
+    margin-top: 120px;
+}
+
+section.contact-us .invalid-feedback {
+    margin-top: 0.5rem !important;
+}
+
+.modal-content {
+    position: absolute;
+    top: 15vh;
+    width: 400px;
+    margin: 0 auto;
+    left: 10vw;
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 35px;
+    border: none;
+}
+
+.modal.message-sent p {
+    padding: 0 5px;
+    font-family: 'Varela', sans-serif;
+    font-size: 24px;
+}
+
+.modal.message-sent button {
+    font-weight: 700;
+    font-size: 24px;
+    border-radius: 17px;
+    background-color: #FFF742;
+    width: 215px;
+    height: 50px;
+    line-height: 50px;
+    margin: 30px auto 20px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.modal-body {
+    position: relative;
+}
+
+.modal.message-sent img.ellipse {
+    z-index: 0;
+    position: absolute !important;
+    border-radius: 35px;
+    bottom: 0;
+    left: 0;
+}
+
+.modal-open .container-fluid,
+.modal-open .container {
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+}
+
+#map iframe {
+    border-radius: 0px 75px;
+}
+
+
+
+
+
+/* Akhir Section Contact Us */
+
+
+/* Responsive Breakpoints */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    #aa {
+        margin-left: 30px;
+        font-size: 30px;
+    }
+
+    section.why h1 {
+        font-size: 210px;
+    }
+
+    section.blog h1 {
+        font-size: 28px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #flash {
+        top: 2vh;
+    }
+    
+    .nav-item a {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .nav-item {
+        margin-right: 3px;
+    }
+
+    .navbar-collapse {
+        background-color: inherit;
+    }
+
+    section.solution h3 {
+        font-size: 26px;
+        line-height: 45px;
+    }
+
+    .v1 {
+        display: inline;
+    }
+
+    section.solution h2 {
+        font-size: 48px;
+    }
+
+    section.why .two-card {
+        margin-top: 95px;
+        height: 600px;
+    }
+
+    section.why h1 {
+        font-size: 220px;
+        line-height: 200px;
+    }
+
+    #aa {
+        margin-left: 40px;
+    }
+
+    section.why .one-card {
+        margin-top: 165px;
+    }
+
+    section.why .why-text {
+        margin-left: 0;
+    }
+
+    section.our-videos {
+        margin-top: 0;
+    }
+
+    section.contact-us h1 {
+        font-size: 64px;
+    }
+
+    section.contact-us p {
+        font-size: 24px;
+    }
+
+    section.contact-us input.form-control {
+        font-size: 28px;
+        padding: 35px;
+    }
+
+    section.contact-us input {
+        font-size: 28px;
+    }
+
+    section.contact-us input::placeholder {
+        font-size: 28px;
+    }
+
+    section.contact-us textarea.form-control {
+        padding: 20px 35px;
+    }
+
+    .modal-content {
+        width: 100%;
+        left: auto;
+    }
+
+    .modal.message-sent p {
+        padding: 0;
+    }
+
+    .modal.message-sent button {
+        margin: 30px auto;
+    }
+
+    .display-3 {
+        font-size: 4.5rem;
+    }
+
+    .contact-us a {
+        font-size: 30px;
+        padding: 15px 25px 5px 25px;
+    }
+
+    .contact-us .btn,
+    .products .btn {
+        top: 48px;
+    }
+
+    section.headline p {
+        margin-top: 50px;
+    }
+
+    section.services .card {
+        padding: 50px 20px;
+    }
+
+    #card-width {
+        width: 15rem !important;
+    }
+    
+    section.blog h1 {
+        line-height: 50px;
+    }
+
+    .detailImage {
+        height: 300px;
+    }
+
+    section.articleDetails h1 {
+        line-height: 40px;
+        font-size: 32px;
+    }
+
+    section.articleDetails p,
+    section.articleDetails a {
+        font-size: 18px;
+    }
+    
+    section.articleDetails h2 {
+        font-size: 2rem;
+    }
+    
+    .smaller-p {
+        font-size: 12px !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #flash {
+        top: 5vh;
+        width: 450px;
+    }
+    
+    section.headline .landingvideo{
+        width: 92%;
+        height: auto;
+    }
+    
+    section.solution h3 {
+        font-size: 36px;
+        line-height: 67.07px;
+    }
+
+    section.why h1 {
+        font-size: 250px;
+        line-height: 0.9em;
+    }
+
+    #aa {
+        font-size: 36px;
+        margin-left: 230px;
+    }
+
+    .v2 {
+        top: 1660px;
+        visibility: visible;
+    }
+
+    .additional {
+        margin-top: 112px !important;
+    }
+
+    section.blog h1 {
+        font-size: 30px;
+    }
+    
+    section.blog h4 {
+        font-size: 1.2rem;
+    }
+
+    section.contact-us .spaceatas {
+        margin-top: 190px;
+    }
+
+    #card-width {
+        width: 18rem !important;
+    }
+
+    section.why .two-card {
+        height: 530px;
+    }
+
+    .detailImage {
+        height: 400px;
+    }
+
+    section.articleDetails h1 {
+        line-height: 50px;
+        font-size: 38px;
+    }
+
+    section.articleDetails p,
+    section.articleDetails a {
+        font-size: 20px;
+    }
+
+    section.our-videos {
+        margin-top: 5vh;
+        text-align: left;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    section.headline .landingvideo{
+        width: 79%;
+        height: auto;
+    }
+    
+    .nav-item {
+        margin-right: 20px;
+    }
+
+    section.solution h3 {
+        font-size: 38px;
+    }
+
+    section.why h1 {
+        font-size: 288px;
+    }
+
+    section.blog h1 {
+        font-size: 34px;
+    }
+
+    .v2 {
+        top: 1870px;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

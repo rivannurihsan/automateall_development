@@ -1,0 +1,828 @@
+body {
+    font-family: 'Biryani', sans-serif;
+}
+
+.noselect,
+.products,
+.services {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.sorry {
+    margin-top: 150px;
+}
+
+/* Color */
+.nav-item a,
+footer span,
+footer h4,
+.contact-us a,
+section.solution h2 span,
+section.solution h3 span,
+section.why,
+.sorry {
+    color: #0F4C75 !important;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: rgba(255, 255, 255, .8)
+}
+
+.navbar img {
+    height: 82px;
+    width: 290px;
+}
+
+.navbar-brand {
+    margin-left: 15px;
+}
+
+.nav-item {
+    margin-top: 5px;
+}
+
+.nav-link {
+    padding: 0 1rem;
+}
+
+.nav-item a {
+    font-weight: 600;
+    font-size: 22px;
+    margin: 20px auto;
+}
+
+.nav-item a::before {
+    display: block;
+    font-weight: 900;
+    content: attr(title);
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.nav-item a:hover {
+    font-weight: 900;
+}
+
+.nav-item.active a {
+    font-weight: 900;
+    border-bottom: 2px solid #0F4C75;
+}
+
+.navbar-collapse {
+    background-color: white;
+}
+
+
+
+/* Akhir Navbar */
+
+/* Footer */
+footer.border-top {
+    border-color: #C9E3F4;
+}
+
+footer {
+    margin-top: 120px;
+    box-sizing: border-box;
+    box-shadow: 0px -1px 15px rgba(15, 76, 117, 0.25);
+    border-radius: 35px 35px 0px 0px;
+    background-color: white !important;
+}
+
+footer a {
+    text-decoration: none !important;
+}
+
+footer span {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+footer h4 {
+    font-weight: 700;
+}
+
+footer .partners {
+    height: 128px;
+    background-color: #0F4C75;
+    border-radius: 16px;
+}
+
+/* Akhir Footer */
+
+/* LANDING PAGE */
+/* Section Headline */
+section.headline img {
+    margin-top: 100px;
+    animation: fadeIn 3.5s ease;
+}
+
+
+.contact-us hr {
+    background-color: #0F4C75;
+}
+
+.contact-us .btn,
+.products .btn {
+    background-color: #FFF742;
+    border-radius: 35px;
+    top: 43px;
+}
+
+.contact-us a {
+    font-weight: 800;
+    font-size: 25px;
+    padding: 10px 15px 5px 15px;
+}
+
+.contact-us a:hover,
+.products a:hover {
+    color: white !important;
+}
+
+section.headline p {
+    margin-top: 35px;
+    font-family: 'Varela', sans-serif;
+    color: #0F4C75;
+}
+
+/* Akhir Section Headline */
+/* Section Solution */
+section.solution {
+    margin-top: 70px;
+}
+
+section.solution h2 {
+    font-weight: 700;
+    font-size: 38px;
+    color: #90ACBF;
+    margin-bottom: 8vh;
+}
+
+section.solution h2 span {
+    font-weight: 900;
+    display: block;
+}
+
+section.solution h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    line-height: 35px;
+    font-weight: 700;
+    color: #90ACBF;
+}
+
+section.solution h3 span {
+    font-weight: 900;
+}
+
+/* Akhir Section Solution */
+/* Selection Why */
+section.why {
+    margin-top: 120px;
+}
+
+section.why .card {
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 0px 75px;
+    transition: 0.3s ease;
+}
+
+section.why h3 {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 43px;
+}
+
+section.why h1 {
+    font-weight: 900;
+    font-size: 150px;
+    color: #C9E3F4;
+    line-height: 150px;
+}
+
+section.why #aa {
+    font-size: 22px;
+    margin-left: 25px;
+}
+
+section.why .why-text {
+    margin-left: 0;
+}
+
+section.why .two-card {
+    margin-top: 80px;
+}
+
+section.why p {
+    font-family: 'Varela', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+section.why .card:hover {
+    transform: scale(1.2);
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.7), 8px 8px 12px rgba(174, 205, 226, 0.9);
+}
+
+/* Akhir Selection Why */
+
+/* Absolute Vector */
+.v1 {
+    display: none;
+    z-index: -1;
+    right: 0;
+    top: 800px;
+}
+
+.v2 {
+    z-index: -1;
+    right: 0;
+    visibility: hidden;
+}
+
+/* AKHIR LANDING PAGE */
+
+/* NEWS PAGE */
+section.news {
+    margin-top: 150px;
+}
+
+section.news h1,
+section.news h4 {
+    color: #0F4C75;
+}
+
+section.news img {
+    margin-bottom: 10px;
+}
+
+section.news h1 {
+    font-weight: 700;
+    line-height: 50px;
+    font-size: 24px;
+}
+
+section.news h1,
+section.news p {
+    padding: 0 15px;
+}
+
+section.news p {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #90ACBF;
+}
+
+section.news h4 {
+    font-weight: 700;
+    padding: 0 15px;
+}
+
+.smaller-p {
+    font-size: 12px !important;
+}
+
+/* AKHIR NEWS PAGE */
+
+/* PRODUCTS AND SERVICES PAGE*/
+/* Carousel Products */
+.products h1,
+.products h2,
+.products a,
+section.services {
+    color: #0F4C75;
+}
+
+.products h1,
+section.services h1,
+section.services h2 {
+    font-weight: 900;
+}
+
+.products {
+    animation: fadeIn 2.5s ease;
+}
+
+.products h2 {
+    font-weight: 700;
+    font-size: 34px;
+}
+
+.products p {
+    font-family: 'Varela', sans-serif;
+    line-height: 23.4px;
+    color: #90ACBF;
+    text-align: justify;
+}
+
+.products a {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    outline: #90ACBF;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    color: #90ACBF;
+    font-weight: 900;
+    font-size: 40px;
+
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    color: #90ACBF;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+/* Section Our Services */
+section.services .card {
+    background: #FFFFFF;
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 0px 75px;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
+
+section.services .card:hover {
+    transform: scale(1.2);
+    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.7), 8px 8px 12px rgba(174, 205, 226, 0.9);
+}
+
+section.services h2 {
+    margin-top: 15px;
+    font-size: 24px;
+    margin-bottom: 15px !important;
+}
+
+.card-img-top {
+    padding: 10px 35px;
+}
+
+/* Section Detail */
+section.detail {
+    margin-top: 180px;
+}
+
+section.detail h1,
+section.detail h3 {
+    color: #0F4C75;
+}
+
+section.detail p {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+    color: #90ACBF;
+}
+
+section.detail h1 {
+    font-weight: 900;
+}
+
+.display-3 {
+    font-size: 3.5rem;
+}
+
+section.detail h3 {
+    font-weight: 600;
+}
+
+/* Akhir Section Detail */
+
+/* Section Our Main Value */
+
+section.omv {
+    margin-top: 110px;
+    color: #0F4C75;
+}
+
+a.list-group-item {
+    font-weight: 600;
+    font-size: 11px;
+    color: #0F4C75 !important;
+}
+
+a.list-group-item:hover {
+    font-weight: 900;
+    text-decoration: none;
+}
+
+a.list-group-item::before {
+    display: block;
+    font-weight: 900;
+    content: attr(title);
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+a.list-group-item.active {
+    font-weight: 900;
+    background-color: white;
+    border: none;
+}
+
+section.omv h1 {
+    font-weight: 700;
+    font-size: 64px;
+}
+
+section.omv p {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+    padding-top: 20px;
+}
+
+.tab-content {
+    margin-top: 90px;
+}
+
+
+/* Akhir Section Our Main Value */
+
+/* Section Contact Us */
+section.contact-us {
+    margin-top: 150px;
+}
+
+#map {
+    animation: fadeIn 6s ease;
+}
+
+section.contact-us h1,
+section.contact-us h4,
+section.contact-us p,
+section.contact-us input,
+section.contact-us textarea,
+section.contact-us span {
+    color: #0F4C75 !important;
+}
+
+section.contact-us h1 {
+    font-weight: 900;
+    font-size: 55px;
+    margin-bottom: 0 !important;
+}
+
+section.contact-us p {
+    font-family: 'Varela', sans-serif;
+    font-size: 20px;
+    line-height: normal;
+}
+
+section.contact-us form {
+    margin-top: 34px;
+}
+
+section.contact-us input.form-control {
+    font-size: 18px;
+    border: 1px solid #90ACBF;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+section.contact-us .form-control {
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+section.contact-us .form-control:focus {
+    box-shadow: 0 0 0 5px #90ACBF !important;
+}
+
+a.btn:focus,
+section.contact-us button.btn:focus {
+    box-shadow: none !important;
+}
+
+section.contact-us input {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+}
+
+section.contact-us textarea {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px !important;
+}
+
+section.contact-us textarea.form-control {
+    font-size: 18px;
+    border: 1px solid #90ACBF;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+section.contact-us textarea::placeholder {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+    color: #90ACBF !important;
+}
+
+
+section.contact-us input::placeholder {
+    font-family: 'Varela', sans-serif;
+    font-size: 18px;
+    color: #90ACBF !important;
+}
+
+section.contact-us .btn {
+    background-color: #FFF742;
+    border-radius: 17px;
+    font-family: 'Varela', sans-serif;
+    font-size: 30px;
+    color: #0F4C75;
+}
+
+section.contact-us h4 {
+    font-weight: 600;
+}
+
+section.contact-us span {
+    font-weight: 400;
+    font-size: 14px;
+    display: block;
+}
+
+section.contact-us .spaceatas1,
+section.contact-us .spaceatas2 {
+    margin-top: 120px;
+}
+
+section.contact-us .invalid-feedback {
+    margin-top: 0.5rem !important;
+}
+
+.modal-content {
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
+    border-radius: 35px;
+    border: none;
+}
+
+.modal.message-sent p {
+    font-family: 'Varela', sans-serif;
+    font-size: 24px;
+    color: #0F4C75;
+}
+
+.modal.message-sent button {
+    font-weight: 700;
+    font-size: 24px;
+    color: #0F4C75;
+    border-radius: 17px;
+    background-color: #FFF742;
+    width: 215px;
+    height: 50px;
+    line-height: 50px;
+    margin: 30px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.modal-body {
+    position: relative;
+}
+
+.modal.message-sent img.ellipse {
+    z-index: 0;
+    position: absolute !important;
+    border-radius: 35px;
+    bottom: 0;
+    left: 0;
+}
+
+.modal-open .container-fluid,
+.modal-open .container {
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+}
+
+#map iframe {
+    border-radius: 0px 75px;
+}
+
+
+
+
+
+/* Akhir Section Contact Us */
+
+
+/* Responsive Breakpoints */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    section.why #aa {
+        margin-left: 30px;
+        font-size: 30px;
+    }
+
+    section.why h1 {
+        font-size: 200px;
+    }
+
+    section.news h1 {
+        font-size: 28px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .nav-item a {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .nav-item {
+        margin-right: 3px;
+    }
+
+    .navbar-collapse {
+        background-color: inherit;
+    }
+
+    section.solution h3 {
+        font-size: 26px;
+        line-height: 45px;
+    }
+
+    .v1 {
+        display: inline;
+    }
+
+    section.solution h2 {
+        font-size: 48px;
+    }
+
+    section.why .two-card {
+        margin-top: 95px;
+        height: 600px;
+    }
+
+    section.why h1 {
+        font-size: 220px;
+        line-height: 200px;
+    }
+
+    section.why #aa {
+        margin-left: 40px;
+    }
+
+    section.why .one-card {
+        margin-top: 165px;
+    }
+
+    section.why .why-text {
+        margin-left: 0;
+    }
+
+    section.contact-us h1 {
+        font-size: 64px;
+    }
+
+    section.contact-us p {
+        font-size: 24px;
+    }
+
+    section.contact-us input.form-control {
+        font-size: 28px;
+        padding: 35px;
+    }
+
+    section.contact-us input {
+        font-size: 28px;
+    }
+
+    section.contact-us input::placeholder {
+        font-size: 28px;
+    }
+
+    section.contact-us textarea.form-control {
+        padding: 20px 35px;
+    }
+
+    .display-3 {
+        font-size: 4.5rem;
+    }
+
+    .contact-us a {
+        font-size: 30px;
+        padding: 15px 25px 5px 25px;
+    }
+
+    .contact-us .btn,
+    .products .btn {
+        top: 48px;
+    }
+
+    section.headline p {
+        margin-top: 50px;
+    }
+
+    section.services .card {
+        padding: 50px 20px;
+    }
+
+    #card-width {
+        width: 15rem !important;
+    }
+
+    .contact-us {
+        margin-top: 0;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    section.solution h3 {
+        font-size: 36px;
+        line-height: 67.07px;
+    }
+
+    section.why h1 {
+        font-size: 250px;
+        line-height: 0.9em;
+    }
+
+    section.why #aa {
+        font-size: 36px;
+        margin-left: 230px;
+    }
+
+    .v2 {
+        top: 1685px;
+        visibility: visible;
+    }
+
+    .additional {
+        margin-top: 112px !important;
+    }
+
+    section.news h1 {
+        font-size: 30px;
+    }
+
+    section.contact-us .spaceatas {
+        margin-top: 190px;
+    }
+
+    #card-width {
+        width: 18rem !important;
+    }
+
+    section.why .two-card {
+        height: 530px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .nav-item {
+        margin-right: 20px;
+    }
+
+    section.solution h3 {
+        font-size: 38px;
+    }
+
+    section.why h1 {
+        font-size: 288px;
+    }
+
+    section.news h1 {
+        font-size: 34px;
+    }
+
+    .v2 {
+        top: 1960px;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

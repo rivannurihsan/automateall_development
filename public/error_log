@@ -1,0 +1,45 @@
+[16-Oct-2020 18:41:02 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[16-Oct-2020 18:41:02 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[16-Oct-2020 18:41:02 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/public_html/automateall/index.php on line 32
+[16-Oct-2020 18:41:05 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[16-Oct-2020 18:41:05 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[16-Oct-2020 18:41:05 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/public_html/automateall/index.php on line 32
+[16-Oct-2020 18:52:09 Asia/Jakarta] PHP Fatal error:  Uncaught ErrorException: print_r(): Property access is not allowed yet in /home/autz8571/automateall/app/Views/errors/html/error_exception.php:100
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'print_r(): Prop...', '/home/autz8571/...', 100, Array)
+#1 /home/autz8571/automateall/app/Views/errors/html/error_exception.php(100): print_r(Object(App\Controllers\Pages), true)
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Debug/Exceptions.php(308): include('/home/autz8571/...')
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Debug/Exceptions.php(174): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Database\Exceptions\DatabaseException), 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Database\Exceptions\DatabaseException))
+#5 {main}
+  thrown in /home/autz8571/automateall/app/Views/errors/html/error_exception.php on line 100
+[16-Oct-2020 18:52:30 Asia/Jakarta] PHP Fatal error:  Uncaught ErrorException: print_r(): Property access is not allowed yet in /home/autz8571/automateall/app/Views/errors/html/error_exception.php:100
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'print_r(): Prop...', '/home/autz8571/...', 100, Array)
+#1 /home/autz8571/automateall/app/Views/errors/html/error_exception.php(100): print_r(Object(App\Controllers\Pages), true)
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Debug/Exceptions.php(308): include('/home/autz8571/...')
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Debug/Exceptions.php(174): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Database\Exceptions\DatabaseException), 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Database\Exceptions\DatabaseException))
+#5 {main}
+  thrown in /home/autz8571/automateall/app/Views/errors/html/error_exception.php on line 100
+[16-Oct-2020 18:52:37 Asia/Jakarta] PHP Fatal error:  Uncaught ErrorException: print_r(): Property access is not allowed yet in /home/autz8571/automateall/app/Views/errors/html/error_exception.php:100
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'print_r(): Prop...', '/home/autz8571/...', 100, Array)
+#1 /home/autz8571/automateall/app/Views/errors/html/error_exception.php(100): print_r(Object(App\Controllers\Pages), true)
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Debug/Exceptions.php(308): include('/home/autz8571/...')
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Debug/Exceptions.php(174): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Database\Exceptions\DatabaseException), 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Database\Exceptions\DatabaseException))
+#5 {main}
+  thrown in /home/autz8571/automateall/app/Views/errors/html/error_exception.php on line 100
+[19-Oct-2020 23:25:05 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:05 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:05 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:11 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:11 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:11 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:35 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:35 Asia/Jakarta] PHP Warning:  require(): Filename cannot be empty in /home/autz8571/public_html/automateall/index.php on line 32
+[19-Oct-2020 23:25:35 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/public_html/automateall/index.php on line 32
+[24-Nov-2020 03:06:04 Asia/Jakarta] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/autz8571/automateall/app/Controllers/Pages.php on line 1
+[24-Nov-2020 03:06:28 Asia/Jakarta] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/autz8571/automateall/app/Controllers/Pages.php on line 1
+[24-Nov-2020 03:06:37 Asia/Jakarta] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/autz8571/automateall/app/Controllers/Pages.php on line 1
