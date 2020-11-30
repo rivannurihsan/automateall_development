@@ -681,7 +681,7 @@ class Pages extends BaseController
 	 * 
      * @return view
      */
-	public function academy_list()
+	public function academyList()
 	{
 		$data = [
 			'title' => 'Academy - List',
@@ -703,13 +703,15 @@ class Pages extends BaseController
 		return view('pages/academy_list',$data);
 	}
 
+# Mulai System pembelian workshop ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 
 	/**
      * Method untuk membuat tampilan detail akademi
 	 * dengan link '/academy/detail'
 	 * 
      * @return view
      */
-	public function academy_detail()
+	public function academyDetail()
 	{
 		$id = $_GET['id'];
 		
@@ -737,21 +739,49 @@ class Pages extends BaseController
 		return view('pages/academy_detail',$data);
 	}
 
-	public function academy_daftar_send(){
-
+	/**
+     * Method untuk proses pendaftaran
+	 * dengan post '/academy/detail'
+	 * 
+     * @return redirect
+     */	
+	public function sendAcademyDaftar(){
+		return redirect()->to('/academy/detail');
 	}
 
-	public function checkout()
+	/**
+     * Method untuk membuat tampilan checkout
+	 * dengan link '/academy/checkout'
+	 * 
+     * @return view
+     */
+	public function academyCheckout()
 	{
 		$data = [
-			'title' 	=> 'Academy - checkout'
+			'title' => 'Academy - checkout'
 		];	
 		return view('pages/checkout',$data);
 	}
 
+	/**
+     * Method untuk proses pembayaran
+	 * dengan post '/academy/checkout'
+	 * 
+     * @return redirect
+     */
+	public function sendAcademyCheckout(){
+		return redirect()->to('/academy/checkout');
+	}
+
+# Akhir System pembelian workshop ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	/**
+     * Method untuk proses mencoba fungsi/codingan
+	 * dengan post '/coba'
+     */	
 	public function coba()
 	{
-		print_r($this->timeToString('11-10-10 10:02:00'));
+
 	}
 
 }

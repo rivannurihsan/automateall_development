@@ -40,11 +40,11 @@ $routes->get('/detail', 'Pages::detail');
 $routes->get('/blog/all', 'Pages::list');
 $routes->get('/blog/detail', 'Pages::articleDetail');
 $routes->get('/academy','Pages::academy');
-$routes->get('/academy/list','Pages::academy_list');
-$routes->get('/academy/detail','Pages::academy_detail');
-$routes->post('/academy/detail','Pages::academy_daftar_send');
-$routes->get('/academy/checkout','Pages::checkout');
-$routes->post('/academy/checkout','Pages::checkout');
+$routes->get('/academy/list','Pages::academyList'); # System pembelian workshop
+$routes->get('/academy/detail','Pages::academyDetail'); # System pembelian workshop
+$routes->post('/academy/detail','Pages::sendAcademyDaftar'); # System pembelian workshop
+$routes->get('/academy/checkout','Pages::academyCheckout'); # System pembelian workshop
+$routes->post('/academy/checkout','Pages::sendAcademyCheckout'); # System pembelian workshop
 $routes->get('/regis', 'Pages::regis');
 $routes->post('/regis', 'Pages::sendRegis');
 $routes->get('/verifyAccount', 'Pages::verifyAccount');
