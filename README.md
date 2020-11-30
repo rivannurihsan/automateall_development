@@ -2,11 +2,10 @@
 
 ## What You do
 1. You must code your task in the folder: 
-  - app/view
-  - public/css
-  - public/img
-  - public/js
-  - public/videos
+  - app/Controllers
+  - app/Models
+  - app/Controllers/CustomRules.php
+  - app/Controllers/Validation.php
 2. Then push to this branch
 3. The project manager will proofread your work
 4. If all pass, the project manager will merge it to the master branch
