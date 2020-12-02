@@ -781,7 +781,10 @@ class Pages extends BaseController
      */	
 	public function coba()
 	{
-
+            // $data = [
+		// 	'title' => 'Academy - checkout'
+		// ];	
+            // return view("/pages/online_learning_checkout" , $data);
 	}
 
 }
