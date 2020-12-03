@@ -31,6 +31,8 @@
     <!-- <link rel="stylesheet" href="/css/production/automateall-min.css"> -->
     <link rel="stylesheet" href="/css/development/automateall-dev.css?v=1.4.3">
 
+    <link rel="stylesheet" href="/css/development/academy_list_new.css">
+
     <!-- Font Awsome CSS -->
     <!-- <link rel="stylesheet" href="/css/all.css"> -->
 

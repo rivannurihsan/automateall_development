@@ -11,12 +11,12 @@
         </div>
         <div class="row option justify-content-center">
             <div class="col-xl-3 opt-card">
-                <a href="#">
+                <a href="http://localhost:8080/academy/list">
                     <div class="content-img" style="padding:9px 28px;">
                         <img src="/img/vector/expert.png" alt="RPA Expert">
                     </div>
                     <div class="content-desc text-center">
-                        <h2>RPA Expert</h2>
+                        <h2>RPA Expertsss</h2>
                     </div>
                 </a>
             </div>
