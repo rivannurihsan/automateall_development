@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css?v=1.4.3">
     <!-- style online-learning -->
     <link rel="stylesheet" href="/css/online_learning/checkout.css">
+    <link rel="stylesheet" href="/css/online_learning/modal.css">
 
     <!-- Automate All CSS -->
     <!-- <link rel="stylesheet" href="/css/production/automateall-min.css"> -->
