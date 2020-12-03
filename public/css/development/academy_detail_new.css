@@ -1,0 +1,147 @@
+.academy-detail-new {
+  width: 70vw;
+  margin: auto;
+}
+
+.academy-detail-left {
+  max-width: 500px;
+  margin-right: 50px;
+}
+
+.academy-detail-left img {
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+}
+
+.academy-detail-left p {
+  font-size: 1.3rem;
+}
+
+.academy-detail-left h1 {
+  font-size: 1.5rem;
+  margin: 25px 0px;
+}
+
+.btn-academy {
+  display: block;
+  border-radius: 10px;
+  border: 0;
+  padding: 15px;
+  margin: 15px auto;
+  width: 200px;
+}
+
+.academy-detail-left .daftar {
+  background-color: #0f4c75;
+  color: white;
+}
+
+.academy-detail-left .bayar {
+  background-color: #0f4c7540;
+  color: white;
+}
+
+.academy-detail-right {
+  max-width: 700px;
+}
+.academy-detail-right p {
+  font-size: 1.2rem;
+}
+
+.academy-detail-schedule {
+  margin-top: 100px;
+  padding: 20px 35px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.academy-detail-description {
+  margin-top: 50px;
+  padding: 20px 35px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.academy-detail-description h3 {
+  margin: 30px 0px;
+  color: #0f4c75;
+}
+
+/* media queries */
+@media (max-width: 990px) {
+  .academy-detail-new {
+    overflow-x: hidden;
+    width: 100%;
+    margin: auto;
+  }
+  .academy-detail-left {
+    margin-right: 0px;
+    max-width: 100%;
+  }
+
+  .academy-detail-left img {
+    max-width: 500px;
+    margin: 50px auto;
+    display: block;
+  }
+
+  .academy-detail-left p {
+    text-align: center;
+  }
+
+  .academy-detail-left h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .academy-detail-new {
+    overflow-x: hidden;
+    width: 100%;
+    margin: auto;
+  }
+
+  .academy-detail-left {
+    margin-right: 0px;
+  }
+
+  .academy-detail-left img {
+    max-width: 300px;
+    margin: 50px auto;
+    display: block;
+  }
+
+  .academy-detail-left p {
+    font-size: 1.1rem;
+  }
+
+  .academy-detail-left h1 {
+    font-size: 1.2rem;
+  }
+
+  .btn-academy {
+    padding: 10px;
+    margin: 15px auto;
+  }
+
+  .academy-detail-right p {
+    font-size: 1rem;
+  }
+
+  .academy-detail-schedule {
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .academy-detail-description {
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .academy-detail-description h3 {
+    margin: 30px 0px;
+    color: #0f4c75;
+  }
+}
