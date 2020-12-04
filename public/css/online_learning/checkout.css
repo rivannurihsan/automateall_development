@@ -18,6 +18,7 @@
 .content__texWrapper{
       display: flex;
       flex-direction: column;
+      width: 386px;
 }
 .content__texWrapperLeft{
       min-width: 207px;
@@ -36,8 +37,6 @@
 }
 .content_wrapper{
       display: flex;
-      justify-content: space-between;
-      /* flex-direction: column; */
 
 }
 .imgLogoOvo{
@@ -59,6 +58,9 @@
 }
 .imgLogoShope > {
       width: 100%;
+}
+.text_anWrapper{
+       margin-top: -65px;
 }
 .text_an{
       font-weight: 400;
@@ -88,18 +90,21 @@
       border: none;
       font-family: "Biryani',sans-serif" !important;
 }
+.tabble__wrap{
+       height: 466px;
+}
 .table__wrapper{
       border-radius: 5px;
       border: 2px solid #0F4C75;
       width: 100%;
-      height: 507px;
+      /* height: 507px; */
       padding: 35px 30px;
 }
 .table__summary{
       font-size: 32px;
       color: #0F4C75;
       font-weight: 900 !important;
-      margin-top: 30px;
+      /* margin-top: 30px; */
       margin-bottom: 30px;
       font-family: "Biryani',sans-serif" !important;
 }
@@ -148,8 +153,8 @@
       font-family: "Biryani',sans-serif" !important;
 }
 .text__struk{
-      margin-top: 20px;
-      margin-bottom: 30px;
+      margin-top: 7px;
+      margin-bottom: 52px;
       font-family: "Varela',sans-serif" !important;
       font-size: 18px;
 }
@@ -190,6 +195,15 @@
       font-family: "Varela',sans-serif" !important;
       font-size: 16px;
 }
+.th__diskon{
+       display: flex;
+       justify-content: space-between;
+       padding: 0;
+       width: 100%;
+}
+.table td, .table th{
+       padding: 0;
+}
 .formKode__wrapper{
       margin-bottom: -50px;
 }
@@ -197,15 +211,6 @@
       .content__texWrapper{
             width: 100%;
       } 
-      .text__th{
-            font-size: 20px;
-      }
-      .text__thBayar{
-            font-size: 20px;
-      }
-      .text__td{
-            font-size: 20px;
-      }
  }
  @media (max-width: 990px) { 
       .content__texWrapperLeft{
@@ -220,29 +225,23 @@
       .formKode__wrapper{
             margin-bottom: 50px;
       }
+      .text_anWrapper{
+             margin-top: -55px;
+      }
  }
  .text__kode{
        color: #FF4D4D;
  }
  @media (max-width: 550px) { 
       .content__textLeft{
-      font-size: 20px !important;
+      font-size: 22px !important;
       }
       .content__textRight{
-            font-size: 18px !important;
+            font-size: 20px !important;
       }
       .tabble__wrap{
             padding-left: 50px;
             padding-right: 50px;
-      }
-      .text__th{
-            font-size: 18px;
-      }
-      .text__thBayar{
-            font-size: 18px;
-      }
-      .text__td{
-            font-size: 18px;
       }
       
  }

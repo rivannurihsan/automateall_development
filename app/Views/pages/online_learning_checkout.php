@@ -39,8 +39,8 @@
                                     </div>
 
                               </div>
-                              <div class="col d-flex justify-content-center align-items-center"
-                                    style="margin-top: -50px">
+                              <div class="col text_anWrapper d-flex justify-content-center align-items-center"
+                                    >
                                     <p class="text_an">a.n Automate All <span class="text_anSpan">08999-211-425</span>
                                     </p>
                               </div>
@@ -70,22 +70,22 @@
                               <h1 class="table__summary">Summary</h1>
                               <table style="width: 100%; color: #0F4C75;" class="table table-borderless">
                                     <tr">
-                                          <th width="50%" style="line-height: 10px;" class="text__th">Harga Tiket</th>
-                                          <td width="50%" style="line-height: 10px;" class="text-right text__td">Rp
+                                          <th width="60%" class="text__th">Harga Tiket</th>
+                                          <td width="40%" class=" text__td">Rp
                                                 99.001</td>
                                           </tr>
                                           <tr>
-                                                <th width="50%" style="line-height: 10px;" class="text__th">Diskon</th>
-                                                <td width=" 50%" style="line-height: 10px;" class="text-right text__td">
-                                                      -Rp
+                                                <th width="60%" style="line-height: 20px;" class="text__th th__diskon"><span>Diskon</span><span class="text-right">-</span></th>
+                                                <td width=" 40%" style="line-height: 20px;" class=" text__td">
+                                                      Rp
                                                       15.000
                                                 </td>
                                           </tr>
                                           <tr>
-                                                <th width="50%" style="line-height: 50px;" class="text__thBayar" style="
+                                                <th width="60%" style="line-height: 80px;" class="text__thBayar" style="
                                                       font-weight: 900;">
                                                       Total Bayar</th>
-                                                <td width="50%" style="line-height: 50px;" class="text-right text__td">
+                                                <td width="40%" style="line-height: 80px;" class="text__td">
                                                       Rp 184.001
                                                 </td>
                                           </tr>
