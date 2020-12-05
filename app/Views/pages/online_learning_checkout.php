@@ -58,7 +58,6 @@
                               <form class="formKode">
                                     <input class="inputForm" placeholder="inikode" />
                                     <button class="submitForm" type="submit">Gunakan</button>
-                                    <?= $this-> include("/pages/online_learning_modalDaftar"); ?>
                               </form>
                               <div>
                                     <p class="text__kode">kode tidak terdaftar</p>

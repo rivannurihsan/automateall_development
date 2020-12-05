@@ -28,14 +28,15 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css?v=1.4.3">
     <!-- style online-learning -->
     <link rel="stylesheet" href="/css/online_learning/checkout.css">
-    <link rel="stylesheet" href="/css/online_learning/modal.css">
+    
 
     <!-- Automate All CSS -->
     <!-- <link rel="stylesheet" href="/css/production/automateall-min.css"> -->
     <link rel="stylesheet" href="/css/development/automateall-dev.css?v=1.4.3">
-
+    <link rel="stylesheet" href="/css/online_learning/modal.css">
     <!-- Font Awsome CSS -->
     <!-- <link rel="stylesheet" href="/css/all.css"> -->
+    
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600;700;800;900&family=Varela&display=swap" rel="stylesheet">
