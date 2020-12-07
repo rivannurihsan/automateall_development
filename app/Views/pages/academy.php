@@ -11,7 +11,7 @@
         </div>
         <div class="row option justify-content-center">
             <div class="col-xl-3 opt-card">
-                <a href="http://localhost:8080/academy/list">
+                <a href="#">
                     <div class="content-img" style="padding:9px 28px;">
                         <img src="/img/vector/expert.png" alt="RPA Expert">
                     </div>

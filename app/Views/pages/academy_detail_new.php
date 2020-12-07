@@ -42,6 +42,18 @@
                         Tenang aja kalian akan didampingi oleh tentor yang ahli di bidangnya bersama Dicky Prasetiyo (Chief Science Automate All).
                     </p>
                 </div>
+                <div class="academy-detail-ketentuan">
+                    <h3>Ketentuan</h3>
+                    <ol>
+                        <li>Batas waktu pendaftaran hingga kegiatan dimulai. </li>
+                        <li>Tiket workshop ini dapat diperoleh dengan cara pembelian atau gratis bersyarat. </li>
+                        <li>Tiket workshop ini dapat diperoleh dengan cara pembelian atau gratis bersyarat. </li>
+                        <li>Syarat tiket gratis ialah mengajak 10 orang untuk mendaftar workshop part 1 (klik disini untuk melihat workshop part 1). </li>
+                        <li>Jika kegiatan part 1 berlangsung, dan belum dapat mengajak 10 orang, maka tiket hanya dapat diperoleh melalui pembelian.</li>
+                        <li>Persiapkan laptop/komputer dengan OS Windows untuk dapat mengikuti sesi praktek pada kegiatan ini.</li>
+                        <li>Jika saudara telah memenuhi ketentuan di atas, kami akan mengirimkan email undangan kegiatan. </li>
+                    </ol>
+                </div>
                 
             </div>
         </div>
