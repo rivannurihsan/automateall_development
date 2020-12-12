@@ -52,6 +52,7 @@
                         class="form-control input__valueModal"
                         id="name"
                         placeholder="masukan nama"
+                        onclick="onchangeremoveErrorname()"
                       />
                     </div>
                     <div class="form-group form-groupModal" id="groupModal__wa" > 
@@ -65,6 +66,7 @@
                         class="form-control input__valueModal"
                         id="whatsapp"
                         placeholder="08xxxxxxxxxxx"
+                        onclick="onchangeremoveErrorwa()"
                       />
                     </div>
                     <div class="form-group form-groupModal"  id="groupModal__institusi">
@@ -77,6 +79,7 @@
                         class="form-control input__valueModal"
                         id="institusi"
                         placeholder="masukan nama perusahaan / institusi"
+                        onclick="onchangeremoveErrorinstitusi()"
                       />
                     </div>
                     <div class="form-group form-groupModal">
@@ -129,6 +132,7 @@
             // alert("Nama harus diisi terlebih dahulu");
             const formGetMOdal = document.getElementById('groupModal__nama')
             var Nama = document.createElement("p");
+            Nama.id= "pNama"
             var textNama = document.createTextNode("Nama harus diisi terlebih dahulu");
             Nama.appendChild(textNama)
             formGetMOdal.appendChild(Nama)
@@ -139,6 +143,7 @@
           if (getWa== null || getWa == "") {
             const formGetMOdal = document.getElementById('groupModal__wa')
             var Nomor = document.createElement("p");
+            Nomor.id = "pNomor"
             var textNomor = document.createTextNode("nomor wa tidak boleh kosong");
             Nomor.appendChild(textNomor)
             formGetMOdal.appendChild(Nomor)
@@ -156,11 +161,35 @@
           var getInstitusi = document.forms["myForm"]["institusi"].value;
           if (getInstitusi== null || getInstitusi == "") {
             const formGetMOdal = document.getElementById('groupModal__institusi')
-            var institusi = document.createElement("p");
+            var Institusi = document.createElement("p");
+            Institusi.id = "pInstitusi"
             var textinstitusi = document.createTextNode("nama intitusi tidak boleh kosong");
-            institusi.appendChild(textinstitusi)
-            formGetMOdal.appendChild(institusi)
+            Institusi.appendChild(textinstitusi)
+            formGetMOdal.appendChild(Institusi)
             return false;
+          }
+        }
+
+        function onchangeremoveErrorname(){
+          const name = document.getElementById('pNama')
+          if(name){
+            const groupModal__nama = document.getElementById('groupModal__nama');
+            groupModal__nama.removeChild(name)
+          }  
+        }
+        function onchangeremoveErrorwa(){
+          const nomor = document.getElementById('pNomor')
+            if(nomor){
+              const groupModal__nama = document.getElementById('groupModal__wa');
+              groupModal__nama.removeChild(nomor)
+              console.log(groupModal__nama)
+          }
+        }
+        function onchangeremoveErrorinstitusi(){
+          const nomor = document.getElementById('pInstitusi')
+            if(nomor){
+              const groupModal__nama = document.getElementById('groupModal__institusi');
+              groupModal__nama.removeChild(nomor)
           }
         }
       </script>
