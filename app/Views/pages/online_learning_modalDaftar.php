@@ -4,9 +4,10 @@
 
 <div class="headline" style="margin-top: 150px;">
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="klik()">
     Launch demo modal
   </button>
+  <div class="blur"></div>
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
@@ -18,7 +19,8 @@
               <div class="col content__pageModal">
                 <div class="btn__exitModal">
                   <button id="btn__open-modal-daftar" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="btn__exitModal">&times;</span>
+                    <!-- <span aria-hidden="true" class="btn__exitModal">&times;</span> -->
+                    <img src="/img/logo/close.svg"/>
                   </button>
                 </div>
                 <h5 class="h5__registrasiModal mb-3">
