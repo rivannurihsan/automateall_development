@@ -45,7 +45,7 @@
                     Mohon isi data di bawah dengan benar
                   </h6>
                   <form name="myForm" class="form__modalDaftar"  onsubmit="return(validateForm())">
-                    <div class="form-group form-groupModal">
+                    <div class="form-group form-groupModal" id="groupModal__nama">
                       <label for="name" class="input__labelModal">Nama</label>
                       <input
                         type="text"
@@ -54,22 +54,25 @@
                         placeholder="masukan nama"
                       />
                     </div>
-                    <div class="form-group form-groupModal">
+                    <div class="form-group form-groupModal" id="groupModal__wa" > 
                       <label for="whatsapp" class="input__labelModal"
                         >Nomor whatsapp</label
                       >
                       <input
+                      
+                      name="noHp"
                         type="text"
                         class="form-control input__valueModal"
                         id="whatsapp"
                         placeholder="08xxxxxxxxxxx"
                       />
                     </div>
-                    <div class="form-group form-groupModal">
+                    <div class="form-group form-groupModal"  id="groupModal__institusi">
                       <label for="institusi" class="input__labelModal"
                         >Perusahaan / institusi</label
                       >
                       <input
+                       
                         type="text"
                         class="form-control input__valueModal"
                         id="institusi"
@@ -117,22 +120,46 @@
         }); -->
     </script>
     <script>
+      
+      
+
         function validateForm() {
           var getName = document.forms["myForm"]["name"].value;
-          if (getName == "") {
-            alert("Nama harus diisi terlebih dahulu");
+          if (getName== null || getName == "") {
+            // alert("Nama harus diisi terlebih dahulu");
+            const formGetMOdal = document.getElementById('groupModal__nama')
+            var Nama = document.createElement("p");
+            var textNama = document.createTextNode("Nama harus diisi terlebih dahulu");
+            Nama.appendChild(textNama)
+            formGetMOdal.appendChild(Nama)
             return false;
           }
-
+          var number=/^[0-9]+$/;
           var getWa = document.forms["myForm"]["whatsapp"].value;
-          if (getWa == "") {
-            alert("Whatsapp harus diisi terlebih dahulu");
+          if (getWa== null || getWa == "") {
+            const formGetMOdal = document.getElementById('groupModal__wa')
+            var Nomor = document.createElement("p");
+            var textNomor = document.createTextNode("nomor wa tidak boleh kosong");
+            Nomor.appendChild(textNomor)
+            formGetMOdal.appendChild(Nomor)
+            return false;
+          }
+          if(!getWa.match(number)){
+            const formGetMOdal = document.getElementById('groupModal__wa')
+            var Nomor = document.createElement("p");
+            var textNomor = document.createTextNode("nomor wa harus angka");
+            Nomor.appendChild(textNomor)
+            formGetMOdal.appendChild(Nomor)
             return false;
           }
 
-          var getName = document.forms["myForm"]["institusi"].value;
-          if (getName == "") {
-            alert("institusi harus diisi terlebih dahulu");
+          var getInstitusi = document.forms["myForm"]["institusi"].value;
+          if (getInstitusi== null || getInstitusi == "") {
+            const formGetMOdal = document.getElementById('groupModal__institusi')
+            var institusi = document.createElement("p");
+            var textinstitusi = document.createTextNode("nama intitusi tidak boleh kosong");
+            institusi.appendChild(textinstitusi)
+            formGetMOdal.appendChild(institusi)
             return false;
           }
         }

@@ -211,6 +211,18 @@
 .formKode__wrapper{
       margin-bottom: -50px;
 }
+.form-groupModal{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.form-groupModal > p{
+  top: 60px;
+  position: absolute;
+  font-size: 12px;
+  color: red;
+  margin-left: 10px;
+}
 @media (max-width: 1200px) {
       .content__texWrapper{
             width: 100%;
