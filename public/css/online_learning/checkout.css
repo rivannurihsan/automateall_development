@@ -217,7 +217,7 @@
   flex-direction: column;
 }
 .form-groupModal > p{
-  top: 60px;
+  top: 70px;
   position: absolute;
   font-size: 12px;
   color: red;
