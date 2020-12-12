@@ -85,6 +85,7 @@
 
     <!-- sal js script -->
     <script src="/js/sal.js"></script>
+    <script src="/js/validasi.js"></script>
 
     <script>
         sal({
