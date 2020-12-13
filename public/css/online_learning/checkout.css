@@ -101,15 +101,14 @@
       border-radius: 5px;
       border: 2px solid #0F4C75;
       width: 100%;
-      /* height: 507px; */
       padding: 35px 30px;
+      margin-bottom: 90px;
 }
 .table__summary{
       font-size: 32px;
       color: #0F4C75;
       font-weight: 900 !important;
-      /* margin-top: 30px; */
-      margin-bottom: 30px;
+      margin-top: 30px;
       font-family: "Biryani',sans-serif" !important;
 }
 .table__textLeft{
@@ -259,5 +258,6 @@
             padding-left: 50px;
             padding-right: 50px;
       }
+      
       
  }

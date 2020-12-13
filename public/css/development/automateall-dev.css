@@ -1164,11 +1164,6 @@ section.logres h1{
         padding: 20px 35px;
     }
 
-    .modal-content {
-        width: 100%;
-        left: auto;
-    }
-
     .modal.message-sent p {
         padding: 0;
     }

@@ -1,3 +1,7 @@
+function blurLur(){
+  var blur = document.getElementById('blurPage');
+  blur.classList.toggle('activeBlur')
+}
 function validateForm() {
   var isString = /^[a-zA-Z ]+$/;
   var getName = document.forms["myForm"]["name"].value;

@@ -1,102 +1,44 @@
 body {
   font-family: sans-serif;
 }
-
+.modal__wrapper {
+  width: 708px !important;
+  padding: 50px 55px;
+  left: -7vw;
+  border-radius: 20px !important;
+}
 .btn__exitModal {
-       top: -35px;
-       right: -80px;
-       position: absolute;
+  top: -30px;
+  right: -20px;
+  justify-content: flex-end !important;
+  position: absolute;
   font-size: 62px;
   font-weight: 100;
-  color: #C0C0C0;
+  color: #c0c0c0;
+  cursor: pointer;
 }
 
-.modal-open .container-fluid,
-.modal-open .container {
-  -webkit-filter: blur(0px) !important;
-  -moz-filter: blur(0px) !important;
-  -o-filter: blur(0px) !important;
-  -ms-filter: blur(0px) !important;
-  filter: blur(0px) !important;
-}
-.modalContent__daftar {
-  border-radius: 20px !important;
-  width: 708px; 
-}
-.modal-body__daftar{
-       padding: 50px 100px;
-}
-
-
-/* .modal{
-  filter: blur(40px);
-} */
-.modal-dialog__daftar {
-  max-width: 100%;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* filter: blur(40px); */
-}
-
-
-
-@media (max-width: 768px) {
-       .btn__exitModal{
-         top: -43px;
-              right: -15px;
-       }
-       .modal-body__daftar{
-              padding: 50px 35px;
-       }
-       .h5__registrasiModal{
-              text-align: center;
-       }
-       .modal-dialog__daftar {
-              max-width: 100%;
-              height: 100vh;
-              margin: 0;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-  .modalContent__daftar {
-    width: 450px;
-  }
-}
-@media (max-width: 500px) {
-       .btn__exitModal{
-              right: -5px;
-       }
-       .modal-body__daftar{
-              padding: 50px 25px;
-       }
-       .modalContent__daftar {
-              width: 350px;
-            }
-}
 .form__modalDaftar {
   width: 100%;
 }
-.content__pageModal {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 967px;
+.form-groupModal > p {
+  font-size: 12px !important;
+  color: red !important;
 }
+
 .h5__registrasiModal {
+  text-align: center;
   font-weight: 900;
   font-size: 24px;
   color: #0f4c75;
   font-family: "Biryani',sans-serif" !important;
 }
 .h6__registrasiModal {
+  text-align: center;
   font-weight: 400;
   font-size: 18px;
   color: #0f4c75;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-family: "Biryani',sans-serif" !important;
 }
 .btn__exitModal {
@@ -111,7 +53,7 @@ body {
   font-weight: 400;
   font-size: 18px;
   color: #0f4c75;
-  margin-bottom:5px;
+  margin-bottom: 5px;
   font-family: "Varela',sans-serif" !important;
 }
 .input__valueModal {
@@ -139,10 +81,10 @@ body {
   flex-direction: column;
 }
 .p__sureModal {
-  font-weight: 400;
-  font-size: 12px;
-  color: #0f4c75;
-  margin-bottom: 5px;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  color: #0f4c75 !important;
+  margin-bottom: 5px !important;
   font-family: "Varela',sans-serif" !important;
 }
 .btn__inputModal {
@@ -158,5 +100,70 @@ body {
   font-size: 12px;
   color: #0f4c75;
   font-family: "Varela',sans-serif" !important;
-  margin-top: -30px;
+  margin-top: -25px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 970px) {
+  .modal__wrapper {
+    width: 608px !important;
+    padding: 50px 80px;
+    left: -7vw;
+  }
+  .btn__exitModal {
+    right: -35px;
+  }
+  .btn__exitModal > img{
+    width: 40px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal__wrapper {
+    width: 508px !important;
+    padding: 50px 40px;
+    left: -1vw !important;
+  }
+  .btn__exitModal {
+    top: -39px;
+    right: -5px;
+  font-size: 42px !important;
+  }
+  .modal-body__daftar {
+    padding: 50px 35px;
+  }
+  .h5__registrasiModal {
+    text-align: center;
+  }
+  .modal-dialog__daftar {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modalContent__daftar {
+    width: 450px;
+  }
+  .btn__exitModal > img{
+    width: 30px !important;
+  }
+}
+
+@media (max-width: 510px) {
+  .modal__wrapper {
+    width: 348px !important;
+    padding: 50px 40px;
+    left: 6vw !important;
+  }
+  .btn__exitModal {
+    right: -5px;
+  }
+  .modal-body__daftar {
+    padding: 50px 25px;
+  }
+  .modalContent__daftar {
+    width: 350px;
+  }
 }
