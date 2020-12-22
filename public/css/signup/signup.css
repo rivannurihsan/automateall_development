@@ -1,0 +1,221 @@
+.nav-item__auth{
+  display: flex;
+  align-items: center;
+}
+/* .modal__content-signup{
+  height: 410px !important;
+} */
+.auth__wrapp{
+  display: flex;
+  align-items: center;
+}
+.signup__btn{
+  width: 51px !important;
+  height: 34px !important;
+  border: 1px solid  #0F4C75;
+  margin-left: 36px !important;
+  padding: 8px 0 7px 0 !important;
+  font-size: 12px;
+  font-family: 'Biryani' , sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: white;
+  color: #0F4C75;
+}
+.signup__btn:focus{
+  border: 1px solid #0F4C75;
+  outline: none;
+}
+.btn__closeSignUp__wrapp{
+  z-index: 999999;
+  display: flex;
+  justify-content: flex-end;
+}
+#btn__closeSignUp{
+  position: relative;
+  margin-left: auto !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  background-color: white !important;
+}
+
+/* signup */
+.modal__signup{
+  display: none; /* Hidden by default */
+}
+.modal__content-signup{
+  position: absolute;
+  text-align: start;
+  top: 100px;
+  right: 40px;
+  background-color: white;
+  width: 291px;
+  height: 387px;
+  border-radius: 20px;
+  padding: 17px 25px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+}
+.label__modaldaftar{
+  font-size: 14px;
+  font-weight: 800;
+  font-style: normal;
+  color: #0F4C75;
+}
+.input__modaldaftar{
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 15px;
+  padding: 7px 6px;
+  height: 30px;
+  width: 242px;
+}
+.form-group > input:focus{
+  outline: none !important;
+  border: none !important;
+}
+.input__modaldaftarUP{
+  margin-top: -10px;
+}
+.div__modaldaftarUP{
+  margin-top: -17px;
+}
+.input__modaldaftar::-webkit-input-placeholder{
+font-size: 12px;
+font-weight: 400;
+color: rgba(0, 0, 0, 0.1);
+}
+.close{
+  width: 20px !important;
+  height: 20px !important;
+  cursor: pointer;
+}
+.logo__google{
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 7px;
+  cursor: pointer !important;
+}
+.logo__googleWrap{
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 7px;
+}
+.login__withwrapp{
+  display: flex;
+  justify-content: center;
+  margin-top: 43px;
+  margin-bottom: 19px;
+}
+.login__with{
+  
+  margin-top: -20px;
+  cursor: pointer;
+  width: 166px;
+  height: 30px;
+  padding: 7px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 1px 1px 4px rgba(15, 76, 117, 0.25);
+}
+.login__with > p {
+  margin: 0 !important;
+  font-size: 12px;
+  font-weight: 400;
+}
+.btn__signup{
+  border: none;
+  background-color: #0F4C75;
+  border-radius: 5px;
+  color: white;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.btn__signup__wrapp{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#form-group__namalengkap{
+  position: relative;
+}
+#form-group__email{
+  position: relative;
+}
+.errorIcon{
+  position: absolute;
+  top: 33px;
+  right: 13px;
+  width: 15px !important;
+  height: 15px !important;
+}
+@media only screen and (max-width: 360px){
+  .modal__content-signup{
+    left: 5px !important;
+  }
+}
+@media only screen and (max-width: 550px){
+  .modal__content-signup{
+    left: 15px !important;
+  }
+}
+@media only screen and (max-width: 766px) {
+  .modal__content-signup{
+    display: flex;
+    flex-direction: column;
+  }
+  .btn__closeSignUp__wrapp{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .modal__content-signup{
+    width: 90vw;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+  }
+  #form-group__namalengkap{
+    display: flex;
+    flex-direction: column;
+  }
+  #form-group__email{
+    display: flex;
+    flex-direction: column;
+  }
+  #form-group__password{
+    display: flex;
+    flex-direction: column;
+  }
+  #form-group__rptPassword{
+    display: flex;
+    flex-direction: column;
+  }
+  .close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .formSignUp{
+    width: 70vw;
+  }
+  .input__modaldaftar{
+    width: 100% !important;
+  }
+  .input__modaldaftarUP{
+    margin-top: 0px;
+  }
+  .div__modaldaftarUP{
+    margin-top: 0px;
+  }
+}
