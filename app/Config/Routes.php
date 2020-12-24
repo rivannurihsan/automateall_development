@@ -57,6 +57,7 @@ $routes->post('/lupaPass', 'Pages::lupaPass');
 $routes->get('/logout', 'Pages::logout');
 
 $routes->get('/coba', 'Pages::coba');
+$routes->post('/coba', 'Pages::sendCoba');
 
 
 /**

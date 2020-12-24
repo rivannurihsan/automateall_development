@@ -29,6 +29,16 @@
             return true;
         }
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        public function isCouponExcist($str, &$error){
+            $couponCodeList = $this->Coupon->getCoupon_by_code($str);
+
+            if ($couponCodeList) {
+                return false;
+            }
+            return true;
+        }
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public function isLogedIn($str, $error, $data){
             if ($data['Email']) {
                 $emailS = preg_split('/@/', $data['Email']);

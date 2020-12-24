@@ -28,7 +28,27 @@ class Academy extends Model
      * @param string $id
      * @return array|false
      */
-    public function getAcademy_by_id($id, $column){
-        return $this->where('id', $id)->first()[$column];
-    }    
+    public function getAcademy_by_id($id, $column=false){
+        if ($column) {
+            return $this->where('id', $id)->first()[$column];
+        }else {
+            return $this->where('id', $id)->first();
+        }
+    }
+
+    /**
+     * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
+     * dari tabel 'referral' berdasarkan 'id' yang diinputkan pada parameter
+     * 
+     * @param string $column
+     * @param string $id
+     * @return array|false
+     */
+    public function getAcademy_by_judul($judul, $column=false){
+        if ($column) {
+            return $this->where('judul', $judul)->first()[$column];
+        }else {
+            return $this->where('judul', $judul)->first();
+        }
+    }        
 }
