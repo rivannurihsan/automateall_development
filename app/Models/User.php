@@ -34,6 +34,10 @@ class User extends Model
         return $this->where('email', $email)->first()[$column];
     }
 
+    public function getUser_by_name($nama, $column){
+        return $this->where('nama', $nama)->first()[$column];
+    }
+
     public function getColumn($column){
         return $this->findColumn($column);
     }
