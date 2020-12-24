@@ -37,6 +37,9 @@
     <!-- Academy Detail Stylesheet -->
     <link rel="stylesheet" href="/css/development/academy_detail_new.css">
 
+    <!-- Login Stylesheet -->
+    <link rel="stylesheet" href="/css/development/login.css">
+
     <!-- Font Awsome CSS -->
     <!-- <link rel="stylesheet" href="/css/all.css"> -->
 
