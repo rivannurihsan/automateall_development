@@ -28,7 +28,7 @@
                 <li class="nav-item <?php if($title=='Contact'){echo 'active';}?>">
                     <a class="nav-link"  href="<?= base_url('/contact');?>" title="Contact">Contact</a>
                 </li>
-                <li class="nav-item <?php if($title=='Login'){echo 'active';}?>">
+                <li class="nav-item nav-item__auth <?php if($title=='Login'){echo 'active';}?>">
                     <?php if(isset($userdata['nama'])){ ?>
                         <div class="dropdown">
                             <a class="nav-link login" data-toggle="dropdown"><?= $userdata['nama'] ?></a>
@@ -37,7 +37,36 @@
                             </ul>
                         </div>
                     <?php }else{ ?>
-                        <a class="nav-link login" href="<?= base_url('/login');?>" title="Login">Login</a>
+                        <button class="nav-link login__btn" id="btn-modal-login" class="modal-login"  title="Login">Login</button>
+                          <div id="myModal" class="modal__login">
+                            <div class="modalLogin__wrap">
+                            <div class="modal__content-login">
+                            <div class="btn__closeLogin__wrap"><button id="btn__closeLogin"><img class="logo__google img-fluid" src="/img/vector/cancel.png"/></button></div> 
+                              <form name="formLogin" class="formLogin" >                                
+                                <div class="form-group div__modalLogin" id="form-group__email">
+                                  <label class="label__modalLogin" for="email">E-mail</label>
+                                  <input class="input__modalLogin input__modalLogins" name="email" id="email" type="email" placeholder="Masukan email anda"/>
+                                </div>
+                                <div class="form-group div__modalLogins" id="form-group__password">
+                                  <label class="label__modalLogin" for="password">Password</label>
+                                  <input class="input__modalLogin input__modalLogins" name="password" id="password" type="password" placeholder="Buat password anda"/>
+                                </div>
+                                <div class="login__withwrap" >
+                                  <div class="login__with">
+                                      <img class="logo__google img-fluid" src="/img/logo/google.png"/>                                    
+                                      <p>Login dengan Google</p>                                    
+                                  </div>
+                                </div>
+                                <div class="signup_linkwrap">
+                                    <a class="signup_link" href="#">Saya tidak punya akun</a>
+                                </div>
+                                <div class="btn__login__wrap">
+                                  <input type="submit" class="btn__login locked" id="btn__login" value="Lanjut"/>
+                                </div>
+                              </form>
+                            </div>
+                            </div>
+                          </div>
                     <?php } ?>
                 </li>
             </ul>
@@ -45,3 +74,51 @@
     </div>
 </nav>
 <!-- Akhir Navbar -->
+
+<!-- Akhir Navbar -->
+<script>
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("btn-modal-login");
+
+// Get the <span> element that closes the modal
+var span = document.getElementById('btn__closeLogin');
+
+// Get the btn element "lanjut"
+var lanjut = document.getElementById('btn__login')
+
+var userEmail = document.getElementById('email');
+var userPassword = document.getElementById('password');
+
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+  var getEmail = document.getElementById('email').value
+  var getPassword= document.getElementById('password').value
+
+var userEmail = document.getElementById('email');
+var userPassword = document.getElementById('password');
+
+userEmail.addEventListener('keydown', function() {   
+    var getEmail = document.getElementById('email').value   
+    if(getEmail) {
+        lanjut.classList.remove('locked')
+    }
+}
+)
+
+
+function cekValue(){
+  var getEmail = document.forms['formSignUp']['email'].value;
+  var getPassword = document.forms['formSignUp']['password'].value;
+}
+</script> 

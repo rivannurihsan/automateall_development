@@ -1,0 +1,241 @@
+.nav-item__auth {
+  display: flex;
+  align-items: center;
+}
+
+.auth__wrap {
+  display: flex;
+  align-items: center;
+}
+.login__btn {
+  width: 51px !important;
+  height: 34px !important;
+  border: 1px solid #0f4c75;
+  margin-left: 36px !important;
+  padding: 8px 0 7px 0 !important;
+  font-size: 12px;
+  font-family: "Biryani", sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: white;
+  color: #0f4c75;
+}
+.login__btn:focus {
+  border: 1px solid #0f4c75;
+  outline: none;
+}
+.btn__closeLogin__wrap {
+  z-index: 999999;
+  display: flex;
+  justify-content: flex-end;
+}
+#btn__closeLogin {
+  position: relative;
+  margin-left: auto !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  background-color: white !important;
+}
+
+/* login */
+.modal__login {
+  display: none; /* Hidden by default */
+}
+.modal__content-login {
+  position: absolute;
+  text-align: start;
+  top: 100px;
+  right: 40px;
+  background-color: white;
+  width: 291px;
+  height: 350px;
+  border-radius: 20px;
+  padding: 17px 25px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+}
+.label__modalLogin {
+  font-size: 14px;
+  font-weight: 800;
+  font-style: normal;
+  color: #0f4c75;
+}
+.input__modalLogin {
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 15px;
+  padding: 7px 6px;
+  height: 30px;
+  width: 242px;
+}
+.form-group > input:focus {
+  outline: none !important;
+  border: none !important;
+}
+.input__modalLogins {
+  margin-top: -10px;
+}
+.div__modalLogins {
+  margin-top: -17px;
+}
+.input__modalLogin::-webkit-input-placeholder {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.1);
+}
+.close {
+  width: 20px !important;
+  height: 20px !important;
+  cursor: pointer;
+}
+.logo__google {
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 7px;
+  cursor: pointer !important;
+}
+.logo__googleWrap {
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 7px;
+}
+.login__withwrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 43px;
+  margin-bottom: 19px;
+}
+.login__with {
+  margin-top: -20px;
+  cursor: pointer;
+  width: 200px;
+  height: 30px;
+  padding: 7px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 1px 1px 4px rgba(15, 76, 117, 0.25);
+}
+.login__with > p {
+  margin: 0 !important;
+  font-size: 12px;
+  font-weight: 400;
+}
+.btn__login {
+  border: none;
+  background-color: #0f4c75;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.btn__login__wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#form-group__email {
+  position: relative;
+}
+.errorIcon {
+  position: absolute;
+  top: 33px;
+  right: 13px;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+/* Sign up links */
+.signup_linkwrap {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signup_link {
+  text-align: center !important;
+  margin: auto;
+  font-weight: normal !important;
+  text-decoration: underline;
+  width: 200px;
+}
+
+.signup_link:hover {
+  font-weight: 400 !important;
+  cursor: pointer;
+}
+/* media queries */
+@media only screen and (max-width: 360px) {
+  .modal__content-login {
+    left: 5px !important;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .modal__content-login {
+    left: 15px !important;
+  }
+}
+@media only screen and (max-width: 766px) {
+  .modal__content-login {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn__closeLogin__wrap {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .modal__content-login {
+    width: 90vw;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+  }
+  #form-group__namalengkap {
+    display: flex;
+    flex-direction: column;
+  }
+  #form-group__email {
+    display: flex;
+    flex-direction: column;
+  }
+  #form-group__password {
+    display: flex;
+    flex-direction: column;
+  }
+  #form-group__rptPassword {
+    display: flex;
+    flex-direction: column;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .formLogin {
+    width: 70vw;
+  }
+  .input__modalLogin {
+    width: 100% !important;
+  }
+  .input__modalLogins {
+    margin-top: 0px;
+  }
+  .div__modalLogins {
+    margin-top: 0px;
+  }
+}
+
+.locked {
+  opacity: 0.4 !important;
+}
