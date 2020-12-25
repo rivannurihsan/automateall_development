@@ -26,10 +26,19 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css?v=1.4.3">
+    <!-- style online-learning -->
+    <link rel="stylesheet" href="/css/online_learning/checkout.css">
+    
 
     <!-- Automate All CSS -->
     <!-- <link rel="stylesheet" href="/css/production/automateall-min.css"> -->
     <link rel="stylesheet" href="/css/development/automateall-dev.css?v=1.4.3">
+<!-- <<<<<<< Front-end-(Angga) -->
+    <link rel="stylesheet" href="/css/online_learning/modal.css">
+    
+    <!-- Signup Stylesheet-->
+    <link rel="stylesheet" href="/css/signup/signup.css">
+<!-- ======= -->
 
     <!-- Academy Stylesheet -->
     <link rel="stylesheet" href="/css/development/academy_list_new.css">
@@ -40,8 +49,10 @@
     <!-- Login Stylesheet -->
     <link rel="stylesheet" href="/css/development/login.css">
 
+<!-- >>>>>>> master -->
     <!-- Font Awsome CSS -->
     <!-- <link rel="stylesheet" href="/css/all.css"> -->
+    
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600;700;800;900&family=Varela&display=swap" rel="stylesheet">
@@ -60,7 +71,7 @@
 
 </head>
 <?php if (isset($isNotIncFooter) && isset($isNotIncFooter) && (!$isNotIncFooter) && (!$isNotIncFooter) ) {
-    $isLogres = 1;
+    $isLogres = 1; 
 }
 ?>
 
@@ -90,6 +101,7 @@
 
     <!-- sal js script -->
     <script src="/js/sal.js"></script>
+    <script src="/js/validasi.js"></script>
 
     <script>
         sal({
