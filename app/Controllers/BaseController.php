@@ -51,6 +51,11 @@ class BaseController extends Controller
 		$this->Daftar = new \App\Models\Daftar();
 		$this->Referral = new \App\Models\Referral();
 		$this->Product = new \App\Models\Product();
+		$this->Daftar = new \App\Models\Daftar();
+		$this->Bayar = new \App\Models\Bayar();
+		$this->Coupon = new \App\Models\Coupon();
+
+		// $this->Voucher = new Coupon();
 
 		$this->email = \Config\Services::email();
 		session();

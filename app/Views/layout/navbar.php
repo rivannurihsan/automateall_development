@@ -37,6 +37,7 @@
                             </ul>
                         </div>
                     <?php }else{ ?>
+<!-- <<<<<<< Front-end-(Angga) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                           <a class="nav-link login" href="<?= base_url('/login');?>" title="Login">Login</a>
                           <button class="nav-link signup__btn" id="btn-modal-signup" class="modal-signup"  title="Login">Daftar</button>
                           <div id="myModal" class="modal__signup">
@@ -61,13 +62,38 @@
                                   <input onchange="return(getValueSignUpInput())" class="input__modaldaftar input__modaldaftarUP" name="rptPassword" id="rptPassword" type="password" placeholder="masukan ulang password anda"/>                                  
                                 </div>
                                 <div class="login__withwrapp" >
+<!-- ======= ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                        <button class="nav-link login__btn" id="btn-modal-login" class="modal-login"  title="Login">Login</button>
+                          <div id="myModal" class="modal__login">
+                            <div class="modalLogin__wrap">
+                            <div class="modal__content-login">
+                            <div class="btn__closeLogin__wrap"><button id="btn__closeLogin"><img class="logo__google img-fluid" src="/img/vector/cancel.png"/></button></div> 
+                              <form name="formLogin" class="formLogin" >                                
+                                <div class="form-group div__modalLogin" id="form-group__email">
+                                  <label class="label__modalLogin" for="email">E-mail</label>
+                                  <input class="input__modalLogin input__modalLogins" name="email" id="email" type="email" placeholder="Masukan email anda"/>
+                                </div>
+                                <div class="form-group div__modalLogins" id="form-group__password">
+                                  <label class="label__modalLogin" for="password">Password</label>
+                                  <input class="input__modalLogin input__modalLogins" name="password" id="password" type="password" placeholder="Buat password anda"/>
+                                </div>
+                                <div class="login__withwrap" >
+<!-- >>>>>>> master ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                                   <div class="login__with">
                                       <img class="logo__google img-fluid" src="/img/logo/google.png"/>                                    
                                       <p>Login dengan Google</p>                                    
                                   </div>
                                 </div>
+<!-- <<<<<<< Front-end-(Angga) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                                 <div class="btn__signup__wrapp">
                                   <button class="btn__signup" id="btn__signup" >Lanjut</button>
+<!-- ======= ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                                <div class="signup_linkwrap">
+                                    <a class="signup_link" href="#">Saya tidak punya akun</a>
+                                </div>
+                                <div class="btn__login__wrap">
+                                  <input type="submit" class="btn__login locked" id="btn__login" value="Lanjut"/>
+<!-- >>>>>>> master ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                                 </div>
                               </form>
                             </div>
@@ -80,6 +106,7 @@
     </div>
 </nav>
 <!-- Akhir Navbar -->
+<!-- <<<<<<< Front-end-(Angga) +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <script>
   var modal = document.getElementById("myModal");
 
@@ -88,6 +115,26 @@ var btn = document.getElementById("btn-modal-signup");
 
 // Get the <span> element that closes the modal
 var span = document.getElementById('btn__closeSignUp');
+// ======= ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+<!-- Akhir Navbar -->
+<script>
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("btn-modal-login");
+
+// Get the <span> element that closes the modal
+var span = document.getElementById('btn__closeLogin');
+
+// Get the btn element "lanjut"
+var lanjut = document.getElementById('btn__login')
+
+var userEmail = document.getElementById('email');
+var userPassword = document.getElementById('password');
+
+// >>>>>>> master +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -98,6 +145,7 @@ btn.onclick = function() {
 span.onclick = function() {
   modal.style.display = "none";
 }
+// <<<<<<< Front-end-(Angga) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   var formSignUp = document.getElementById('formSignUp')
   var getNamaSignup = document.getElementById('nama')
   var getEmailSignup = document.getElementById('email')
@@ -187,3 +235,25 @@ span.onclick = function() {
 </script>
 
 
+<!-- ======= ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  var getEmail = document.getElementById('email').value
+  var getPassword= document.getElementById('password').value
+
+var userEmail = document.getElementById('email');
+var userPassword = document.getElementById('password');
+
+userEmail.addEventListener('keydown', function() {   
+    var getEmail = document.getElementById('email').value   
+    if(getEmail) {
+        lanjut.classList.remove('locked')
+    }
+}
+)
+
+
+function cekValue(){
+  var getEmail = document.forms['formSignUp']['email'].value;
+  var getPassword = document.forms['formSignUp']['password'].value;
+}
+</script> 
+<!-- >>>>>>> master ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->

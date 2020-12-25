@@ -33,8 +33,23 @@
     <!-- Automate All CSS -->
     <!-- <link rel="stylesheet" href="/css/production/automateall-min.css"> -->
     <link rel="stylesheet" href="/css/development/automateall-dev.css?v=1.4.3">
+<!-- <<<<<<< Front-end-(Angga) -->
     <link rel="stylesheet" href="/css/online_learning/modal.css">
+    
+    <!-- Signup Stylesheet-->
     <link rel="stylesheet" href="/css/signup/signup.css">
+<!-- ======= -->
+
+    <!-- Academy Stylesheet -->
+    <link rel="stylesheet" href="/css/development/academy_list_new.css">
+
+    <!-- Academy Detail Stylesheet -->
+    <link rel="stylesheet" href="/css/development/academy_detail_new.css">
+
+    <!-- Login Stylesheet -->
+    <link rel="stylesheet" href="/css/development/login.css">
+
+<!-- >>>>>>> master -->
     <!-- Font Awsome CSS -->
     <!-- <link rel="stylesheet" href="/css/all.css"> -->
     
@@ -56,7 +71,7 @@
 
 </head>
 <?php if (isset($isNotIncFooter) && isset($isNotIncFooter) && (!$isNotIncFooter) && (!$isNotIncFooter) ) {
-    $isLogres = 1;
+    $isLogres = 1; 
 }
 ?>
 
