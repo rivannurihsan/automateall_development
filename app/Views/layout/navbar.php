@@ -43,22 +43,22 @@
                             <div class="modalDaftar__wrap">
                             <div class="modal__content-signup">
                             <div class="btn__closeSignUp__wrapp"><button id="btn__closeSignUp"><img class="logo__google img-fluid" src="/img/vector/cancel.png"/></button></div> 
-                              <form name="formSignUp" class="formSignUp" onsubmit="return(lanjutSIgnup())">                                
-                                <div class="form-group" id="form-group__namalengkap">
+                              <form id="formSignUp" name="formSignUp" class="formSignUp" onsubmit="return(validateFormSignUp())">                                
+                                <div class="form-group form-group__input" id="form-group__namalengkap">
                                   <label class="label__modaldaftar" for="nama">Nama Lengkap</label>
-                                  <input class="input__modaldaftar input__modaldaftarUP" name="nama" id="nama" type="text" placeholder="Masukan nama anda"/>
+                                  <input onchange="return(getValueSignUpInput())" class="input__modaldaftar input__modaldaftarUP" name="nama" id="nama" type="text" placeholder="Masukan nama anda"/>
                                 </div>
-                                <div class="form-group div__modaldaftarUP" id="form-group__email">
+                                <div class="form-group form-group__input" id="form-group__email">
                                   <label class="label__modaldaftar" for="email">E-mail</label>
-                                  <input class="input__modaldaftar input__modaldaftarUP" name="email" id="email" type="email" placeholder="Masukan email anda"/>
+                                  <input onchange="return(getValueSignUpInput())" class="input__modaldaftar input__modaldaftarUP" name="email" id="email" type="email" placeholder="Masukan email anda"/>                                  
                                 </div>
-                                <div class="form-group div__modaldaftarUP" id="form-group__password">
+                                <div class="form-group form-group__input" id="form-group__password">
                                   <label class="label__modaldaftar" for="password">Password</label>
-                                  <input class="input__modaldaftar input__modaldaftarUP" name="password" id="password" type="password" placeholder="Buat password anda"/>
+                                  <input onchange="return(getValueSignUpInput())" class="input__modaldaftar input__modaldaftarUP" name="password" id="password" type="password" placeholder="Buat password anda"/>                                  
                                 </div>
-                                <div class="form-group div__modaldaftarUP" id="form-group__rptPassword">
+                                <div class="form-group form-group__input" id="form-group__rptPassword">
                                   <label class="label__modaldaftar" for="rptPassword">Ulangi Password</label>
-                                  <input class="input__modaldaftar input__modaldaftarUP" name="rptPassword" id="rptPassword" type="password" placeholder="masukan ulang password anda"/>
+                                  <input onchange="return(getValueSignUpInput())" class="input__modaldaftar input__modaldaftarUP" name="rptPassword" id="rptPassword" type="password" placeholder="masukan ulang password anda"/>                                  
                                 </div>
                                 <div class="login__withwrapp" >
                                   <div class="login__with">
@@ -67,7 +67,7 @@
                                   </div>
                                 </div>
                                 <div class="btn__signup__wrapp">
-                                  <input type="submit" class="btn__signup" id="btn__signup" value="Lanjut"/>
+                                  <button class="btn__signup" id="btn__signup" >Lanjut</button>
                                 </div>
                               </form>
                             </div>
@@ -81,8 +81,7 @@
 </nav>
 <!-- Akhir Navbar -->
 <script>
-  // Get the modal
-var modal = document.getElementById("myModal");
+  var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("btn-modal-signup");
@@ -99,36 +98,92 @@ btn.onclick = function() {
 span.onclick = function() {
   modal.style.display = "none";
 }
-  var getNamaSignup = document.getElementById('nama').value
-  var getEmailSignup = document.getElementById('email').value
-  var getPasswordSignup = document.getElementById('password').value
-  var getRptPasswordSignup = document.getElementById('rptPassword').value
+  var formSignUp = document.getElementById('formSignUp')
+  var getNamaSignup = document.getElementById('nama')
+  var getEmailSignup = document.getElementById('email')
+  var getPasswordSignup = document.getElementById('password')
+  var getRptPasswordSignup = document.getElementById('rptPassword')
 
-// function lanjutSIgnup(){
-//   if(getNamaSignup != "" && getEmailSignup != "" && getPasswordSignup != "" && getRptPasswordSignup != ""){
-//     return true;
-//   }else{
-//     const btnInputSignUp = document.getElementById("btn__signup")
-//     btnInputSignUp.setAttribute("disabled", "disabled")
-    
-//     const formGetMOdalNama = document.getElementById('form-group__namalengkap')
-//     const formGetModalEmail = document.getElementById('form-group__email')
-//     var errorIcon = document.createElement("IMG");
-//       errorIcon.setAttribute("src", "/img/vector/error.png");
-//       errorIcon.setAttribute("width", "20");
-//       errorIcon.setAttribute("height", "20");
-//       errorIcon.classList.add("errorIcon")
-//       formGetMOdalNama.appendChild(errorIcon); 
-//       // formGetModalEmail.appendChild(errorIcon);
-//     return false;
-//   }
-  
-// }
+  formSignUp.addEventListener('submit' , e => {
+    e.preventDefault();
+    checkInputs();
+  })
+  // function validateFormSignUp(){
+  //   checkInputs();
+  // }
+  function checkInputs(){
+    const namaValue = getNamaSignup.value.trim();
+    const emailValue = getEmailSignup.value.trim();
+    const password = getPasswordSignup.value.trim();
+    const repeatPasswordValue = getRptPasswordSignup.value.trim();
+    if(namaValue == "" || namaValue == null){
+      setErrorFor(getNamaSignup)
+      // const formGetMOdal = document.getElementById('form-group__namalengkap')
+      // var Nama = document.createElement("p");
+      // Nama.id = "pNama"
+      // var textNama = document.createTextNode("tidak boleh angka");
+      // Nama.appendChild(textNama)
+      // formGetMOdal.appendChild(Nama)
+    }
 
-function cekValue(){
-  var getNamaSignup = document.forms['formSignUp']['nama'].value;
-  var getEmailSignup = document.forms['formSignUp']['email'].value;
-  var getPasswordSignup = document.forms['formSignUp']['password'].value;
-  var getRptPasswordSignup = document.forms['formSignUp']['rptPassword'].value;
-}
+    if(emailValue == "" || emailValue == null){
+      setErrorFor(getEmailSignup)
+    }
+
+    if(password == "" || password == null){
+      setErrorFor(getPasswordSignup)
+    }
+
+    if(repeatPasswordValue === "" || repeatPasswordValue == null){
+      setErrorFor(getRptPasswordSignup)
+    }else if(password !== repeatPasswordValue){
+      setErrorFor(repeatPasswordValue)
+    }
+
+    if(namaValue === "" && emailValue == "" && password == "" && repeatPasswordValue == ""){
+      const btnSubmit = document.getElementById("btn__signup");
+      btnSubmit.className = 'btnDisableSignUp'
+      btnSubmit.setAttribute('disabled' , "disabled")
+    }
+  }
+  function setErrorFor(input) {
+	  const formControl = input.parentElement;
+	  formControl.className = 'form-group form-group__input error';
+  }
+
+  getNamaSignup.addEventListener('focus', (e) => {
+    e.target.style.background = '#F2F2F2';
+    setBerhasil(getNamaSignup)
+  })
+  getEmailSignup.addEventListener('focus', (e) => {
+    e.target.style.background = '#F2F2F2';
+    setBerhasil(getEmailSignup)
+  })
+  getPasswordSignup.addEventListener('focus', (e) => {
+    e.target.style.background = '#F2F2F2';
+    setBerhasil(getPasswordSignup)
+  })
+  getRptPasswordSignup.addEventListener('focus', (e) => {
+    e.target.style.background = '#F2F2F2';
+    setBerhasil(getRptPasswordSignup)
+  })
+  function setBerhasil(input){
+    const formControl = input.parentElement;
+	  formControl.className = 'form-group form-group__input';
+  }
+
+  function getValueSignUpInput(){
+    const namaValue = getNamaSignup.value.trim();
+    const emailValue = getEmailSignup.value.trim();
+    const password = getPasswordSignup.value.trim();
+    const repeatPasswordValue = getRptPasswordSignup.value.trim();
+    if(namaValue != "" && emailValue != "" && password != "" && repeatPasswordValue != ""){
+      const btnSubmit = document.getElementById("btn__signup");
+      btnSubmit.removeAttribute('disabled')
+      btnSubmit.className = 'btn__signup'
+    }
+  }
+
 </script>
+
+
