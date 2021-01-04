@@ -84,6 +84,7 @@
 	
 	<?php 
         if(!isset($isLogres)) {
+            // echo $this->include('pages/coba');
             echo $this->include('layout/navbar');
     }?>
 

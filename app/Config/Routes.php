@@ -43,8 +43,11 @@ $routes->get('/academy','Pages::academy');
 $routes->get('/academy/list','Pages::academyList'); # System pembelian workshop
 $routes->get('/academy/detail','Pages::academyDetail'); # System pembelian workshop
 $routes->post('/academy/detail','Pages::sendAcademyDaftar'); # System pembelian workshop
+$routes->post('/createCoupon','Pages::sendCoupon'); # System pembelian workshop
 $routes->get('/academy/checkout','Pages::academyCheckout'); # System pembelian workshop
 $routes->post('/academy/checkout','Pages::sendAcademyCheckout'); # System pembelian workshop
+$routes->post('/academy/useCoupon','Pages::sendAcademyCoupon'); # System pembelian workshop
+$routes->post('/academy/delCoupon','Pages::deleteAcademyCoupon'); # System pembelian workshop
 $routes->get('/regis', 'Pages::regis');
 $routes->post('/regis', 'Pages::sendRegis');
 $routes->get('/verifyAccount', 'Pages::verifyAccount');

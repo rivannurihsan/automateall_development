@@ -2,11 +2,50 @@
 
 use CodeIgniter\Model;
 
+use function PHPSTORM_META\type;
+
 class Daftar extends Model
 {
     protected $table = 'daftar';
+    protected $primaryKey = 'id';
+
     protected $returnType = 'array';
-    protected $allowedFields = ['id','idPendaftar','idPengajak','idAcademy','namaPengajak','whatsapp','organisasi','tglDaftar'];
+    protected $allowedFields = ['id','nama','idPendaftar','idPengajak','idAcademy','namaPengajak','whatsapp','organisasi','jumlahBayar','tglDaftar','maxTglBayar'];
+
+    public function getDaftar($data=false, $column=false, $orderBy=false, $typeOrder='desc'){
+        // Where
+        (!$data)?null:$this->where($data);
+
+        // Order By
+        (!$orderBy)?null:$this->orderBy($orderBy, $typeOrder);
+
+        // Get result
+        if($column == false) {
+            $result = $this->findAll();
+        }elseif (gettype($column) != 'array') {
+            $result = $this->findColumn($column);
+        }elseif(count($column) == 1) {
+            $result = $this->findColumn($column[0]);
+        }else{
+            $resultArr = [];
+            $result = $this->findAll();
+            for ($i=0; $i < count($column); $i++) { 
+                for ($j=0; $j < count($result); $j++) { 
+                    $resultArr[$j][$column[$i]] = $result[$j][$column[$i]];
+                }
+            }
+            $result = $resultArr;
+        }
+
+        // Output result
+        if (!$result) {
+            return false;
+        }elseif (count($result) == 1) {
+            return $result[0];
+        }else {
+            return $result;
+        }
+    }
 
     public function getDaftar_by_id_userId($id, $idPendaftar, $column = false)
     {
@@ -43,24 +82,39 @@ class Daftar extends Model
         if (!$id) {
             // Generate Random id
             $idList = $this->getColumn('id');
-            $isUnique = false;
-            while(!$isUnique) { 
-                $id = $this->randomGenerator(5);
-                $id = $id;
-                if(!in_array($id, $idList)){
-                    $isUnique = true;
+            if ($idList) {
+                $isUnique = false;
+                while(!$isUnique) { 
+                    $id = $this->randomGenerator(5);
+                    $id = $id;
+                    if(!in_array($id, $idList)){
+                        $isUnique = true;
+                    }
                 }
-            }             
+            }else {
+                $id = 'DAF'.$id;
+            }
         }
 
+        // Generate unique name
+        $nameList = $this->getColumn('nama');
+        $isUnique = false;
+        if ($nameList) {
+            while(!$isUnique) { 
+                $nama = $this->randomGenerator(10);
+                if(!in_array($nama, $nameList)){
+                    $isUnique = true;
+                }
+            }
+        }else {$nama = $this->randomGenerator(10);}
+
         // insert
-        $data = [
-            'id' => 'DAF'.$id
-        ];
+        $data['id'] = $id;
+        $data['nama'] = $nama;
         $this->insert($data);
 
         // check if inputed
-        if( $this->where('id', 'DAF'.$id)->first() ) {
+        if( $this->where('id', $id)->first() ) {
             return true;
         }else{
             return false;

@@ -154,6 +154,9 @@
       font-weight: bold;
       margin-top: 10px;
       font-family: "Biryani',sans-serif" !important;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
 }
 .text__struk{
       margin-top: 7px;
@@ -261,3 +264,7 @@
       
       
  }
+
+.fileBtnHide {
+  display: none;
+}

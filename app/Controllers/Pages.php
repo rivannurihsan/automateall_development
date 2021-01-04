@@ -31,15 +31,14 @@ class Pages extends BaseController
      */	
 	public function sendRegis(){
 		$rules = [
-			'Name' => [
-				'rules' => 'required|string|max_length[30]',
+			'namaSignup' => [
+				'rules' => 'required|string',
 				'errors' => [
 					'required' => 'Please enter your name.',
 					'string' => 'Please provide a valid name.',
-					'max_length' => 'Please enter less than 30 character',
 				]
 			],
-			'Email' => [
+			'emailSignup' => [
 				'rules' => 'required|valid_email|isEmailExcist',
 				'errors' => [
 					'required' => 'Please enter your email.',
@@ -47,15 +46,15 @@ class Pages extends BaseController
 					'isEmailExcist' => 'Email already registered.<a style="font-size: 80%;color: #dc3545;" href="/login"> Login Now</a> ?',
 				]
 			],
-			'Password' => [
+			'passwordSignup' => [
 				'rules' => 'required|min_length[3]',
 				'errors' => [
 					'required' => 'Please write your password.',
 					'min_length' => 'Please enter more than 3 character',
 				]
 			],
-			'ConfirmPassword' => [
-				'rules' => 'required|matches[Password]',
+			'rptPasswordSignup' => [
+				'rules' => 'required|matches[passwordSignup]',
 				'errors' => [
 					'required' => 'Please re-enter your password.',
 					'matches' => 'passwords do not match',
@@ -64,10 +63,10 @@ class Pages extends BaseController
 		];
 		$valid = $this->validate($rules);
 		if (!$valid) {
-			return redirect()->to('/regis')->withInput();
+			return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();
 		}else{			
-			$userMailS = preg_split('/@/', $_POST['Email']);
-			$userPassS = $_POST['Password'];
+			$userMailS = preg_split('/@/', $_POST['emailSignup']);
+			$userPassS = $_POST['passwordSignup'];
 
 			/// Create User
 			// Generate Random id
@@ -86,7 +85,7 @@ class Pages extends BaseController
 				'pass'	=> $userPassS,
 				'email'	=> $userMailS[0].'@'.$userMailS[1],
 				'id'	=> $id,
-				'nama'	=> $_POST['Name'],
+				'nama'	=> $_POST['namaSignup'],
 			];
 
 			/// Send Confrimation Message
@@ -108,7 +107,7 @@ class Pages extends BaseController
                 '.$link.'<br>
                 
                 Terimakasih,<br>
-                The Automate All Team
+                The Automate All Team 
 			";
 
 			$linkconfirm = [
@@ -119,10 +118,10 @@ class Pages extends BaseController
 
 			if ($this->User->insertUser($user) && $this->LinkConfirm->insert_row($linkconfirm) && $this->sendEmail($from, $to, $subject, $message)) {
 				$_SESSION['isKirim'] = 'RegisterAccountSend';
-				return redirect()->to('/login');
+				return redirect()->to($_SERVER['HTTP_REFERER']);
 			}else{
 				$_SESSION['isKirim'] = 'ErrorTechMessage';
-				return redirect()->to('/regis');
+				return redirect()->to($_SERVER['HTTP_REFERER']);
 			}
 		}
 	}
@@ -220,16 +219,17 @@ class Pages extends BaseController
      * @return view|redirect 
      */
 	public function sendLogin(){
+		// return redirect()->to($_SERVER['HTTP_REFERER']);
 		$rules = [
-			'Email' => [
+			'emailLogin' => [
 				'rules' => 'required|valid_email',
 				'errors' => [
-					'required' => 'Please enter your email.',
+					'required' => 'Please enter your password.',
 					'valid_email' => 'Please provide a valid email.',
 				]
 			],
-			'Password' => [
-				'rules' => 'required|isLogedIn[{Email}]',
+			'passwordLogin' => [
+				'rules' => 'required|isLogedIn[{emailLogin}]',
 				'errors' => [
 					'required' => 'Please enter your password.',
 					'isLogedIn' => 'Please check your email or password.',
@@ -238,21 +238,20 @@ class Pages extends BaseController
 		];
 		$valid = $this->validate($rules);
 		if (!$valid) {
-			if ($_POST['Password'] && $_POST['Email']) {
-				if (!isset($_SESSION['tryLoginEmail']) || $_SESSION['tryLoginEmail'] != $_POST['Email']) {
-					$_SESSION['tryLoginCount'] = 0;
-					$_SESSION['tryLoginEmail'] = $_POST['Email'];
-				}else{
-					$_SESSION['tryLoginCount']+=1;
-				}
+			if ($_POST['emailLogin'] != $_POST['tryEmail']) {
+				$_POST['countTry'] = 0;
+				$tryEmail = $_POST['emailLogin'];
+			}else{
+				$tryEmail = $_POST['tryEmail'];
 			}
-			return redirect()->to('/login')->withInput();
+			$countTry = (intval($_POST['countTry']) + 1);
+			return redirect()->to($_SERVER['HTTP_REFERER'])->withInput()->with('countLogin', $countTry)->with('curEmail', $tryEmail);
 		}else{
 			$_SESSION['tryLoginCount'] = 0;
 
-			$userMailS = preg_split('/@/', $_POST['Email']);
+			$userMailS = preg_split('/@/', $_POST['emailLogin']);
 			$userMailS = $userMailS[0].'@'.$userMailS[1];
-			$userPassS = $_POST['Password'];
+			$userPassS = $_POST['passwordLogin'];
 
 			$rawData = $this->User->getUser_by_login($userMailS, $userPassS);
 			$_SESSION['userData'] = [
@@ -260,17 +259,18 @@ class Pages extends BaseController
 				'email' => preg_split('/@/', $rawData['email'])[0].preg_split('/@/', $rawData['email'])[1],
 				'pass' => $rawData['pass'],
 				'id' => $rawData['id'],
+				'uniqueCode' => $rawData['uniqueCode'],
 				'isVerifikasi' => $rawData['isVerifikasi'],
 			];
 			
-			return redirect()->to('/');
+			return redirect()->to($_SERVER['HTTP_REFERER']);
 		}
 	}
 
 	/**
      * Method untuk mengirim pesan kepada email pengguna
 	 * yang berisi link untuk reset password
-	 * dengan post '/login'
+	 * dengan post '/lupaPass'
 	 * 
      * @return view|redirect 
      */		
@@ -410,9 +410,9 @@ class Pages extends BaseController
 	public function logout(){
 		if (isset($_SESSION['userData'])) {
 			SESSION_DESTROY();
-			return redirect()->to('/');
+			return redirect()->to($_SERVER['HTTP_REFERER']);
 		}else{
-			return redirect()->to('/');
+			return redirect()->to($_SERVER['HTTP_REFERER']);
 		}
 	}
 	
@@ -425,7 +425,8 @@ class Pages extends BaseController
 	public function index()
 	{
 		$data = [
-			'title'=>'Welcome to Automate All'
+			'title'=>'Welcome to Automate All',
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -448,6 +449,7 @@ class Pages extends BaseController
 			'isi' => preg_replace('/<.*?>/', '', preg_replace('/<h.*?>.*/', '', $this->News->getNewss_Order_TglUpload('isi')) ),
 			'img' => $this->News->getNewss_Order_TglUpload('img'),
 			'tglUpload' => $this->dateToString( $this->News->getNewss_Order_TglUpload('tanggalUpload') ),
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -470,6 +472,7 @@ class Pages extends BaseController
 			'isi' => preg_replace('/<.*?>/', '', preg_replace('/<h.*?>.*/', '', $this->News->getNewss_Order_TglUpload('isi')) ),
 			'img' => $this->News->getNewss_Order_TglUpload('img'),
 			'tglUpload' => $this->dateToString( $this->News->getNewss_Order_TglUpload('tanggalUpload') ),
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -492,6 +495,7 @@ class Pages extends BaseController
 			'isi' => $this->News->getNews_by_id($_GET['id'], 'isi'),
 			'img' => $this->News->getNews_by_id($_GET['id'], 'img'),
 			'tglUpload' => $this->dateToString( $this->News->getNews_by_id($_GET['id'], 'tanggalUpload') ),
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -515,6 +519,7 @@ class Pages extends BaseController
 			'judul' => $Product->getProducts_Order_TglUpload('judul'),
 			'isi' => $Product->getProducts_Order_TglUpload('isi'),
 			'img' => $Product->getProducts_Order_TglUpload('img'),
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -531,7 +536,8 @@ class Pages extends BaseController
     public function ourMainValue()
 	{
 		$data = [
-			'title'=>'Our Main Value'
+			'title'=>'Our Main Value',
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -651,6 +657,7 @@ class Pages extends BaseController
 			'img'			=> $this->Product->getProduct_by_id($_GET['id'], 'img'),
 			'isDelete'		=> $this->Product->getProduct_by_id($_GET['id'], 'isDeleted'),
 			'fileLocation'	=> $this->Product->getProduct_by_id($_GET['id'], 'fileLocation'),
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -667,7 +674,8 @@ class Pages extends BaseController
 	public function academy()
 	{
 		$data = [
-			'title' => 'Academy'
+			'title' => 'Academy',
+			'validation' => \Config\Services::validation(),
 		];
 		if(isset($_SESSION['userData'])){
 			$data['userdata'] = $_SESSION['userData'];
@@ -684,23 +692,52 @@ class Pages extends BaseController
      */
 	public function academyList()
 	{
+		// get all academy data
+		$academyData = $this->Academy->getAcademy(0,0,'waktuMulai');
+		$academyData = $this->tranposeArray($academyData);
+
+		// get list pendaftar
+		$nameListArr = [];
+		foreach ($academyData['id'] as $key => $value) {
+			$idPendaftar = $this->Daftar->getDaftar(['idAcademy' => $value], 'idPendaftar');
+			if (gettype($idPendaftar) == 'array') {	
+				$nameList = [];
+				for ($i=0; $i < count($idPendaftar); $i++) { 
+					$nameList[$i] = $this->User->getUser(['id' => $idPendaftar[$i]], 'nama');
+				}
+				$nameListArr[$key] = $nameList;
+			}elseif($idPendaftar != null){
+				$nameList=[$this->User->getUser(['id' => $idPendaftar], 'nama')];
+				$nameListArr[$key] = $nameList;
+			}
+			else {
+				$nameListArr[$key] = [];
+			}
+		}
+
 		$data = [
 			'title' => 'Academy - List',
-			'id' => $this->Academy->getAcademy_Order_waktu('id'),
-			'judul' => $this->Academy->getAcademy_Order_waktu('judul'),
-			'subjudul' => $this->Academy->getAcademy_Order_waktu('subjudul'),
-			'img' => $this->Academy->getAcademy_Order_waktu('img'),
-			'isi' => $this->Academy->getAcademy_Order_waktu('isi'),
-			'tanggal' => $this->dateToString( $this->Academy->getAcademy_Order_waktu('waktuMulai') ),
-			'jammulai' => $this->timeToString($this->Academy->getAcademy_Order_waktu('waktuMulai'))[0],
-			'jamselesai' => $this->timeToString($this->Academy->getAcademy_Order_waktu('waktuSelesai'))[0],
-			'price' => $this->Academy->getAcademy_Order_waktu('price'),
-			'isSelesai' => $this->Academy->getAcademy_Order_waktu('isSelesai'),
-			'link' => $this->Academy->getAcademy_Order_waktu('link'),
+			'idAcademy' => $academyData['id'],
+			'judul' => $academyData['judul'],
+			'img' => $academyData['img'],
+			'tanggal' => $this->dateToString($academyData['waktuMulai']),
+			'jammulai' => $this->timeToString($academyData['waktuMulai']),
+			'jamselesai' => $this->timeToString($academyData['waktuSelesai']),
+			'price' => $academyData['price'],
+			'isSelesai' => $academyData['isSelesai'],
+			'isCanDaftar' => false,
+			'validation' => \Config\Services::validation(),
 		];
-		if(isset($_SESSION['userData'])){
+
+		// set variabel jika user login
+		if (isset($_SESSION['userData'])) {
+			// set variable
+			foreach ($data['idAcademy'] as $key => $id) {	
+				$data['isCanDaftar'][$key] = $this->Daftar->getDaftar(['idPendaftar' => $_SESSION['userData']['id'], 'idAcademy' => $id ], 'nama')?false:true;
+			}
 			$data['userdata'] = $_SESSION['userData'];
 		}
+
 		return view('pages/academy_list',$data);
 	}
 
@@ -714,48 +751,112 @@ class Pages extends BaseController
 	 */
 	public function academyDetail()
 	{
-		$id = $_GET['id'];
-		
-		if ($id) {
-			$academyData = $this->Academy->getAcademy_by_id($id);
+		if (isset($_GET['id'])) {
+			// Get academy data
+			$academyData = $this->Academy->getAcademy(['id' => $_GET['id']]);
 
-			// hitung pengajak
-			if ($academyData['keterangan'] == 'Free because other workshop') {
-				$jumlahPengajak = $this->Daftar->countDaftar_by_pengajak_academy('27434', 1);
-				$isFree = false;
-				if ($jumlahPengajak > 10) {
-					$isFree = true;
+			// get list pendaftar
+			$idPendaftarList = $this->Daftar->getDaftar(['idAcademy' => $_GET['id']], 'idPendaftar');
+			if (gettype($idPendaftarList) == 'array') {	
+				$nameList = [];
+				for ($i=0; $i < count($idPendaftarList); $i++) { 
+					$nameList[$i] = $this->User->getUser(['id' => $idPendaftarList[$i]], 'nama');
 				}
-			}else{
-				$jumlahPengajak = 0;
+			}elseif (gettype($idPendaftarList)=='string') {
+				$nameList=[$this->User->getUser(['id' => $idPendaftarList], 'nama')];
+			}else {
+				$nameList=false;
 			}
 
 			$data = [
 				'title' 	=> 'Academy - Detail',
-				'id' 		=> $id,
-				'judul' 	=> $academyData($id)['judul'],
-				'subjudul' 	=> $academyData($id)['subjudul'],
-				'img' 		=> $academyData($id)['img'],
-				'isi' 		=> $academyData($id)['isi'],
-				'tanggal' 	=> $this->dateToString( $academyData($id)['waktuMulai'] ),
-				'jammulai' 	=> $this->timeToString( $academyData($id)['waktuMulai'] ),
-				'jamselesai'=> $this->timeToString( $academyData($id)['waktuSelesai']),
-				'price' 	=> $academyData($id)['price'],
-				'link' 		=> $academyData($id)['link'],
 
-				'progress' 	=> $jumlahPengajak,
-				'isFree'	=> $isFree,
-				
-				'validation'=> \Config\Services::validation()
+				'idAcademy'	=> $_GET['id'],
+				'judul' 	=> $academyData['judul'],
+				'subjudul' 	=> $academyData['subjudul'],
+				'img' 		=> $academyData['img'],
+				'isi' 		=> $academyData['isi'],
+				'tanggal' 	=> $this->dateToString($academyData['waktuMulai']),
+				'jammulai' 	=> $this->timeToString($academyData['waktuMulai']),
+				'jamselesai'=> $this->timeToString($academyData['waktuSelesai']),
+				'price' 	=> $academyData['price'],
+				'listPeserta'	=> $nameList,
+
+				'jumlahPengajak'=> null,
+				'isCanGetCoupon'=> 1,
+				'isCouponExist' => 0,
+				'couponCode' 	=> 'Dapatkan kode voucher',
+
+				'link' 		=> $academyData['link'],
+				'isSelesai' => $academyData['isSelesai'],
+				'isFree'	=> ($academyData['price'] == 'FREE')?true:false,
+				'isCanDaftar'	=> 0,
+				'isCanBayar'	=> 0,
+
+				'validation'	=> \Config\Services::validation()
 			];
 
-			if(isset($_SESSION['userData'])){
-				$data['userdata'] = $_SESSION['userData'];
+			// set variabel jika user login
+			if (isset($_SESSION['userData'])) {
+				if (isset($_GET['openDaftar']) && $_GET['openDaftar']) {
+					$_SESSION['isKirim'] = 'DaftarForm';
+				}
+
+				// hitung pengajak
+				if ($academyData['keterangan'] == 'Free because other workshop part 1') {
+					// get list diajak
+					$jumlahPengajak = $this->Daftar->getDaftar(['idAcademy' => $academyData['idAcademy'], 'idPengajak' => $_SESSION['userData']['id']]);
+					if (!(count($jumlahPengajak) == count($jumlahPengajak, COUNT_RECURSIVE))) {
+						$data['jumlahPengajak'] = count($jumlahPengajak);
+					}elseif (count($jumlahPengajak) == count($jumlahPengajak, COUNT_RECURSIVE)) {
+						$data['jumlahPengajak'] = 1;
+					}else{
+						$data['jumlahPengajak'] = 0;
+					}
+					// set isCanGetCoupon
+					if ($data['jumlahPengajak'] >= 2) {
+						// check coupon excist
+						$idVital = [
+							'idUser'    => $_SESSION['userData']['id'],
+							'idAcademy' => $_GET['id'],
+						];
+						$inviteCoupon = $this->Coupon->getCoupon(['keterangan'=>'Invite10', 'idVital'=>$idVital]);
+						if ($inviteCoupon) {
+							$data['isCouponExist'] = 1;
+							$data['couponCode'] = 'Kode kupon : '.$inviteCoupon['code'];
+						}else{
+							$data['isCouponExist'] = 0;
+						}
+						$data['jumlahPengajak'] = 1;
+					}
+				}else{
+					$data['jumlahPengajak'] = null;
+				}
+
+				// set variabel
+				$data['idDaftar']		= $this->Daftar->getDaftar(['idPendaftar' => $_SESSION['userData']['id'], 'idAcademy' => $_GET['id']], 'nama');
+				$data['isCanDaftar']	= ( $this->Daftar->getDaftar(['idPendaftar' => $_SESSION['userData']['id'], 'idAcademy' => $_GET['id']], 'nama') )?false:true;
+				$data['isCanBayar'] 	= ( $this->Daftar->getDaftar(['idPendaftar' => $_SESSION['userData']['id'], 'idAcademy' => $_GET['id']], 'nama') )?true:false;
+				$data['namaPendaftar'] 	= $_SESSION['userData']['nama'];
+				$data['userdata'] 		= $_SESSION['userData'];
 			}
 			return view('pages/academy_detail',$data);
 		}else {
 			return redirect()->to('/academy/list');
 		}
+	}
+
+	public function sendCoupon(){
+		$method = 'createCoupon_'.$_POST['ketCode'];
+		$result = $this->Kupon->$method($_POST['uniqueCode'], $_SESSION['userData']['id'], $_GET['id']);
+
+		if($result){
+			$_SESSION['isKirim'] = 'CreateCouponSend';
+		}else{
+			$_SESSION['isKirim'] = 'ErrorTechMessage';
+		}
+
+		return redirect()->to($_SERVER['HTTP_REFERER']);
 	}
 
 	/**
@@ -769,38 +870,55 @@ class Pages extends BaseController
 			'Whatsapp' => [
 				'rules' => 'required',
 				'errors' => [
-					'required' => 'Please enter your WhatsApp number.',
+					'required' => 'Mohon masukan nomor whatsapp.',
 				]
 			],
 			'Organisasi' => [
 				'rules' => 'required',
 				'errors' => [
-					'required' => 'Please write your organization.',
-				]
-			],
-			'Pengajak' => [
-				'rules' => 'required',
-				'errors' => [
-					'required' => 'Please write your pengajak.',
+					'required' => 'Mohon masukan perusahan/instansi.',
 				]
 			],
 		];
 		$valid = $this->validate($rules);
 		if (!$valid) {
-			return redirect()->to('/academy/detail')->withInput();
+			$_SESSION['isKirim'] = 'DaftarForm';
+			return redirect()->to('/academy/detail/?id='.$_GET['id'])->withInput();
 		}else{
+			$academyData = $this->Academy->getAcademy(['id'=>$_GET['id']]);
+
 			// data daftar
 			$daftar = [
 				'idPendaftar' 	=> $_SESSION['userData']['id'],
-				'idPengajak' 	=> $this->User->getUser_by_name($_POST['namaPengajak'], $_POST['idPengajak']),
-				'idAcademy' 	=> $_POST['idAcademy'],
-				'namaPengajak' 	=> $_POST['namaPengajak'],
-				'whatsapp' 		=> $_POST['whatsapp'],
-				'organisasi' 	=> $_POST['organisasi'],
-				'jumlahBayar'	=> $this->User->getAcademy_by_id($_GET['id'], 'price'),
+				'idPengajak' 	=> ($this->User->getUser(['nama' => $_POST['Pengajak']], 'id'))?$this->User->getUser(['nama' => $_POST['Pengajak']], 'id'):null,
+				'idAcademy' 	=> $_GET['id'],
+				'namaPengajak' 	=> $_POST['Pengajak'],
+				'whatsapp' 		=> $_POST['Whatsapp'],
+				'organisasi' 	=> $_POST['Organisasi'],
+				'jumlahBayar'	=> $this->Academy->getAcademy_by_id($_GET['id'], 'price'),
 				'tglDaftar' 	=> date('Y-m-d H:i:s'),
-				'maxTglBayar' 	=> date('Y-m-d H:i:s', strtotime($this->User->getAcademy_by_id($_GET['id'], 'waktuMulai'). ' - 90 minutes')),
+				'maxTglBayar' 	=> date('Y-m-d H:i:s', strtotime($this->Academy->getAcademy_by_id($_GET['id'], 'waktuMulai'). ' - 90 minutes')),
 			];
+
+			// if Free, send message
+			if ($academyData['price'] == 'FREE') {
+				// data email ke penjual
+				$fromPenjual 	= $_SESSION['userData']['email'];
+				$toPenjual		= 'irfannugraha@automateall.id';
+				$subjectPenjual	= "bukti pembayar";
+				$messagePenjual	="
+					Pelanggan telah mendaftar workshop gratis. Rekap pendaftaran : <br>
+					1. Nama Pelanggan : ".$this->User->getUser(['id'=>$_SESSION['userData']['id']], 'nama')." <br>
+					2. Nama Kegiatan : ".$academyData['judul']." <br>
+					3. Tgl Mendaftar : ".date('Y-m-d H:i:s')." <br>
+					4. Whatsapp	: ".$_POST['Whatsapp']." <br>
+					5. Organisasi : ".$_POST['Organisasi']." <br>
+				";
+				if(!$this->sendEmail($fromPenjual, $toPenjual, $subjectPenjual, $messagePenjual)){
+					$_SESSION['isKirim'] = 'ErrorTechMessage';
+					return redirect()->to('/academy/detail/?id='.$_GET['id']);
+				}
+			}
 
 			if($this->Daftar->insertDaftar($daftar)){
 				$_SESSION['isKirim'] = 'DaftarAcademySend';
@@ -808,7 +926,7 @@ class Pages extends BaseController
 				$_SESSION['isKirim'] = 'ErrorTechMessage';
 			}
 
-			return redirect()->to('/academy/detail');
+			return redirect()->to('/academy/detail/?id='.$_GET['id']);
 		}
 	}
 
@@ -820,23 +938,50 @@ class Pages extends BaseController
      */
 	public function academyCheckout()
 	{
-		$daftarData = $this->Daftar->getDaftar_by_id_userId( $_GET['id'], $_SESSION['userData']['id'] );
-		if($daftarData) {
-			$academyData = $this->Academy->getAcademy_by_id( $daftarData['id'] );
-			$couponCode = $_SESSION['userdata']['pesanan'][$_GET['nama']];
-			$couponData = $this->Coupon->getCoupon_by_code( $couponCode );
+		$daftarData = $this->Daftar->getDaftar(['nama' => $_GET['id']]);
+		if($daftarData && isset($_SESSION['userData'])) {
+			// get data
+			$academyData = $this->Academy->getAcademy_by_id( $daftarData['idAcademy'] );
 
 			$data = [
 				'title' 		=> 'Academy - checkout',
 				'namaKegiatan' 	=> $academyData['judul'],
-				'maxBayar'		=> $this->dateToString($daftarData['maxTglBayar']).', pukul'.$this->timeToString($daftarData['maxTglBayar']),
+				'maxBayar'		=> $this->dateToString($daftarData['maxTglBayar']).', Pukul '.$this->timeToString($daftarData['maxTglBayar']),
 				'hargaAwal'		=> $daftarData['jumlahBayar'],
-				'potongan'		=> $couponData['potongan'],
-				'totalHarga'	=> $daftarData['jumlahBayar'] - $couponData['potongan'],
+				'potongan'		=> 0,
+				'totalHarga'	=> $daftarData['jumlahBayar'],
+				'isBuktiBayar'	=> 1,
+				'userdata'		=> $_SESSION['userData'],
+				'validation'	=> \Config\Services::validation(),
 			];
-			return view('pages/checkout',$data);
+
+			// set coupon data
+			if (isset($_SESSION['userData']['pesanan'][$_GET['id']])) {
+				$couponCode = $_SESSION['userData']['pesanan'][$_GET['id']];
+				$couponData = $this->Coupon->getCoupon_by_code( $couponCode );
+
+				$method = 'getCoupon_'.$couponData['keterangan'];
+				$Prices = $this->Kupon->$method( $daftarData['jumlahBayar'], $couponData['potongan'] );
+
+				$data['code'] 		= $couponCode;
+				$data['potongan'] 	= $Prices['potongan'];
+				$data['totalHarga']	= $Prices['total'];
+			}
+
+			
+			// set bayar data
+			$bayarData = $this->Bayar->getBayar( ['idDaftar' => $daftarData['id']] );
+			if ($bayarData) {
+				$data['isBuktiBayar'] = ($bayarData['id'])?false:true;
+				$data['keterangan'] = $bayarData['keterangan'];
+			}else {
+				// set bukti bayar
+				$data['isBuktiBayar'] = ($data['totalHarga'] == 0)?false:true;
+			}
+
+			return view('pages/online_learning_checkout',$data);
 		}else {
-			return redirect()->to('/academy/detail');
+			return redirect()->to('/academy/detail?id='.$daftarData['idAcademy']);
 		}
 	}
 
@@ -847,34 +992,45 @@ class Pages extends BaseController
      * @return redirect
      */
 	public function sendAcademyCoupon(){
+		// get coupon
+		$where = [
+			'code' => $_POST['code'], 
+			'idVital' => [
+				'idUser' => $this->Daftar->getDaftar(['nama' => $_GET['id']], 'idPendaftar'),
+				'idAcademy' => $this->Daftar->getDaftar(['nama' => $_GET['id']], 'idAcademy'),
+			],
+			'jumlah' => 1,
+		];
+		$couponData = $this->Coupon->getCoupon($where);
+		$isCoupon = ($couponData)?true:false;
+		
 		$rules = [
 			'code' => [
-				'rules' => 'isCouponExcist',
+				'rules' => 'required|isTrue['.$isCoupon.']',
 				'errors' => [
-					'isCouponExcist' => 'Invalid coupon code.',
+					'required'	=> 'Mohon masukan kupon code',
+					'isTrue'	=> 'Kupon code tidak ditemukan atau telah habis',
 				]
 			],
 		];
+		
 		$valid = $this->validate($rules);
 		if(!$valid){
-			return redirect()->to('/academy/checkout')->withInput();
+			return redirect()->to('/academy/checkout?id='.$_GET['id'])->withInput();
 		}else{
-			$couponData = $this->Coupon->getCoupon_by_code($_POST['code']);
-
 			if ($couponData) {
-				$_SESSION = [
-					'userdata' => [
-						'pesanan' => [
-							$_POST['namaDaftar'] => $couponData['code'],
-						],
-					],
-					'isKirim' => 'CouponAppliedSend',
-				];
+				$_SESSION['userData']['pesanan'][$_GET['id']] = $couponData['code'];
+				$_SESSION['isKirim'] = 'CouponAppliedSend';
 			}else {
 				$_SESSION['isKirim'] = 'ErrorTechMessage';
 			}
-			return redirect()->to('/academy/checkout');
+			return redirect()->to('/academy/checkout?id='.$_GET['id']);
 		}
+	}
+
+	public function deleteAcademyCoupon(){
+		$_SESSION['userData']['pesanan'][$_GET['id']] = null;
+		return redirect()->to('/academy/checkout?id='.$_GET['id']);
 	}
 
 	/**
@@ -884,60 +1040,104 @@ class Pages extends BaseController
      * @return redirect
      */
 	public function sendAcademyCheckout(){
-		// $input = $this->validate([
-        //     'file' => [
-        //         'uploaded[file]',
-        //         'mime_in[file,image/jpg,image/jpeg,image/png]',
-        //     ]
-        // ]);
+		// get data
+		$daftarData = $this->Daftar->getDaftar(['nama' => $_GET['id']]);
+
+		// get prices
+		if (isset($_SESSION['userData']['pesanan'][$_GET['id']])) {
+			$couponData = $this->Coupon->getCoupon( ['code' => $_SESSION['userData']['pesanan'][$_GET['id']]] );
+			$method = 'getCoupon_'.$couponData['keterangan'];
+			$prices = $this->Kupon->$method( $daftarData['jumlahBayar'], $couponData['potongan'] );
+		}
+
 		$rules = [
 			'bukti' => [
-				'rules' => 'required',
+				'rules' => 'uploaded[bukti]',
 				'errors' => [
-					'required' => 'Please input bukti pembayaran.',
-				]
+					'uploaded' => 'Mohon input bukti pembayaran.',
+				],
 			],
 		];
 		$valid = $this->validate($rules);
-		if(!$valid){
-			return redirect()->to('/academy/checkout')->withInput();
+		if(!$valid && $prices['total']!=0 ){
+			return redirect()->to('/academy/checkout?id='.$_GET['id'])->withInput();
 		}else{
-			$idDaftar = $this->Daftar->getDaftar_by_nama_userId($_POST['nama'], $_SESSION['userData']['id'], 'id');
-
-			// Generate Random code
-			$idList = $this->User->getColumn('folderCode');
-			$isUnique = false;
-			while(!$isUnique) { 
-				$id = $this->randomGenerator(10);
-				$id = $id;
-				if(!in_array($id, $idList)){
-					$isUnique = true;
-				}
-			}
-
-			// getImage
-			$img = $this->request->getFile('bukti');
-			$img->move(ROOTPATH.'/public/user/'.$id.'/pesan/'.$_POST['nama']);
-
 			// create data bayar
 			$bayar = [
-				'idDaftar' 	=> $idDaftar,
-				'bukti'		=> '/public/user/'.$id.'/pesan/'.$_POST['nama'],
+				'idDaftar' 	=> $daftarData['id'],
+				'keterangan'=> 'pengecekan',
+				'hargaAwal'	=> $daftarData['jumlahBayar'],
+				'diskon'	=> 0,
+				'total'		=> $daftarData['jumlahBayar'],	
+				'bukti'		=> 'Free Entry',
 			];
 
 			// Add coupon to data bayar if exist
-			if (isset($_POST['code'])) {
-				$idCoupon = $this->Coupon->getCoupon_by_code($_POST['code'], 'id');
-				$bayar = ['idCoupon' => $idCoupon];
-			}			
-			
-			if( $this->Bayar->insertBayar($bayar) ) {
-				$_SESSION['isKirim'] = 'CheckoutAcademySend';
+			if (isset($_SESSION['userData']['pesanan'][$_GET['id']])) {
+				$bayar['idCoupon'] 	= $couponData['id'];
+				$bayar['hargaAwal']	= $daftarData['jumlahBayar'];
+				$bayar['diskon']	= $prices['potongan'];
+				$bayar['total']		= $prices['total'];
+
+				// set coupon data
+				$coupon = [
+					'jumlah' => $couponData['jumlah'] - 1,
+				];
+				if(!$this->Coupon->updateCoupon($coupon, ['id' => $couponData['id']])){
+					$_SESSION['isKirim'] = 'ErrorTechMessage';
+				}
+			}
+
+			// set bukti bayar location
+			if ($bayar['total'] > 0) {
+				$img = $this->request->getFile('bukti');
+				$img->move(ROOTPATH.'/public/user/'.$_SESSION['userData']['uniqueCode'].'/pesan/'.$_GET['id']).'/'.$img->getName();
+				$bayar['bukti'] = '/user/'.$_SESSION['userData']['uniqueCode'].'/pesan/'.$_GET['id'].'/'.$img->getName();
+			}
+
+			// data email ke pendaftar
+			$fromPendaftar	 	= 'Automate All';
+			$toPendaftar		= $_SESSION['userData']['email'];
+			$subjectPendaftar	= "Checkout anda berhasil";
+			$messagePendaftar	="
+				Checkout anda telah kami terima. Selanjutnya kami akan melakukan verifikasi, silahkan melihat status checkout anda pada <a href='".$_SERVER['HTTP_REFERER']."'>link ini</a><br>
+				Rekap pembelian : <br>
+				1. Nama Kegiatan : ".$this->Academy->getAcademy(['id' => $daftarData['idAcademy']], 'judul')." <br>
+				2. Tgl Pembayaran : ".date('Y-m-d H:i:s')." <br>
+				3. Kode Kupon : ".((isset($couponData['code']))?$couponData['code']:'-')." <br>
+				4. Bukti Pembayaran : ". (($bayar['bukti']=='Free Entry')?'-': "<a href='".base_url($bayar['bukti'])."'>bukti pembayaran</a>") ." <br>
+				5. Harga Awal : ".$bayar['hargaAwal']." <br>
+				6. Diskon : ".$bayar['diskon']." <br>
+				7. Total Harga :".$bayar['total']." <br>
+				<br>
+				<br>
+                Terimakasih,<br>
+                The Automate All Team 
+			";
+
+			// data email ke penjual
+			$fromPenjual 	= $_SESSION['userData']['email'];
+			$toPenjual		= 'irfannugraha@automateall.id';
+			$subjectPenjual	= "bukti pembayar";
+			$messagePenjual	="
+				Pelanggan telah mengirim bukti pembayaran. Rekap pembayaran : <br>
+				1. Nama Pelanggan : ".$this->User->getUser(['id'=>$_SESSION['userData']['id']], 'nama')." <br>
+				1. Nama Kegiatan : ".$this->Academy->getAcademy(['id' => $daftarData['idAcademy']], 'judul')." <br>
+				2. Tgl Pembayaran : ".date('Y-m-d H:i:s')." <br>
+				3. Kode Kupon : ".((isset($couponData['code']))?$couponData['code']:'-')." <br>
+				4. Bukti Pembayaran : ". (($bayar['bukti']=='Free Entry')?'-': "<a href='".base_url($bayar['bukti'])."'>bukti pembayaran</a>") ." <br>
+				5. Harga Awal : ".$bayar['hargaAwal']." <br>
+				6. Diskon : ".$bayar['diskon']." <br>
+				7. Total Harga :".$bayar['total']." <br>
+			";
+
+			if( $this->Bayar->insertBayar($bayar) && $this->sendEmail($fromPendaftar, $toPendaftar, $subjectPendaftar, $messagePendaftar) && $this->sendEmail($fromPenjual, $toPenjual, $subjectPenjual, $messagePenjual)) {
+				$_SESSION['isKirim'] = 'CheckoutAcademySendFree';
 			}else{
 				$_SESSION['isKirim'] = 'ErrorTechMessage';
 			}
 
-			return redirect()->to('/academy/detail');
+			return redirect()->to('/academy/checkout?id='.$_GET['id']);
 		}
 	}
 
@@ -950,65 +1150,41 @@ class Pages extends BaseController
      */	
 	public function coba()
 	{
-		$_SESSION = [
-			'userData' => ['id' => '27434'],
-		];
-
-		$result = $this->createCoupon_10to0Rupiah();
-
-		print_r($result);
-
-		echo '
-			<form method="POST" action="/coba" enctype="multipart/form-data">
-				<input type="file" name="file"> 
-				<button type="submit" name="send" id="submitForm">Submit</button>
-			</form>
-		';
+		return view('pages/coba');
 	}
 
 	public function sendCoba()
 	{
-		$input = $this->validate([
-            'file' => [
-                'uploaded[file]',
-                'mime_in[file,image/jpg,image/jpeg,image/png]',
-            ]
-        ]);
-    
-        if (!$input) {
-            print_r('Choose a valid file');
-        } else {
-            $img = $this->request->getFile('file');
-            $img->move(ROOTPATH . '/public/users/id/pesanan/idDaftar');
-    
-            $data = [
-               'directory' => '/users/id/pesanan/idDaftar',
-            ];
-            print_r('File has successfully uploaded');        
-        }
-	}
+		helper(['form', 'url']);
+	
+			$rules = [
+				'bukti' => [
+					'rules' => 'uploaded[bukti]',
+					'errors' => [
+						'uploaded' => 'Mohon input bukti pembayaran.',
+					],
+				],
+			];
+			$valid = $this->validate($rules);
+	
+			$msg = 'Please select a valid bukti';
+	 
+		   if ($valid) {
+			   $avatar = $this->request->getFile('bukti');
+			   $avatar->move(WRITEPATH . 'uploads');
+	
+			 $data = [
+	
+			   'name' =>  $avatar->getClientName(),
+			   'type'  => $avatar->getClientMimeType()
+			 ];
+	
+			 $msg = 'File has been uploaded';
+		   }
 
-
-	// Coupon
-	public function createCoupon_10to0Rupiah(){
-        $dataAcademy = $this->Academy->getAcademy_Order_waktu('id');
-
-        $idVital = [
-            'idUser'    => $_SESSION['userData']['id'],
-            'idAcademy' => $_GET['id'],
-        ];
-
-        $data = [
-            'code'      => 'FREESTUF',
-            'potongan'  => 100,
-            'keterangan'=> 'discount',
-            'tglMulai'  => date('Y-m-d H:i:s'),
-            'tglSelesai'=> date('Y-m-d H:i:s', strtotime($this->Academy->getAcademy_by_id($_GET['id'], 'waktuMulai'). ' - 90 minutes')),
-            'jumlah'    => 1,
-            'idVital'   => json_encode($idVital),
-		];
-
-		return $this->Coupon->insertCoupon($data);
+		   print_r($msg);
+	
+		//   return redirect()->to( base_url('/coba') )->with('msg', $msg);
 	}
 
 }

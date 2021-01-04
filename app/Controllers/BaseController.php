@@ -54,6 +54,7 @@ class BaseController extends Controller
 		$this->Daftar = new \App\Models\Daftar();
 		$this->Bayar = new \App\Models\Bayar();
 		$this->Coupon = new \App\Models\Coupon();
+		$this->Kupon = new \App\Controllers\Kupon();
 
 		// $this->Voucher = new Coupon();
 
@@ -226,4 +227,11 @@ class BaseController extends Controller
 		return $this->email->send();
 	}
 	
+	public function tranposeArray($data){
+		$result = array_fill_keys( array_keys($data[0]) , array() );
+		foreach ($result as $key => $value) {
+			$result[$key] = array_column($data, $key);
+		}
+		return ($result);
+    }
 }
