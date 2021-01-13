@@ -1,28 +1,8 @@
 <?php namespace App\Controllers;
 
 class Pages extends BaseController
-{
-	/**
-     * Method untuk membuat tampilan registrasi
-	 * dengan link '/regis'
-     * 
-     * @return view|redirect
-     */
-    public function regis()
-	{
-		if (isset($_SESSION['userData'])) {
-			return redirect()->to('/');
-		}else{
-			$data = [
-				'title'=>'Automateall Registration',
-				'validation' => \Config\Services::validation(),
-				'isNotIncFooter' => 0,
-				'isNotIncNavbar' => 0,
-			];
-			return view('pages/regis',$data);
-		}
-	}
-
+{	
+	
 	/**
      * Method untuk proses login
 	 * dengan post '/login'
@@ -73,8 +53,7 @@ class Pages extends BaseController
 			$idList = $this->User->getColumn('id');
 			$isUnique = false;
 			while(!$isUnique) { 
-				$id = $this->randomGenerator(5);
-				$id = $id;
+				$id = $this->randomGenerator(10);
 				if(!in_array($id, $idList)){
 					$isUnique = true;
 				}
@@ -94,20 +73,31 @@ class Pages extends BaseController
 			$id		= $this->randomGenerator(10);
 			$email	= $user['email'];
 			$date	= date('Y-m-d H:i:s');
-			$tokenS	= base64_encode('tkn='.$id.'&email='.$email.'&date='.$date);
+			$tokenS	= $this->encryption('tkn='.$id.'&email='.$email.'&date='.$date, $this->sKeyLink);
 			$link	= $link.$tokenS;
 
 			// Send Email
+			$fromEmail = 'noreply@automateall.id';
 			$from 	= 'Automate All';
 			$to		= $userMailS[0].'@'.$userMailS[1];
 			$subject= 'Konfirmasi Email Anda';
 			$message="
-                Hai, selamat datang di Automate All<br>
-                Mohon verifikasi email untuk menyelesaikan akun dengan cara klik link berikut:<br>
-                '.$link.'<br>
-                
-                Terimakasih,<br>
+				Hai, selamat datang di Automate All<br>
+				Mohon verifikasi email untuk menyelesaikan akun dengan cara klik link berikut:<br>
+				'.$link.'<br>
+				
+				Terimakasih,<br>
+				The Automate All Team 
                 The Automate All Team 
+				The Automate All Team 
+                The Automate All Team 
+				The Automate All Team 
+                The Automate All Team 
+				The Automate All Team 
+                The Automate All Team 
+				The Automate All Team 
+                The Automate All Team 
+				The Automate All Team 
 			";
 
 			$linkconfirm = [
@@ -115,14 +105,57 @@ class Pages extends BaseController
 				'tglTerbuat'=> $date,
 				'type'		=> 'verifyAccount',
 			];
-
-			if ($this->User->insertUser($user) && $this->LinkConfirm->insert_row($linkconfirm) && $this->sendEmail($from, $to, $subject, $message)) {
+			
+			if ($this->User->insertUser($user) && $this->LinkConfirm->insertLinkConfirm($linkconfirm) && $this->sendEmail($fromEmail, $from, $to, $subject, $message)) {
 				$_SESSION['isKirim'] = 'RegisterAccountSend';
 				return redirect()->to($_SERVER['HTTP_REFERER']);
 			}else{
 				$_SESSION['isKirim'] = 'ErrorTechMessage';
 				return redirect()->to($_SERVER['HTTP_REFERER']);
 			}
+		}
+	}
+
+	public function sendVerifyMessage()
+	{
+		/// Send Confrimation Message
+		// Link Generator
+		$link 	= base_url('/verifyAccount?token=');
+		$id		= $this->randomGenerator(10);
+		$email	= $_SESSION['userData']['email'];
+		$date	= date('Y-m-d H:i:s');
+		$tokenS	= $this->encryption('tkn='.$id.'&email='.$email.'&date='.$date, $this->sKeyLink);
+		$tokenS = str_replace(['+','/','='], ['xtamx','xgarx','xsamx'], $tokenS);
+		$link	= $link.$tokenS;
+		
+		$userMailS = preg_split('/@/', $email);
+
+		// Send Email
+		$fromEmail = 'noreply@automateall.id';
+		$from 	= 'Automate All';
+		$to		= $userMailS[0].'@'.$userMailS[1];
+		$subject= 'Konfirmasi Email Anda';
+		$message="
+			Hai, selamat datang di Automate All<br>
+			Mohon verifikasi email untuk menyelesaikan akun dengan cara klik link berikut:<br>
+			'.$link.'<br>
+			
+			Terimakasih,<br>
+			The Automate All Team 
+		";
+
+		$linkconfirm = [
+			'token'		=> $tokenS,
+			'tglTerbuat'=> $date,
+			'type'		=> 'verifyAccount',
+		];
+
+		if ($this->LinkConfirm->insertLinkConfirm($linkconfirm) && $this->sendEmail($fromEmail, $from, $to, $subject, $message)) {
+			$_SESSION['isKirim'] = 'VerifyMessageSend';
+			return redirect()->to($_SERVER['HTTP_REFERER']);
+		}else{
+			$_SESSION['isKirim'] = 'ErrorTechMessage';
+			return redirect()->to($_SERVER['HTTP_REFERER']);
 		}
 	}
 
@@ -137,7 +170,8 @@ class Pages extends BaseController
 		$linkConfirmRow = $this->LinkConfirm->get_by_token($_GET['token']);
 		if($linkConfirmRow != null){
 			if ($linkConfirmRow['type'] = 'verifyAccount') {
-				$get = base64_decode($_GET['token']);
+			    $token = str_replace(['xtamx','xgarx','xsamx'], ['+','/','='], $_GET['token']);
+				$get = $this->decryption($token, $this->sKeyLink);
 				$token = preg_replace('/(tkn=|&email.*)/', '', $get);
 				$emailS = preg_replace('/(.*&email=|&date=.*)/', '', $get);
 				$emailS = preg_split('/@/', $emailS);
@@ -145,19 +179,21 @@ class Pages extends BaseController
 
 				$data = [
 					'title' => 'Verify your Account',
+					'emailS' => ($emailS[0]).'@'.$emailS[1],
 					'email' => $emailS[0].'@'.$emailS[1],
-					'emailS' => $emailS[0].'@'.$emailS[1],
 					'date' => $date,
+					'userdata' => $_SESSION['userData'],
 					'validation' => \Config\Services::validation(),
 				];
+				$_SESSION['userData']['isVerifikasi'] = 1;
 				return view('pages/verify', $data);
 			}else{
                 $_SESSION['isKirim'] = 'ErrorLinkInvalid';
-				return redirect()->to('/');
+                return redirect()->to('/');
     		}
 		}else{
             $_SESSION['isKirim'] = 'ErrorLinkInvalid';
-			return redirect()->to('/');
+            return redirect()->to('/');
 		}
 	}
 
@@ -178,40 +214,8 @@ class Pages extends BaseController
 			$_SESSION['isKirim'] = 'ErrorTechMessage';
 		}
 		return redirect()->to('/');
-	}
-
-	/**
-     * Method untuk membuat tampilan login 
-	 * dengan link '/login'
-     * 
-     * @return view|redirect
-     */
-	public function login()
-	{
-		if((!isset($_SERVER['HTTP_REFERER'])) || ($_SERVER['HTTP_REFERER'] != base_url('/login'))){
-			$_SESSION['tryLoginCount'] = 0;
-		}
-
-		if (isset($_SESSION['userData'])) {
-			return redirect()->to('/');
-		}else{
-			if(isset($_SESSION['tryLoginCount']) && $_SESSION['tryLoginCount'] >= 3){
-				$lupaPass = 1;
-			}else{
-				$lupaPass = 0;
-			}
-			
-			$data = [
-				'title'=>'Automateall - Login',
-				'validation' => \Config\Services::validation(),
-				'lupaPass' => $lupaPass,
-				'isNotIncFooter' => 0,
-				'isNotIncNavbar' => 0,
-			];
-			return view('pages/login',$data);
-		}
-	}
-
+	}	
+	
 	/**
      * Method untuk proses login
 	 * dengan post '/login'
@@ -219,7 +223,6 @@ class Pages extends BaseController
      * @return view|redirect 
      */
 	public function sendLogin(){
-		// return redirect()->to($_SERVER['HTTP_REFERER']);
 		$rules = [
 			'emailLogin' => [
 				'rules' => 'required|valid_email',
@@ -255,11 +258,10 @@ class Pages extends BaseController
 
 			$rawData = $this->User->getUser_by_login($userMailS, $userPassS);
 			$_SESSION['userData'] = [
-				'nama' => $rawData['nama'], $userPassS,
-				'email' => preg_split('/@/', $rawData['email'])[0].preg_split('/@/', $rawData['email'])[1],
-				'pass' => $rawData['pass'],
-				'id' => $rawData['id'],
+				'nama' => $rawData['nama'],
+				'email' => (preg_split('/@/', $rawData['email'])[0]).'@'.preg_split('/@/', $rawData['email'])[1],
 				'uniqueCode' => $rawData['uniqueCode'],
+				'id' => $rawData['id'],
 				'isVerifikasi' => $rawData['isVerifikasi'],
 			];
 			
@@ -285,7 +287,7 @@ class Pages extends BaseController
 			$id = $this->randomGenerator(10);
 			$email = $userMailS;
 			$date = date('Y-m-d H:i:s');
-			$tokenS = base64_encode('tkn='.$id.'&email='.$email.'&date='.$date);
+			$tokenS = $this->encryption('tkn='.$id.'&email='.$email.'&date='.$date, $this->sKeyLink);
 			$link = $link.$tokenS;
 			
 			// Sent email
@@ -456,7 +458,7 @@ class Pages extends BaseController
 		}
 		return view('pages/blog',$data);
 	}
-	
+
 	/**
      * Method untuk membuat tampilan list blog
 	 * dengan link '/blog/all'
@@ -528,11 +530,37 @@ class Pages extends BaseController
     }
 
 	/**
+     * Method untuk membuat tampilan detail produk dan service
+	 * dengan link '/detail'
+	 * 
+     * @return view
+     */
+	public function detail()
+	{
+		$data = [
+			'title'			=> 'Detail Product',
+			'judul'			=> $this->Product->getProduct_by_id($_GET['id'], 'judul'),
+			'isi'			=> $this->Product->getProduct_by_id($_GET['id'], 'isi'),
+			'client'		=> $this->Product->getProduct_by_id($_GET['id'], 'client'),
+			'service'		=> $this->Product->getProduct_by_id($_GET['id'], 'service'),
+			'year'			=> preg_replace('/-.*/', '', $this->Product->getProduct_by_id($_GET['id'], 'tglBerlangganan')),
+			'img'			=> $this->Product->getProduct_by_id($_GET['id'], 'img'),
+			'isDelete'		=> $this->Product->getProduct_by_id($_GET['id'], 'isDeleted'),
+			'fileLocation'	=> $this->Product->getProduct_by_id($_GET['id'], 'fileLocation'),
+			'validation' 	=> \Config\Services::validation(),
+		];
+		if(isset($_SESSION['userData'])){
+			$data['userdata'] = $_SESSION['userData'];
+		}
+		return view('pages/product_detail',$data);
+	}
+
+	/**
      * Method untuk membuat tampilan our main value
 	 * dengan link '/omv'
 	 * 
      * @return view
-     */		
+     */	
     public function ourMainValue()
 	{
 		$data = [
@@ -550,7 +578,7 @@ class Pages extends BaseController
 	 * dengan link '/contact'
 	 * 
      * @return view
-     */		
+     */	
     public function contact()
 	{
 		$data = [
@@ -598,73 +626,46 @@ class Pages extends BaseController
 			return redirect()->to('/contact')->withInput();
 		} else {
 			if (isset($_POST['send'])) {
+			    print($_POST['Email']);
+			    $fromEmail = $_POST['Email'];
 				$from = $_POST['Name'].', menggunakan website';
 				$to		= 'irfannugraha844@gmail.com';
 				$subject= 'Pesan dari pengguna, '.$_POST['Name'].', melalui website AutomateAll';
 				$message= '
-						<p style="font-weight: bold; margin: 0px;">Pengirim : </p>
-						<table style="text-align: left; margin: 0px; margin-left: 10px;">
-							<tr style="margin: 0px; margin-left: 10px; ">
-								<td>Nama</td>
-								<td>:</td>
-								<td>'.$_POST['Name'].'</td>
-							</tr>
-							<tr style="margin: 0px; margin-left: 10px; ">
-								<td>Email</td>
-								<td>:</td>
-								<td><a href="mailto: '.$_POST['Email'].'" target="_blank">'.$_POST['Email'].'</a></td>
-							</tr>
-							<tr style="margin: 0px; margin-left: 10px; ">
-								<td>Phone</td>
-								<td>:</td>
-								<td>'.$_POST['Phone'].'</td>
-							</tr>
-						</table>
-						<br>
-						<p style="font-weight: bold; margin: 0px;">Pesan : </p>
-						<p style="margin: 0px; margin-left: 10px; " >'.$_POST['Msg'].'</p>
-					';
-
-				if($this->sendEmail($from, $to, $subject, $message)){
-					$_SESSION['isKirim'] = 'ContactMessageSent'; // #Change ubah $iskirim ke $_SESSION['isKirim']
+					<p style="font-weight: bold; margin: 0px;">Pengirim : </p>
+					<table style="text-align: left; margin: 0px; margin-left: 10px;">
+						<tr style="margin: 0px; margin-left: 10px; ">
+							<td>Nama</td>
+							<td>:</td>
+							<td>'.$_POST['Name'].'</td>
+						</tr>
+						<tr style="margin: 0px; margin-left: 10px; ">
+							<td>Email</td>
+							<td>:</td>
+							<td><a href="mailto: '.$_POST['Email'].'" target="_blank">'.$_POST['Email'].'</a></td>
+						</tr>
+						<tr style="margin: 0px; margin-left: 10px; ">
+							<td>Phone</td>
+							<td>:</td>
+							<td>'.$_POST['Phone'].'</td>
+						</tr>
+					</table>
+					<br>
+					<p style="font-weight: bold; margin: 0px;">Pesan : </p>
+					<p style="margin: 0px; margin-left: 10px; " >'.$_POST['Msg'].'</p>
+				';
+				
+				if($this->sendEmail($fromEmail, $from, $to, $subject, $message)){
+					$_SESSION['isKirim'] = 'ContactMessageSent';
 					return redirect()->to('/contact');
 				}else{
 					$_SESSION['isKirim'] = 'ErrorTechMessage';
 					return redirect()->to('/contact');
 				}
-				
-				#Change tidak ada kirim pesan referral, jadi dihapus $_POST['redir']
-				// return redirect()->to('/contact');
 			}
 		}
 	}
-
-	/**
-     * Method untuk membuat tampilan detail produk dan service
-	 * dengan link '/detail'
-	 * 
-     * @return view
-     */
-	public function detail()
-	{
-		$data = [
-			'title'			=> 'Detail Product',
-			'judul'			=> $this->Product->getProduct_by_id($_GET['id'], 'judul'),
-			'isi'			=> $this->Product->getProduct_by_id($_GET['id'], 'isi'),
-			'client'		=> $this->Product->getProduct_by_id($_GET['id'], 'client'),
-			'service'		=> $this->Product->getProduct_by_id($_GET['id'], 'service'),
-			'year'			=> preg_replace('/-.*/', '', $this->Product->getProduct_by_id($_GET['id'], 'tglBerlangganan')),
-			'img'			=> $this->Product->getProduct_by_id($_GET['id'], 'img'),
-			'isDelete'		=> $this->Product->getProduct_by_id($_GET['id'], 'isDeleted'),
-			'fileLocation'	=> $this->Product->getProduct_by_id($_GET['id'], 'fileLocation'),
-			'validation' => \Config\Services::validation(),
-		];
-		if(isset($_SESSION['userData'])){
-			$data['userdata'] = $_SESSION['userData'];
-		}
-		return view('pages/detail',$data);
-	}
-
+	
 	/**
      * Method untuk membuat tampilan akademi
 	 * dengan link '/academy'
@@ -683,7 +684,7 @@ class Pages extends BaseController
 		return view('pages/academy',$data);
 	}
 
-# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	/**
      * Method untuk membuat tampilan list akademi
 	 * dengan link '/academy/list'
@@ -783,7 +784,7 @@ class Pages extends BaseController
 				'listPeserta'	=> $nameList,
 
 				'jumlahPengajak'=> null,
-				'isCanGetCoupon'=> 1,
+				'isCanGetCoupon'=> 0,
 				'isCouponExist' => 0,
 				'couponCode' 	=> 'Dapatkan kode voucher',
 
@@ -806,16 +807,16 @@ class Pages extends BaseController
 				if ($academyData['keterangan'] == 'Free because other workshop part 1') {
 					// get list diajak
 					$jumlahPengajak = $this->Daftar->getDaftar(['idAcademy' => $academyData['idAcademy'], 'idPengajak' => $_SESSION['userData']['id']]);
-					if (!(count($jumlahPengajak) == count($jumlahPengajak, COUNT_RECURSIVE))) {
+					if (!$jumlahPengajak) {
+						$data['jumlahPengajak'] = 0;
+					}elseif (!(count($jumlahPengajak) == count($jumlahPengajak, COUNT_RECURSIVE))) {
 						$data['jumlahPengajak'] = count($jumlahPengajak);
 					}elseif (count($jumlahPengajak) == count($jumlahPengajak, COUNT_RECURSIVE)) {
 						$data['jumlahPengajak'] = 1;
-					}else{
-						$data['jumlahPengajak'] = 0;
 					}
 					// set isCanGetCoupon
-					if ($data['jumlahPengajak'] >= 2) {
-						// check coupon excist
+					if ($data['jumlahPengajak'] >= 10) {
+						// check coupon exist
 						$idVital = [
 							'idUser'    => $_SESSION['userData']['id'],
 							'idAcademy' => $_GET['id'],
@@ -825,6 +826,7 @@ class Pages extends BaseController
 							$data['isCouponExist'] = 1;
 							$data['couponCode'] = 'Kode kupon : '.$inviteCoupon['code'];
 						}else{
+							$data['isCanGetCoupon'] = 1;
 							$data['isCouponExist'] = 0;
 						}
 						$data['jumlahPengajak'] = 1;
@@ -840,6 +842,7 @@ class Pages extends BaseController
 				$data['namaPendaftar'] 	= $_SESSION['userData']['nama'];
 				$data['userdata'] 		= $_SESSION['userData'];
 			}
+			print_r($data['isCanGetCoupon']);
 			return view('pages/academy_detail',$data);
 		}else {
 			return redirect()->to('/academy/list');
@@ -882,7 +885,6 @@ class Pages extends BaseController
 		];
 		$valid = $this->validate($rules);
 		if (!$valid) {
-			$_SESSION['isKirim'] = 'DaftarForm';
 			return redirect()->to('/academy/detail/?id='.$_GET['id'])->withInput();
 		}else{
 			$academyData = $this->Academy->getAcademy(['id'=>$_GET['id']]);
@@ -903,6 +905,7 @@ class Pages extends BaseController
 			// if Free, send message
 			if ($academyData['price'] == 'FREE') {
 				// data email ke penjual
+				$fromPenjualEmail = $_SESSION['userData']['email'];
 				$fromPenjual 	= $_SESSION['userData']['email'];
 				$toPenjual		= 'irfannugraha@automateall.id';
 				$subjectPenjual	= "bukti pembayar";
@@ -914,19 +917,18 @@ class Pages extends BaseController
 					4. Whatsapp	: ".$_POST['Whatsapp']." <br>
 					5. Organisasi : ".$_POST['Organisasi']." <br>
 				";
-				if(!$this->sendEmail($fromPenjual, $toPenjual, $subjectPenjual, $messagePenjual)){
-					$_SESSION['isKirim'] = 'ErrorTechMessage';
-					return redirect()->to('/academy/detail/?id='.$_GET['id']);
+				if(!$this->sendEmail($fromPenjualEmail, $fromPenjual, $toPenjual, $subjectPenjual, $messagePenjual)){
+					// $_SESSION['isKirim'] = 'ErrorTechMessage';
+					return redirect()->to('/academy/detail/?id='.$_GET['id'])->with('isKirim', 'ErrorTechMessage');
 				}
 			}
-
 			if($this->Daftar->insertDaftar($daftar)){
 				$_SESSION['isKirim'] = 'DaftarAcademySend';
 			}else{
 				$_SESSION['isKirim'] = 'ErrorTechMessage';
 			}
 
-			return redirect()->to('/academy/detail/?id='.$_GET['id']);
+			// return redirect()->to('/academy/detail/?id='.$_GET['id']);
 		}
 	}
 
@@ -947,10 +949,11 @@ class Pages extends BaseController
 				'title' 		=> 'Academy - checkout',
 				'namaKegiatan' 	=> $academyData['judul'],
 				'maxBayar'		=> $this->dateToString($daftarData['maxTglBayar']).', Pukul '.$this->timeToString($daftarData['maxTglBayar']),
-				'hargaAwal'		=> $daftarData['jumlahBayar'],
-				'potongan'		=> 0,
-				'totalHarga'	=> $daftarData['jumlahBayar'],
+				'hargaAwal'		=> $this->intToMoney($daftarData['jumlahBayar']),
+				'potongan'		=> $this->intToMoney(0),
+				'totalHarga'	=> $this->intToMoney($daftarData['jumlahBayar']),
 				'isBuktiBayar'	=> 1,
+				'code'			=> null,
 				'userdata'		=> $_SESSION['userData'],
 				'validation'	=> \Config\Services::validation(),
 			];
@@ -964,8 +967,8 @@ class Pages extends BaseController
 				$Prices = $this->Kupon->$method( $daftarData['jumlahBayar'], $couponData['potongan'] );
 
 				$data['code'] 		= $couponCode;
-				$data['potongan'] 	= $Prices['potongan'];
-				$data['totalHarga']	= $Prices['total'];
+				$data['potongan'] 	= $this->intToMoney($Prices['potongan']);
+				$data['totalHarga']	= $this->intToMoney($Prices['total']);
 			}
 
 			
@@ -1096,6 +1099,7 @@ class Pages extends BaseController
 			}
 
 			// data email ke pendaftar
+			$fromEmailPendaftar = 'noreply@automateall.id';
 			$fromPendaftar	 	= 'Automate All';
 			$toPendaftar		= $_SESSION['userData']['email'];
 			$subjectPendaftar	= "Checkout anda berhasil";
@@ -1116,6 +1120,7 @@ class Pages extends BaseController
 			";
 
 			// data email ke penjual
+			$fromEmailPenjual = $_SESSION['userData']['email'];
 			$fromPenjual 	= $_SESSION['userData']['email'];
 			$toPenjual		= 'irfannugraha@automateall.id';
 			$subjectPenjual	= "bukti pembayar";
@@ -1131,7 +1136,7 @@ class Pages extends BaseController
 				7. Total Harga :".$bayar['total']." <br>
 			";
 
-			if( $this->Bayar->insertBayar($bayar) && $this->sendEmail($fromPendaftar, $toPendaftar, $subjectPendaftar, $messagePendaftar) && $this->sendEmail($fromPenjual, $toPenjual, $subjectPenjual, $messagePenjual)) {
+			if( $this->Bayar->insertBayar($bayar) && $this->sendEmail($fromEmailPendaftar, $fromPendaftar, $toPendaftar, $subjectPendaftar, $messagePendaftar) && $this->sendEmail($fromEmailPenjual, $fromPenjual, $toPenjual, $subjectPenjual, $messagePenjual)) {
 				$_SESSION['isKirim'] = 'CheckoutAcademySendFree';
 			}else{
 				$_SESSION['isKirim'] = 'ErrorTechMessage';
@@ -1150,7 +1155,7 @@ class Pages extends BaseController
      */	
 	public function coba()
 	{
-		return view('pages/coba');
+		print_r($_SESSION['userData']);
 	}
 
 	public function sendCoba()

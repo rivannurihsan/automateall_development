@@ -56,20 +56,11 @@ class BaseController extends Controller
 		$this->Coupon = new \App\Models\Coupon();
 		$this->Kupon = new \App\Controllers\Kupon();
 
-		// $this->Voucher = new Coupon();
-
 		$this->email = \Config\Services::email();
+		$this->sKeyLink = 'keylink';
 		session();
 	}
 
-	/**
-     * Method untuk membuat string random 
-	 * dengan panjang yang ditentukan pada parameter,
-	 * String terdiri dari angka, huruf kecil, dan huruf kapital
-     * 
-     * @param integer $len
-     * @return string
-     */    
 	public function randomGenerator($len){
 		$rand='';
 		for ($i=0; $i < $len; $i++) { 
@@ -83,14 +74,6 @@ class BaseController extends Controller
 		return $rand;
 	}
 
-	/**
-     * Method untuk mengubah date('Y-m-d')
-	 * menjadi date('d F Y'),
-	 * Contoh '3003-03-30' menjadi '30 Maret 3003'
-     * 
-     * @param date Y-m-d $date
-     * @return date d F Y
-     */  
 	public function dateToString($date)
 	{
 		if (gettype($date) == 'array') {
@@ -184,14 +167,6 @@ class BaseController extends Controller
 		return $date;
 	}
 	
-	/**
-     * Method untuk mengubah waktu dengan format date('Y-m-d H:i:s')
-	 * menjadi date('H:i'),
-	 * Contoh '10:08:53' menjadi '10:08'
-     * 
-     * @param date Y-m-d H:i:s $date
-     * @return date H:i
-     */  	
 	public function timeToString($date)
 	{
 		if (gettype($date) == 'array') {
@@ -204,10 +179,9 @@ class BaseController extends Controller
 			$date = preg_replace("/^[0-9].*\s/", '', $date);
 			$date = preg_split("/:/", $date);
 			$date = $date[0].':'.$date[1];
-			// preg_replace("/^[0-9].*\s/", '', $date)
 		}
 		return $date;
-	}
+	}	
 	
 	/**
      * Method untuk mengubah waktu dengan format date('Y-m-d H:i:s')
@@ -216,15 +190,16 @@ class BaseController extends Controller
      * 
      * @return true|false
      */  	
-	public function sendEmail($from, $to, $subject=null, $message=null){
+	public function sendEmail($fromEmail, $from, $to, $subject=null, $message=null){
 		session();
-		$this->email->setFrom($from);
+		$this->email->setFrom($fromEmail, $from);
 		$this->email->setTo($to);
 
 		$this->email->setSubject($subject);
 		$this->email->setMessage($message);
-
-		return $this->email->send();
+    
+ 		return $this->email->send();
+		// echo $this->email->printDebugger();
 	}
 	
 	public function tranposeArray($data){
@@ -234,4 +209,38 @@ class BaseController extends Controller
 		}
 		return ($result);
     }
+
+	public function encryption($text, $key){
+		$metode = "AES-128-CTR"; 
+		$options = 0; 
+		$iv = '1234567890123456';
+
+		$encryption = openssl_encrypt($text, $metode, $key, $options, $iv);
+		return base64_encode($encryption);
+	}
+
+	public function decryption($text, $key){
+		$metode = "AES-128-CTR"; 
+		$options = 0; 
+		$iv = '1234567890123456';
+
+		$decryption = openssl_decrypt(base64_decode($text), $metode, $key, $options, $iv);
+		return $decryption;
+	}
+
+	public function intToMoney($int){
+		$int = strrev($int);
+		$int = str_split($int, 3);
+
+		$hasil = null;
+		for ($i=count($int); $i > 0; $i--) { 
+			if ($i-1 == count($int)-1) {
+				$hasil = strrev($int[$i-1]);
+			}else {
+				$hasil = $hasil.'.'.strrev($int[$i-1]);
+			}
+		}
+		return $hasil;
+	}
+	
 }

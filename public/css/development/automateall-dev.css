@@ -1,4 +1,5 @@
 /* Automate All CSS Minified */
+/*#region main */
 :root {
     --primary-color: #0F4C75;
     --secondary-color: #90ACBF;
@@ -26,8 +27,9 @@ body {
 .sorry {
     margin-top: 150px;
 }
+/*#endregion main  */
 
-/* Primary Color  */
+/*#region Primary Color  */
 .nav-item a,
 footer,
 footer span,
@@ -58,8 +60,9 @@ section.contact-us span,
 .sorry {
     color: #0F4C75 !important;
 }
+/*#endregion Primary Color  */
 
-/* Secondary Color */
+/*#region Secondary Color */
 section.solution h2,
 section.solution h3,
 .products p,
@@ -71,8 +74,9 @@ section.contact-us input::placeholder,
 .text-muted {
     color: #90ACBF !important;
 }
+/*#endregion Secondary Color */
 
-/* Navbar */
+/*#region Navbar */
 .navbar {
     background-color: rgba(255, 255, 255, .8)
 }
@@ -91,12 +95,13 @@ section.contact-us input::placeholder,
 }
 
 .nav-link {
-    padding: 0 1rem;
+    padding: 0;
+    margin: 10px auto !important;
 }
 
 .nav-item a {
     font-weight: 600;
-    font-size: 22px;
+    font-size: 12px !important;
     margin: 20px auto;
 }
 
@@ -124,16 +129,31 @@ section.contact-us input::placeholder,
 
 .navbar .login{
     border-radius: 5px;
-    padding: 8px 0 7px 0;
+    box-sizing: border-box;
+    padding: 5px 15px;
     background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     color: white !important;
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+}
+
+.navbar .regist{
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    background-color: white;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
     cursor: pointer;
 }
 
+.nav-item .logout{
+    margin: 0 !important;
+}
+/*#endregion Navbar */
 
-/* Akhir Navbar */
-
-/* Footer */
+/*#region Footer */
 footer.border-top {
     border-color: #C9E3F4;
 }
@@ -169,11 +189,285 @@ footer .socials-mr {
     margin-right: 28px;
 }
 
-/* Akhir Footer */
+/*#endregion Footer */
+
+/*#region Checkout  */
+.modal{
+    z-index: 999999;
+}
+
+.content{
+   margin-top: 150px;
+   /* overflow-x: hidden; */
+   
+}
+.content_text{
+   margin-top: 0px;
+}
+.text__checkoutWrapper{
+   height: 64px;
+}
+.text__checkout{
+   font-weight: 900 !important;
+   font-size: 36px !important;
+   font-style: normal !important;
+   font-family: "Biryani',sans-serif" !important;
+}
+.content__texWrapper{
+   display: flex;
+   flex-direction: column;
+   width: 386px;
+}
+.content__texWrapperLeft{
+   min-width: 207px;
+}
+.content__textLeft{
+   font-weight: 600;
+   font-size: 24px;
+   color: #0F4C75;
+   font-family: "Biryani',sans-serif" !important;
+}
+.content__textRight{
+   font-weight: 400;
+   font-size: 22px;
+   color: #0F4C75;
+   font-family: "Varela',sans-serif" !important;
+}
+.content_wrapper{
+   display: flex;
+
+}
+.imgLogoOvo{
+   width: 110px;
+   height: 52px;
+}
+.imgLogoOvo > img {
+   width: 100%;
+}
+.imgLogoDana{
+   width: 182px;
+}
+.imgLogoDana > img{
+   width: 100%;
+}
+.imgLogoShope{
+   width: 160px;
+   height: 84px;
+}
+.imgLogoShope > {
+   width: 100%;
+}
+.text_anWrapper{
+    margin-top: -65px;
+}
+.text_an{
+   font-weight: 400;
+   font-size: 24px;
+   font-family: "Biryani',sans-serif" !important;
+}
+.text_anSpan{
+   font-weight: 700;
+}
+.inputForm{
+   border-color: #0F4C75;
+   padding: 10px 15px;
+   border-radius: 5px;
+   width: 224px;
+   margin-right: 20px;
+   font-family: "Varela',sans-serif" !important;
+}
+.inputForm::-webkit-input-placeholder{
+   color: #0F4C75;
+   font-size: 20px;
+}
+.submitForm{
+   padding: 10px 20px;
+   border-radius: 5px;
+   color: white;
+   background-color: #0F4C75;
+   border: none;
+   font-family: "Biryani',sans-serif" !important;
+}
+.tabble__wrap{
+    height: 466px;
+}
+.table__wrapper{
+   border-radius: 5px;
+   border: 2px solid #0F4C75;
+   width: 100%;
+   padding: 35px 30px;
+   margin-bottom: 90px;
+}
+.table__summary{
+   font-size: 32px;
+   color: #0F4C75;
+   font-weight: 900 !important;
+   margin-top: 30px;
+   font-family: "Biryani',sans-serif" !important;
+}
+.table__textLeft{
+   font-size: 24px;
+   color: #0F4C75;
+   font-weight: 600;
+}
+.table__textLeftBayar{
+   font-size: 24px;
+   font-weight: 700;
+   color: #0F4C75;
+}
+.table__textRightBayar{
+   font-size: 24px;
+   font-weight: 400;
+   color: #0F4C75;
+}
+.text__unggah{
+   font-weight: 700;
+   font-size: 20px;
+}
+.block {
+   display: block;
+   width: 100%;
+   border: none;
+   background-color: #0F4C75;
+   padding: 10px;
+   font-size: 30px;
+   font-weight: 600;
+   cursor: pointer;
+   text-align: center;
+   color: white;
+}
+.text__buktiWrapper{
+   margin-top: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.text__bukti{
+   font-size: 20px;
+   font-weight: bold;
+   margin-top: 10px;
+   font-family: "Biryani',sans-serif" !important;
+   cursor: pointer;
+   text-align: center;
+   width: 100%;
+}
+.text__struk{
+   margin-top: 7px;
+   margin-bottom: 52px;
+   font-family: "Varela',sans-serif" !important;
+   font-size: 18px;
+}
+.text__wrapper{
+   width: 209px;
+   height: 45px;
+   border: 2px solid #0F4C75;
+   border-radius: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.btn-primary{
+   background-color: #0F4C75;
+   /* padding: 10px 0 10px 0; */
+   font-size: 30px;
+   font-weight: 600;
+   font-family: "Biryani',sans-serif" !important;
+   
+}
+.text__th{
+   font-size: 24px;
+   font-weight: 600;
+   font-family: "Biryani',sans-serif" !important;
+}
+.text__thBayar{
+   font-size: 24px;
+   font-weight: 800;
+   font-family: "Biryani',sans-serif" !important;
+}
+.text__td{
+   font-size: 24px;
+   font-weight: 400 !important;
+   font-family: "Biryani',sans-serif" !important;
+}
+.text__kode{
+   margin-top: 0px !important;
+   font-family: "Varela',sans-serif" !important;
+   font-size: 16px;
+}
+.th__diskon{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+}
+.table td, .table th{
+    padding: 0;
+}
+.formKode__wrapper{
+   margin-bottom: -50px;
+}
+.form-groupModal{
+position: relative;
+display: flex;
+flex-direction: column;
+}
+.form-groupModal > p{
+top: 70px;
+position: absolute;
+font-size: 12px;
+color: red;
+margin-left: 10px;
+}
+@media (max-width: 1200px) {
+   .content__texWrapper{
+         width: 100%;
+   } 
+}
+@media (max-width: 990px) { 
+   .content__texWrapperLeft{
+         min-width: 169px;
+   }
+   .content__texWrapper{
+         width: 100%;
+   }
+   .formKode{
+         display: flex;
+   }
+   .formKode__wrapper{
+         margin-bottom: 50px;
+   }
+   .text_anWrapper{
+          margin-top: -55px;
+   }
+}
+.text__kode{
+    color: #FF4D4D;
+}
+@media (max-width: 550px) { 
+   .content__textLeft{
+   font-size: 22px !important;
+   }
+   .content__textRight{
+         font-size: 20px !important;
+   }
+   .tabble__wrap{
+         padding-left: 50px;
+         padding-right: 50px;
+   }
+   
+   
+}
+
+.fileBtnHide {
+display: none;
+}
+/*#endregion Checkout  */
+
 
 /* LANDING PAGE */
 
-/*Flash News Pop Up*/
+/*#region Flash News Pop Up*/
 #flash-container {
     z-index: 10;
     position: absolute;
@@ -232,7 +526,9 @@ footer .socials-mr {
     max-width: 100%;
     height: auto;
 }
-/* Section Headline */
+/*#endregion Flash News Pop Up */
+
+/*#region Section Headline */
 .contact-us hr {
     background-color: #0F4C75;
 }
@@ -271,8 +567,9 @@ section.headline p {
     font-family: 'Varela', sans-serif;
 }
 
-/* Akhir Section Headline */
-/* Section Solution */
+/*#endregion Section Headline */
+
+/*#region Section Solution */
 section.solution {
     margin-top: 70px;
 }
@@ -299,8 +596,9 @@ section.solution h3 span {
     font-weight: 900;
 }
 
-/* Akhir Section Solution */
-/* Selection Why */
+/*#endregion Section Solution */
+
+/*#region Section Why */
 section.why {
     margin-top: 120px;
 }
@@ -355,9 +653,68 @@ section.why .card-img-top {
     padding: 10px 15px !important;
 }
 
-/* Akhir Section Why */
+/*#endregion Section Why */
 
-/* Section our videos */
+/*#region Section Wave */
+
+.why__container{
+    width: 100%;
+    height: 1300px;
+    overflow-y: hidden !important;
+    position: relative;
+    margin-bottom: -120px;
+  }
+  
+  .wave__container{
+    position: absolute;
+    z-index: -999999;
+    width: 100% !important;
+  }
+  
+  .wave__img{
+    width: 100% !important;
+  }
+  
+  @media only screen and (max-width: 2000px) {
+    .why__container{
+      height: 1100px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .why__container{
+      max-height: 1000px !important;
+    }
+    .wave__container{
+      position: absolute;
+      top: 50px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 1050px) {
+    .wave__container{
+      top: 170px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 990px) {
+    .why__container{
+      max-height: 900px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .wave__container{
+      display: none;
+    }
+    .why__container{
+      min-height: 1500px !important;
+    }
+  }
+  
+/*#endregion Section Wave */
+
+/*#region Section our videos */
 section.our-videos {
     margin-top: 15vh;
     text-align: center;
@@ -378,9 +735,9 @@ section.our-videos iframe {
     max-width: 100%;
 }
 
-/* Akhir section our videos */
+/*#endregion section our videos */
 
-/* Absolute Vector */
+/*#region Absolute Vector */
 .v1 {
     display: none;
     z-index: -1;
@@ -393,10 +750,14 @@ section.our-videos iframe {
     right: 0;
     visibility: hidden;
 }
+/*#endregion Absolute Vector */
 
-/* AKHIR LANDING PAGE */
+/*Akhir LANDING PAGE */
 
-/* BLOG PAGE */
+
+/* Blog */
+
+/*#region BLOG PAGE */
 section.blog {
     margin-top: 150px;
 }
@@ -447,9 +808,9 @@ section.blog a.big-link:hover {
 }
 
 
-/* AKHIR BLOG PAGE */
+/*#endregion BLOG PAGE */
 
-/* ARTICLE LIST PAGE */
+/*#region ARTICLE LIST PAGE */
 section.article_list {
     margin-top: 20vh;
 }
@@ -507,9 +868,9 @@ section.article_list img {
     color: var(--primary-color);
 }
 
-/* AKHIR ARTICLE LIST PAGE */
+/*#endregion ARTICLE LIST PAGE */
 
-/* ARTICLE DETAILS PAGE */
+/*#region ARTICLE DETAILS PAGE */
 section.articleDetails {
     margin-top: 22vh;
 }
@@ -573,10 +934,14 @@ section.articleDetails a {
     text-decoration: none;
 }
 
-/* AKHIR ARTICLE DETAILS PAGE */
+/*#endregion ARTICLE DETAILS PAGE */
+
+/* Akhir Blog */
+
 
 /* PRODUCTS AND SERVICES PAGE*/
-/* Carousel Products */
+
+/*#region Carousel Products */
 .products h1,
 section.services h1,
 section.services h2 {
@@ -621,8 +986,9 @@ section.services h2 {
     font-weight: 900;
     font-size: 40px;
 }
+/*#endregion Carousel Products */
 
-/* Section Our Services */
+/*#region Section Our Services */
 section.services .card {
     background: #FFFFFF;
     box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
@@ -648,8 +1014,9 @@ section.services .card-img-top {
     width: 100%;
     height: auto;
 }
+/*#endregion Section Our Services */
 
-/* Section Detail */
+/*#region Section Detail */
 section.detail {
     margin-top: 180px;
 }
@@ -683,9 +1050,9 @@ section.detail h3 {
     font-weight: 600;
 }
 
-/* Akhir Section Detail */
+/*#endregion Section Detail */
 
-/* Section Our Main Value */
+/*#region Section Our Main Value */
 
 section.omv {
     margin-top: 110px;
@@ -736,9 +1103,9 @@ section.omv p {
 }
 
 
-/* Akhir Section Our Main Value */
+/*#endregion Section Our Main Value */
 
-/* Section Contact Us */
+/*#region Section Contact Us */
 section.contact-us {
     margin-top: 150px;
 }
@@ -892,9 +1259,9 @@ section.contact-us .invalid-feedback {
     border-radius: 0px 75px;
 }
 
-/* Akhir Section Contact Us */
+/*#endregion Section Contact Us */
 
-/* Section Academy */
+/*#region Section Academy */
 section.academy {
     margin-top: 180px;
 }
@@ -945,9 +1312,215 @@ section.academy {
 /*    color: white;*/
 /*}*/
 
-/* Akhir Section Academy */
+/*#endregion Section Academy */
 
-/* Section Referral */
+/*#region Section Academy detail */
+.academy-detail-new {
+    width: 70vw;
+    margin: auto;
+  }
+  
+  .academy-detail-left {
+    max-width: 500px;
+    margin-right: 50px;
+  }
+  
+  .academy-detail-left img {
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+  }
+  
+  .academy-detail-left p {
+    font-size: 1.3rem;
+  }
+  
+  .academy-detail-left h1 {
+    font-size: 1.5rem;
+    margin: 25px 0px;
+  }
+  
+  .btn-academy {
+    display: block;
+    border-radius: 10px;
+    border: 0;
+    padding: 15px;
+    margin: 15px auto;
+    width: 200px;
+  }
+  
+  .academy-detail-left .daftar {
+    background-color: #0f4c75;
+    color: white;
+  }
+  
+  .academy-detail-left .bayar {
+    background-color: #0f4c7540;
+    color: white;
+  }
+  
+  .academy-detail-right {
+    max-width: 700px;
+  }
+  .academy-detail-right p {
+    font-size: 1.2rem;
+  }
+  
+  .academy-detail-schedule {
+    margin-top: 100px;
+    padding: 20px 35px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .academy-detail-description {
+    margin-top: 50px;
+    padding: 20px 35px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .academy-detail-description h3 {
+    margin: 30px 0px;
+    color: #0f4c75;
+  }
+  
+  .academy-detail-ketentuan {
+    margin-top: 50px;
+    padding: 20px 35px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .academy-detail-ketentuan h3 {
+    margin: 30px 0px;
+    color: #0f4c75;
+  }
+  
+  .academy-detail-ketentuan ol {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #0f4c75;
+    counter-reset: foo;
+    margin: 0;
+    padding: 0;
+    border-spacing: 15px;
+    display: table;
+  }
+  
+  .academy-detail-ketentuan li {
+    counter-increment: foo;
+    display: table-row;
+    border-spacing: 30px;
+  }
+  
+  .academy-detail-ketentuan li::before {
+    content: counter(foo) ".";
+    display: table-cell;
+    border-spacing: 10px;
+    text-align: right;
+    padding-right: 0.5em;
+  }
+  
+  /* media queries */
+  @media (max-width: 990px) {
+    .academy-detail-new {
+      overflow-x: hidden;
+      width: 100%;
+      margin: auto;
+    }
+    .academy-detail-left {
+      margin-right: 0px;
+      max-width: 100%;
+    }
+  
+    .academy-detail-left img {
+      max-width: 500px;
+      margin: 50px auto;
+      display: block;
+    }
+  
+    .academy-detail-left p {
+      text-align: center;
+    }
+  
+    .academy-detail-left h1 {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 550px) {
+    .academy-detail-new {
+      overflow-x: hidden;
+      width: 100%;
+      margin: auto;
+    }
+  
+    .academy-detail-left {
+      margin-right: 0px;
+    }
+  
+    .academy-detail-left img {
+      max-width: 300px;
+      margin: 50px auto;
+      display: block;
+    }
+  
+    .academy-detail-left p {
+      font-size: 1.1rem;
+    }
+  
+    .academy-detail-left h1 {
+      font-size: 1.2rem;
+    }
+  
+    .btn-academy {
+      padding: 10px;
+      margin: 15px auto;
+    }
+  
+    .academy-detail-right p {
+      font-size: 1rem;
+    }
+  
+    .academy-detail-schedule {
+      margin-top: 50px;
+      padding: 20px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .academy-detail-description {
+      margin-top: 50px;
+      padding: 20px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .academy-detail-description h3 {
+      margin: 30px 0px;
+      color: #0f4c75;
+    }
+  
+    .academy-detail-ketentuan {
+      margin-top: 50px;
+      padding: 20px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .academy-detail-ketentuan h3 {
+      margin: 30px 0px;
+      color: #0f4c75;
+    }
+  
+    .academy-detail-ketentuan ol {
+      font-size: 0.9rem;
+    }
+  
+    .academy-detail-ketentuan li {
+      padding: 10px auto !important;
+    }
+  }
+  
+  /*#endregion academy detail */
+
+/*#region Section Referral */
 section.referral td,
 section.referral th{
     text-align: center;
@@ -998,35 +1571,298 @@ section.referral .disabled{
     color: white;
     background-color: #919191;
 }
-/* Akhir section referral */
+/*#endregion section referral */
 
-/* Section academy list */
+/*#region Section academy list  */
+.academy-list-title p {
+  font-size: 1.9rem;
+  margin-top: 30px;
+  font-weight: 600;
+  color: #0f4c75;
+  width: fit-content;
+  border-bottom: 5px solid #0f4c75;
+  padding-bottom: 25px;
+}
 
-/* pake style article_list */
-/* pake style product */
+.card {
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  padding: 30px 0px;
+}
 
-.academy_list .detail p{
+.crop-img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.online-learning-list {
+  margin-top: 100px;
+}
+
+.detail-course img {
+  width: 25px;
+  display: inline-block;
+  margin-right: 20px;
+}
+.detail-course p {
+  display: inline-block;
+}
+
+.btn-daftar {
+  margin-top: 30px;
+  background: #0f4c75;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.btn-daftar:hover {
+  color: #fff;
+}
+
+.btn-detail {
+  margin-top: 30px;
+  background: #fff;
+  color: #0f4c75;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 2px solid #0f4c75;
+}
+
+.price-course {
+  font-weight: bold;
+  color: #0f4c75;
+}
+
+@media (max-width: 990px) {
+  .academy-list-title h1 {
+    font-size: 2.5rem;
+  }
+
+  .academy-list-title p {
+    font-size: 1.6rem;
+    padding-bottom: 10px;
+  }
+
+  .card-body h2 {
+    font-size: 1.7rem;
+  }
+  .card-body p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .academy-list-title h1 {
+    font-size: 2rem;
+  }
+
+  .academy-list-title p {
+    font-size: 1.4rem;
+    border-bottom: 2px solid #0f4c75;
+    padding-bottom: 5px;
+  }
+
+  .online-learning-list {
+    margin-top: 20px;
+  }
+  .card {
+    min-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px #00000033;
+    padding: 30px 0px;
+  }
+
+  .crop-img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    object-position: 50% 0%;
+  }
+
+  .card-body h2 {
+    font-size: 1.3rem;
+  }
+  .card-body p {
+    font-size: 1rem;
+  }
+}
+/*#endregion academy list  */
+
+/*#region modal regis */
+.modal__wrapper {
+    width: 708px !important;
+    padding: 50px 55px;
+    left: -7vw;
+    border-radius: 20px !important;
+  }
+  .btn__exitModal {
+    top: -30px;
+    right: -20px;
+    justify-content: flex-end !important;
+    position: absolute;
+    font-size: 62px;
+    font-weight: 100;
+    color: #c0c0c0;
+    cursor: pointer;
+  }
+  
+  .form__modalDaftar {
+    width: 100%;
+  }
+  .form-groupModal > p {
+    font-size: 12px !important;
+    color: red !important;
+  }
+  
+  .h5__registrasiModal {
     text-align: center;
-}
-
-.academy_list .detailmini p{
-    font-size: small;
-}
-
-.academy_list .detailmini h4{
-    font-size: small;
-    margin-bottom: 0px;
-}
-
-.academy_list h2 {
-    color: var(--primary-color);
     font-weight: 900;
     font-size: 24px;
-    margin-top: 16px;
-}
-/* Akhir section academy list */
+    color: #0f4c75;
+    font-family: "Biryani',sans-serif" !important;
+  }
+  .h6__registrasiModal {
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    color: #0f4c75;
+    margin-bottom: 30px;
+    font-family: "Biryani',sans-serif" !important;
+  }
+  .btn__exitModal {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .form-groupModal {
+    margin-bottom: 25px;
+  }
+  .input__labelModal {
+    font-weight: 400;
+    font-size: 18px;
+    color: #0f4c75;
+    margin-bottom: 5px;
+    font-family: "Varela',sans-serif" !important;
+  }
+  .input__valueModal {
+    border-radius: 50px;
+    border: 2px solid #90acbf;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Varela',sans-serif" !important;
+  }
+  .input__valueModal::-webkit-input-placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    color: #90acbf;
+  }
+  .input__valueModal:focus {
+    background-color: rgba(144, 172, 191, 0.3);
+    color: #90acbf;
+    border: 2px solid #90acbf;
+    box-shadow: none;
+  }
+  .btn__inputWrapperModal {
+    margin-top: 45px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .p__sureModal {
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    color: #0f4c75 !important;
+    margin-bottom: 5px !important;
+    font-family: "Varela',sans-serif" !important;
+  }
+  .btn__inputModal {
+    padding: 10px 50px;
+    border-radius: 15px;
+    background-color: #0f4c75;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: -7px;
+  }
+  .small__otherModal {
+    font-weight: 400;
+    font-size: 12px;
+    color: #0f4c75;
+    font-family: "Varela',sans-serif" !important;
+    margin-top: -25px;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 970px) {
+    .modal__wrapper {
+      width: 608px !important;
+      padding: 50px 80px;
+      left: -7vw;
+    }
+    .btn__exitModal {
+      right: -35px;
+    }
+    .btn__exitModal > img{
+      width: 40px !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .modal__wrapper {
+      width: 508px !important;
+      padding: 50px 40px;
+      left: -1vw !important;
+    }
+    .btn__exitModal {
+      top: -39px;
+      right: -5px;
+    font-size: 42px !important;
+    }
+    .modal-body__daftar {
+      padding: 50px 35px;
+    }
+    .h5__registrasiModal {
+      text-align: center;
+    }
+    .modal-dialog__daftar {
+      max-width: 100%;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modalContent__daftar {
+      width: 450px;
+    }
+    .btn__exitModal > img{
+      width: 30px !important;
+    }
+  }
+  
+  @media (max-width: 510px) {
+    .modal__wrapper {
+      width: 348px !important;
+      padding: 50px 40px;
+      left: 6vw !important;
+    }
+    .btn__exitModal {
+      right: -5px;
+    }
+    .modal-body__daftar {
+      padding: 50px 25px;
+    }
+    .modalContent__daftar {
+      width: 350px;
+    }
+  }
+/*#endregion modal regis */
 
-/* Section Login */
+/*#region Section Login */
     /* Pake style Contact-us */
 section.contact-us.logres{
     margin-top: 0px;
@@ -1062,9 +1898,9 @@ section.logres h1{
     font-weight: bold;
     color: white !important;
 }
-/* Akhir Section Login */
+/*#endregion Section Login */
 
-/* Responsive Breakpoints */
+/*#region Responsive Breakpoints */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     #aa {
@@ -1339,3 +2175,6 @@ section.logres h1{
         opacity: 1;
     }
 }
+/*#endregion Responsive Breakpoints */
+
+/* Akhir PRODUCTS AND SERVICES PAGE*/

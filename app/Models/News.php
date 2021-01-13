@@ -10,22 +10,25 @@ class News extends Model
 
     /**
      * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
-     * dari tabel 'news' yang diurutkan berdasarkan tgl upload terbaru
+     * dari tabel 'news' yang diurutkan secara descending berdasarkan 
+     * kolom 'tanggalupload'
      * 
-     * @param string $column
-     * @return array|false
-     */  
+     * parameter $column type string
+     * return array
+     */
     public function getNewss_Order_TglUpload($column){
         return $this->orderBy('tanggalUpload', 'DESC')->findColumn($column);
     }
 
     /**
-     * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
-     * dari tabel 'news' berdasarkan id yang diinputkan pada parameter
+     * Method untuk mengambil data sebuah baris dari tabel 'news' 
+     * berdasarkan id yang diinputkan di parameter. lalu mengambil
+     * kolom sesuai column yang diinputkan di parameter
      * 
-     * @param string $column
-     * @return array|false
-     */     
+     * parameter $id type string
+     * parameter $column type string
+     * return string
+     */
     public function getNews_by_id($id, $column){
         return $this->where('id', $id)->first()[$column];
     }

@@ -56,7 +56,7 @@
           <form class="formKode" method="POST" action="<?= (isset($code))?base_url('/academy/delCoupon?id='.$_GET['id']):base_url('/academy/useCoupon?id='.$_GET['id']) ?>">
         <?php } ?>
 
-            <?php if(!isset($code)){?>
+            <?php if(!isset($code) && !isset($keterangan)){?>
               <input class="inputForm <?= ($validation->hasError('code'))?'is-invalid':''; ?>" id="code" name="code" placeholder="kode" value="<?= old('code');?>"/>
             <?php }else{?>
               <input class="inputForm" id="code" name="code" placeholder="kode" value="<?= $code ?>" readonly/>

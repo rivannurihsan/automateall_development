@@ -11,12 +11,12 @@
         </div>
         <div class="row option justify-content-center">
             <div class="col-xl-3 opt-card">
-                <a href="#">
+                <a href="#" onclick="alert('We are working on it, come back later.')">
                     <div class="content-img" style="padding:9px 28px;">
                         <img src="/img/vector/expert.png" alt="RPA Expert">
                     </div>
                     <div class="content-desc text-center">
-                        <h2>RPA Expertsss</h2>
+                        <h2>RPA Expert</h2>
                     </div>
                 </a>
             </div>
@@ -26,7 +26,7 @@
                         <img src="/img/vector/online.png" alt="Online Course">
                     </div>
                     <div class="content-desc text-center">
-                        <h2>Online Course</h2>
+                        <h2>Online Learning</h2>
                     </div>
                 </a>
             </div>

@@ -11,22 +11,25 @@ class Product extends Model
 
     /**
      * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
-     * dari tabel 'product' yang diurutkan berdasarkan tgl upload terbaru
+     * dari tabel 'product' yang diurutkan secara descending berdasarkan 
+     * kolom 'tanggalupload'
      * 
-     * @param string $column
-     * @return array|false
-     */  
+     * parameter $column type string
+     * return array
+     */
     public function getProducts_Order_TglUpload($column){
         return $this->orderBy('tanggalUpload', 'DESC')->findColumn($column);
     }
 
     /**
-     * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
-     * dari tabel 'product' berdasarkan id yang diinputkan pada parameter
+     * Method untuk mengambil data sebuah baris dari tabel 'product' 
+     * berdasarkan id yang diinputkan di parameter. lalu mengambil
+     * kolom sesuai column yang diinputkan di parameter
      * 
-     * @param string $column
-     * @return array|false
-     */   
+     * parameter $id type string
+     * parameter $column type string
+     * return string
+     */
     public function getProduct_by_id($id, $column){
         return $this->where('id', $id)->first()[$column];
     }

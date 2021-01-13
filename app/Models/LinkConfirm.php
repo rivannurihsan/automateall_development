@@ -6,6 +6,7 @@ class LinkConfirm extends Model
 {
     protected $table      = 'linkConfirm';
     protected $primaryKey = 'token';
+
     protected $returnType     = 'array';
     protected $allowedFields = ['token', 'tglTerbuat', 'type'];
 
@@ -35,21 +36,21 @@ class LinkConfirm extends Model
 
     /**
      * Method untuk input data baru pada tabel linkConfirm
-     * Jika berhasil input, akan mengembalikan true
+     * Jika berhasil input, akan mengembalikan id input
      * 
      * @param array $data
-     * @return true|false
-     */      
-    public function insert_row($data){
-        $tkn = $data['token'];
-        // input data ke tabel
+     * @return integer|false
+     */
+    public function insertLinkConfirm($data){
+        // insert
         $this->insert($data);
-        
-        // cek jika data yang diinput benar
-        if ($this->get_by_token($tkn)) {
+
+        // check if inputed
+        if( $this->where('token', $data['token'])->first() ) {
             return true;
         }else{
             return false;
         }
-    }   
+    }
+    
 }

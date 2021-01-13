@@ -14,7 +14,6 @@
         function __construct()
         {
             $this->User = new \App\Models\User();
-            $this->Coupon = new \App\Models\Coupon();
         }
 
         public function isEmailExcist($str=null, &$error) : bool{
@@ -30,14 +29,13 @@
             return true;
         }
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public function isTrue($str, $data){
             if($data) {
                 return true;
             }
             return false;
         }
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
         public function isLogedIn($str, $error, $data){
             if ($data['emailLogin']) {
                 $emailS = preg_split('/@/', $data['emailLogin']);

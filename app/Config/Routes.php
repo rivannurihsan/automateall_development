@@ -39,6 +39,7 @@ $routes->post('/contact','Pages::send');
 $routes->get('/detail', 'Pages::detail');
 $routes->get('/blog/all', 'Pages::list');
 $routes->get('/blog/detail', 'Pages::articleDetail');
+
 $routes->get('/academy','Pages::academy');
 $routes->get('/academy/list','Pages::academyList'); # System pembelian workshop
 $routes->get('/academy/detail','Pages::academyDetail'); # System pembelian workshop
@@ -48,19 +49,18 @@ $routes->get('/academy/checkout','Pages::academyCheckout'); # System pembelian w
 $routes->post('/academy/checkout','Pages::sendAcademyCheckout'); # System pembelian workshop
 $routes->post('/academy/useCoupon','Pages::sendAcademyCoupon'); # System pembelian workshop
 $routes->post('/academy/delCoupon','Pages::deleteAcademyCoupon'); # System pembelian workshop
-$routes->get('/regis', 'Pages::regis');
+
 $routes->post('/regis', 'Pages::sendRegis');
+$routes->post('/login', 'Pages::sendLogin');
+$routes->get('/sendVerifyMessage', 'Pages::sendVerifyMessage');
 $routes->get('/verifyAccount', 'Pages::verifyAccount');
 $routes->post('/verifyAccount', 'Pages::sendVerifyAccount');
-$routes->get('/login', 'Pages::login');
-$routes->post('/login', 'Pages::sendLogin');
 $routes->get('/passwordReset', 'Pages::confirmResetPassword');
 $routes->post('/passwordReset', 'Pages::sendConfirmResetPassword');
 $routes->post('/lupaPass', 'Pages::lupaPass');
 $routes->get('/logout', 'Pages::logout');
 
 $routes->get('/coba', 'Pages::coba');
-$routes->post('/coba', 'Pages::sendCoba');
 
 
 /**

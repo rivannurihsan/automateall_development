@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row my-4 text-center">
             <div class="col">
-                <span>Copyright <span style="font-size: 20px;">&#169;</span>
+                <span><span style="font-size: 20px;">&copy;</span>
                 <!--<img src="/img/vector/copyright.png" alt="copyright">-->
-                2020 Automate All, All Rights Reserved</span>
+                CV Solusi Automasi Indonesia, 2020</span>
             </div>
         </div>
         <div class="row mb-4">

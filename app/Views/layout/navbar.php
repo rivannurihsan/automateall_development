@@ -28,12 +28,18 @@
                 <li class="nav-item <?php if($title=='Contact'){echo 'active';}?>">
                     <a class="nav-link"  href="<?= base_url('/contact');?>" title="Contact">Contact</a>
                 </li>
+
                 <!-- name tab if user loged in -->
                 <?php if(isset($userdata['nama'])){ ?>
                 <li class="nav-item nav-item__auth">
                   <div class="dropdown">
                       <a class="nav-link login" data-toggle="dropdown"><?= $userdata['nama'] ?></a>
                       <ul class="dropdown-menu">
+                          <?php if($userdata['isVerifikasi']){ ?>
+                            <li><a style="pointer: default;">Email Terverifikasi</a></li>
+                          <?php }else{ ?>
+                            <li><a href="<?= base_url('/sendVerifyMessage');?>">Verifikasi Email</a></li>
+                          <?php }?>
                           <li><a href="<?= base_url('/logout');?>">Logout</a></li>
                       </ul>
                   </div>
@@ -41,8 +47,8 @@
                 <?php }else{ ?>
 
                 <!-- login tab -->
-                <li class="nav-item nav-item__auth active">
-                  <button class="nav-link login__btn" id="btn-modal-login" class="modal-login" title="Login">Login</button>
+                <li class="nav-item nav-item__auth">
+                  <a class="nav-link login" id="btn-modal-login" class="modal-login" title="Login">Login</a>
                   <div id="modalLogin" class="modal__login">
                     <div class="modalLogin__wrap">
                       <div class="modal__content-login">
@@ -86,7 +92,7 @@
 
                 <!-- register tab -->
                 <li class="nav-item nav-item__auth">
-                  <button class="nav-link signup__btn" id="btn-modal-signup" class="modal-signup"  title="Login">Daftar</button>
+                  <a class="nav-link regist" id="btn-modal-signup" class="modal-signup" title="Login">Daftar</a>
                   <div id="modalSignup" class="modal__signup">
                     <div class="modalDaftar__wrap">
                     <div class="modal__content-signup">
@@ -212,7 +218,6 @@
     modalSignup.style.display = "none";
   }
 </script>
-
 <?php if (($validation->hasError('namaSignup')) || ($validation->hasError('emailSignup')) || ($validation->hasError('passwordSignup')) || ($validation->hasError('rptPasswordSignup'))) { ?>
   <script>
     $(document).ready(function() {

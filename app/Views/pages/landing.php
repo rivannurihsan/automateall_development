@@ -3,19 +3,6 @@
 <?= $this->section('content');?>
 <!-- Vektor -->
 <img class="position-absolute v1" src="/img/vector/squiggles.png">
-<img class="position-absolute v2" src="/img/vector/river.png">
-
-<!--Flash Info Pop Up-->
-<!--<div id="flash-container">-->
-<!--    <div id="flash">-->
-<!--        <button id="close">close</button>-->
-<!--        <div class="flash-img">-->
-<!--            <img src="img/news/discussion.png" alt="agenda">-->
-<!--        </div>-->
-<!--        <h2>Segera daftarkan dirimu! sebelum Sabtu, 24 Okt 2020 Pukul 12:00 WIB</h2>-->
-<!--        <a href="http://bit.ly/MilooTalks24Okt" target="_blank">Klik disini untuk membuka formulir pendaftaran</a>-->
-<!--    </div>-->
-<!--</div>-->
 
 <!-- Section Headline -->
 <section class="headline">
@@ -77,7 +64,8 @@
 <!-- Akhir Section Solution -->
 
 <!-- Section Why -->
-<section class="why noselect">
+<section class="why noselect why__container">
+    <div class="wave__container"><img class="wave__img" src="/img/vector/river.png"></div>
     <div class="container">
         <div class="row text-center">
             <div class="p-0 col-7 offset-2 order-last offset-md-0 order-md-first col-md-4 col-lg-3 col-xl-3 one-card">
@@ -133,30 +121,4 @@
 </section>
 <!-- Akhir Section Why -->
 
-<script>
-    // $(window).on('beforeunload', function() {
-    //     $(window).scrollTop(0);
-    // });
-
-    // $(document).ready(function(){
-    //     function showContainer(){
-    //         $('nav.navbar').hide();
-    //         $('#flash-container').show();
-    //         $('html body').css('overflow','hidden');
-    //     }
-
-    //     showContainer();
-
-    //     function hideContainer(){
-    //         $('#flash-container').hide();
-    //         $('nav.navbar').show();
-    //         $('html body').css('overflow','scroll');
-    //     }
-
-    //     // Close after click
-    //     $("#close").click(function(){
-    //         hideContainer();
-    //     })
-    // })
-</script>
 <?= $this->endSection();?>

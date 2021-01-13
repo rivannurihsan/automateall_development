@@ -11,11 +11,12 @@ class Referral extends Model
 
     /**
      * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
-     * dari tabel 'referral' yang diurutkan berdasarkan nama
+     * dari tabel 'referral' yang diurutkan secara descending
+     * berdasarkan kolom 'progress'
      * 
-     * @param string $column
-     * @return array|false
-     */  
+     * parameter $column type string* 
+     * return array
+     */
     public function getReferral_Order_nama($column, $idAcademy){
         return $this->where('id_academy', $idAcademy)->orderBy('nama')->findColumn($column);
     }

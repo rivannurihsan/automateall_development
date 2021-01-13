@@ -1,6 +1,4 @@
-body {
-  font-family: sans-serif;
-}
+/*#region modal regis */
 .modal__wrapper {
   width: 708px !important;
   padding: 50px 55px;
@@ -167,3 +165,4 @@ body {
     width: 350px;
   }
 }
+/*#endregion modal regis */

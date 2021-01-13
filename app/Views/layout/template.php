@@ -25,31 +25,28 @@
     <meta property="twitter:image" content="https://automateall.id/img/vector/automateall-meta.jpg">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css?v=1.4.3">
+    <link rel="stylesheet" href="/css/bootstrap.min.css?v=1.4.4">
     <!-- style online-learning -->
-    <link rel="stylesheet" href="/css/online_learning/checkout.css">
+    <!-- <link rel="stylesheet" href="/css/online_learning/checkout.css"> -->
     
 
     <!-- Automate All CSS -->
     <!-- <link rel="stylesheet" href="/css/production/automateall-min.css"> -->
-    <link rel="stylesheet" href="/css/development/automateall-dev.css?v=1.4.3">
-<!-- <<<<<<< Front-end-(Angga) -->
-    <link rel="stylesheet" href="/css/online_learning/modal.css">
+    <link rel="stylesheet" href="/css/development/automateall-dev.css?v=1.4.4">
+    <link rel="stylesheet" href="/css/development/modal.css?v=1.4.4">
     
     <!-- Signup Stylesheet-->
-    <link rel="stylesheet" href="/css/signup/signup.css">
-<!-- ======= -->
+    <link rel="stylesheet" href="/css/development/signup.css?v=1.4.4">
 
     <!-- Academy Stylesheet -->
-    <link rel="stylesheet" href="/css/development/academy_list_new.css">
+    <!-- <link rel="stylesheet" href="/css/development/academy_list_new.css"> -->
 
     <!-- Academy Detail Stylesheet -->
-    <link rel="stylesheet" href="/css/development/academy_detail_new.css">
+    <!-- <link rel="stylesheet" href="/css/development/academy_detail_new.css"> -->
 
     <!-- Login Stylesheet -->
-    <link rel="stylesheet" href="/css/development/login.css">
+    <link rel="stylesheet" href="/css/development/login.css?v=1.4.4">
 
-<!-- >>>>>>> master -->
     <!-- Font Awsome CSS -->
     <!-- <link rel="stylesheet" href="/css/all.css"> -->
     
@@ -62,7 +59,7 @@
     <link rel="shortcut icon" href="/img/vector/small-logo-32.jpg">
 
     <!-- sal css -->
-    <link rel="stylesheet" href="/css/sal.css?v=1.4.3">
+    <link rel="stylesheet" href="/css/sal.css?v=1.4.4">
     
     <!--Google Adsense-->
     <script data-ad-client="ca-pub-7173084639393935" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

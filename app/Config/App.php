@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'https://automate-all.herokuapp.com/';
+	public $baseURL = '';
 	
 	/*
 	|--------------------------------------------------------------------------

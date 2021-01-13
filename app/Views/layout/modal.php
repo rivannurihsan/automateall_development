@@ -52,6 +52,29 @@ if (!isset($_SESSION['isKirim'])) {
   <?php } ?>
 <!-- Akhir Modal Register Success -->
 
+<!-- Modal Register Success -->
+  <div class="modal fade message-sent noselect" id="VerifyMessagSuccessModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body p-0 text-center">
+          <img src="img/vector/tick.png" class="mb-4" style="width:132px;height:132px;margin-top: 30px">
+          <p>Link Verifikasi telah dikirim ke <?php if(isset($_SESSION['userData'])){ echo $_SESSION['userData']['email']; } ?></p>
+          <button type="button" class="btn" data-dismiss="modal">OK</button>
+          <img src="/img/vector/ellipse.png" class="img-fluid ellipse" alt="ellipse">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <?php if (isset($_SESSION['isKirim']) && $_SESSION['isKirim'] == 'VerifyMessageSend') { ?>
+    <script>
+      $(document).ready(function() {
+        $('#VerifyMessagSuccessModal').modal('show');
+      });
+    </script>
+  <?php } ?>
+<!-- Akhir Modal Register Success -->
+
 <!-- Modal Verify Account Success -->
   <div class="modal fade message-sent noselect" id="sentVerifyAccountSuccessModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
@@ -259,4 +282,6 @@ if (!isset($_SESSION['isKirim'])) {
   <?php } ?>
 <!-- Akhir Modal Technical Error -->
 
-<?php $_SESSION['isKirim'] = 'NotYet';?>
+<?php
+  $_SESSION['isKirim'] = 'NotYet';
+?>

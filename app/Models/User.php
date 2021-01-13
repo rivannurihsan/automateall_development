@@ -8,7 +8,7 @@ class User extends Model
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
-    protected $allowedFields = ['id','nama', 'email', 'pass', 'isVerifikasi'];
+    protected $allowedFields = ['id', 'uniqueCode', 'nama', 'email', 'pass', 'isVerifikasi'];
 
     public function getUser($data=false, $column=false, $orderBy=false, $typeOrder='desc'){
         // Where
@@ -117,6 +117,17 @@ class User extends Model
      * @return integer|false
      */    
     public function insertUser($data){
+        // Generate Uniqu Code
+        $list = $this->getColumn('uniqueCode');
+        $isUnique = false;
+        while(!$isUnique) { 
+            $id = $this->randomGenerator(20);
+            if(!in_array($id, $list)){
+                $isUnique = true;
+            }
+        }
+        $data['uniqueCode'] = strtoupper($id);
+
         $id = $data['id'];
         $this->insert($data);
 

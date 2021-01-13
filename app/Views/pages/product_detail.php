@@ -31,10 +31,15 @@
                 </div>
                 <div class="row text-lg-left text-center mt-5">
                     <div class="col">
-                        <a href='<?php if($isDelete == 0){echo $fileLocation;}?>' class="btn pt-2 px-4 <?php if($isDelete == 1){echo 'disable';}?>">Try For Free</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn pt-2 px-4 disable">Buy Now</a>
+                        <a href='<?php if($isDelete == 0 && isset($userdata)){echo $fileLocation;}?>' 
+                            class="btn pt-2 px-4 <?php if($isDelete == 1 || !isset($userdata) || !$userdata['isVerifikasi']){echo 'disable';}?>"
+                            >Try For Free
+                        </a>
+                        <div style="display: unset; margin-left: 10px;" class="invalid-feedback">
+                            <?php if (!isset($userdata)){ ?> Please Login
+                            <?php }elseif (!$userdata['isVerifikasi']){?> Please Verify Your Account
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
