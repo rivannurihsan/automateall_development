@@ -32,6 +32,7 @@
   z-index: 999999;
   display: flex;
   justify-content: flex-end;
+  line-height: 1;
 }
 #btn__closeLogin {
   position: relative;
@@ -75,12 +76,10 @@
   outline: none !important;
   border: none !important;
 }
-.input__modalLogins {
-  margin-top: -10px;
-}
-.div__modalLogins {
-  margin-top: -17px;
-}
+
+/*.div__modalLogins {*/
+/*  margin-top: -17px;*/
+/*}*/
 .input__modalLogin::-webkit-input-placeholder {
   font-size: 12px;
   font-weight: 400;
@@ -95,6 +94,8 @@
   width: 20px !important;
   height: 20px !important;
   margin-right: 7px;
+  /*font-size: 50px;*/
+  /*color: grey;*/
   cursor: pointer !important;
 }
 .logo__googleWrap {

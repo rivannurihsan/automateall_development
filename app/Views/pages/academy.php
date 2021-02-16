@@ -21,7 +21,12 @@
                 </a>
             </div>
             <div class="offset-md-1 col-xl-3 opt-card mt-5 mt-md-0">
-                <a href="/academy/list">
+                <?php if(true){ ?>
+                <!--php  if ($_SESSION['userData']['nama']=='Irfan Nugraha' || $_SESSION['userData']['nama']=='Muhammad Alkahfi') { ?> -->
+                  <a href="/academy/list">
+                <?php }else{ ?>
+                  <a href="#" onclick="alert('We are working on it, come back later.')">
+                <?php } ?>
                     <div class="content-img" style="padding:42px 15px;">
                         <img src="/img/vector/online.png" alt="Online Course">
                     </div>

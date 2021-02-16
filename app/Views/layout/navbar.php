@@ -33,10 +33,10 @@
                 <?php if(isset($userdata['nama'])){ ?>
                 <li class="nav-item nav-item__auth">
                   <div class="dropdown">
-                      <a class="nav-link login" data-toggle="dropdown"><?= $userdata['nama'] ?></a>
+                      <a class="nav-link login" data-toggle="dropdown" title="<?= $userdata['nama'] ?>"><?= $userdata['nama'] ?></a>
                       <ul class="dropdown-menu">
                           <?php if($userdata['isVerifikasi']){ ?>
-                            <li><a style="pointer: default;">Email Terverifikasi</a></li>
+                            <li><a style="cursor: default;">Email Terverifikasi</a></li>
                           <?php }else{ ?>
                             <li><a href="<?= base_url('/sendVerifyMessage');?>">Verifikasi Email</a></li>
                           <?php }?>
@@ -52,7 +52,7 @@
                   <div id="modalLogin" class="modal__login">
                     <div class="modalLogin__wrap">
                       <div class="modal__content-login">
-                        <div class="btn__closeLogin__wrap"><button id="btn__closeLogin"><img class="logo__google img-fluid" src="/img/vector/cancel.png"/></button></div> 
+                        <div class="btn__closeLogin__wrap"><button id="btn__closeLogin"><img class="logo__google img-fluid" src="/img/vector/cancel.svg"/></button></div>
                         <form name="formLogin" class="formLogin" method="POST" action="<?=base_url('/login');?>">
                           <div class="form-group div__modalLogin" id="form-group__email">
                             <label class="label__modalLogin" for="emailLogin">E-mail</label>
@@ -60,7 +60,7 @@
                           </div>
                           <div class="form-group div__modalLogins" id="form-group__password">
                             <label class="label__modalLogin" for="passwordLogin">Password</label>
-                            <input class="input__modalLogin input__modalLogins <?= ($validation->hasError('passwordLogin'))?'input__modalLoginError':''; ?>" value="<?= old('passwordLogin');?>" name="passwordLogin" id="passwordLogin" type="password" placeholder="Buat password anda"/>
+                            <input class="input__modalLogin input__modalLogins <?= ($validation->hasError('passwordLogin'))?'input__modalLoginError':''; ?>" value="<?= old('passwordLogin');?>" name="passwordLogin" id="passwordLogin" type="password" placeholder="Masukan password anda"/>
                           </div>
                           <!-- <div class="login__withwrap" >
                             <div class="login__with">
@@ -92,11 +92,11 @@
 
                 <!-- register tab -->
                 <li class="nav-item nav-item__auth">
-                  <a class="nav-link regist" id="btn-modal-signup" class="modal-signup" title="Login">Daftar</a>
+                  <a class="nav-link regist" id="btn-modal-signup" class="modal-signup" title="Daftar">Daftar</a>
                   <div id="modalSignup" class="modal__signup">
                     <div class="modalDaftar__wrap">
                     <div class="modal__content-signup">
-                    <div class="btn__closeSignUp__wrapp"><button id="btn__closeSignUp"><img class="logo__google img-fluid" src="/img/vector/cancel.png"/></button></div> 
+                    <div class="btn__closeSignUp__wrapp"><button id="btn__closeSignUp"><img class="logo__google img-fluid" src="/img/vector/cancel.svg"/></button></div>
                       <form id="formSignUp" name="formSignUp" class="formSignUp" method="POST" action="<?=base_url('/regis');?>">
                         <div class="form-group form-group__input" id="form-group__namalengkap">
                           <label class="label__modaldaftar" for="namaSignup">Nama Lengkap</label>

@@ -49,8 +49,8 @@
         </div>
         <div class="row justify-content-around mt-5 text-center">
             <div class="col-8 col-md-5 col-lg-4 mb-lg-0 col-xl-3" style="margin-bottom: 80px;">
-                <div class="card p-3"
-                data-sal="slide-up" data-sal-easing="ease-in-sine" data-sal-duration="1500" style="width: 16rem;">
+                <div class="card p-4"
+                data-sal="slide-up" data-sal-easing="ease-in-sine" data-sal-duration="1500">
                     <img src="/img/vector/sketch.png" class="card-img-top" alt="sketch" width="140" height="140">
                     <div class="card-body p-0">
                         <h2 class="card-text">Customized<br>Bot</h2>
@@ -58,8 +58,8 @@
                 </div>
             </div>
             <div class="col-8 col-md-5 col-lg-4 mb-lg-0 col-xl-3" style="margin-bottom: 80px;">
-                <div class="card p-3"
-                data-sal="slide-up" data-sal-easing="ease-in-sine" data-sal-duration="1500" style="width: 16rem;">
+                <div class="card p-4"
+                data-sal="slide-up" data-sal-easing="ease-in-sine" data-sal-duration="1500">
                     <img src="/img/vector/list.png" class="card-img-top" alt="list" width="140" height="140">
                     <div class="card-body p-0">
                         <h2 class="card-text">Commissioning & Training</h2>
@@ -67,8 +67,8 @@
                 </div>
             </div>
             <div class="col-8 col-md-5 col-lg-4 col-xl-3">
-                <div class="card p-3"
-                data-sal="slide-up" data-sal-easing="ease-in-sine" data-sal-duration="1500" style="width: 16rem;">
+                <div class="card p-4"
+                data-sal="slide-up" data-sal-easing="ease-in-sine" data-sal-duration="1500">
                     <img src="/img/vector/repair.png" class="card-img-top" alt="repair" width="140" height="140">
                     <div class="card-body p-0">
                         <h2 class="card-text">Process Unit Maintenance</h2>

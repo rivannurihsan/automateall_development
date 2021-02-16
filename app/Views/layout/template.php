@@ -5,14 +5,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="title" content="Automate All">
-    <meta name="description" content="Check out our ProScan OCR, PDF Extraction and other services.">
+    <meta name="description" content="Automate All adalah Startup yang menyediakan produk serta layanan Jasa Automasi On Demand, khususnya di bidang Robotic Process Automation yang dapat memudahkan pekerjaan harian mu. Maksimalkan Pekerjaanmu bersama Automate All!">
+    <meta name="keywords" content="RPA, Automation, Bot, Startup, Business, Learning">
+    <meta name="author" content="Automate All Developer Team">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Open Graph / Facebook -->
     <meta property="og:site_name" content="Automate All">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://automateall.id/">
     <meta property="og:title" content="Automate All">
-    <meta property="og:description" content="Check out our ProScan OCR, PDF Extraction and other services.">
+    <meta property="og:description" content="Automate All adalah Startup yang menyediakan produk serta layanan Jasa Automasi On Demand, khususnya di bidang Robotic Process Automation yang dapat memudahkan pekerjaan harian mu. Maksimalkan Pekerjaanmu bersama Automate All!">
     <meta property="og:image" content="https://automateall.id/img/vector/automateall-meta.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="750">
@@ -21,7 +23,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://automateall.id/">
     <meta property="twitter:title" content="Automate All">
-    <meta property="twitter:description" content="Check out our ProScan OCR, PDF Extraction and other services.">
+    <meta property="twitter:description" content="Automate All adalah Startup yang menyediakan produk serta layanan Jasa Automasi On Demand, khususnya di bidang Robotic Process Automation yang dapat memudahkan pekerjaan harian mu. Maksimalkan Pekerjaanmu bersama Automate All!">
     <meta property="twitter:image" content="https://automateall.id/img/vector/automateall-meta.jpg">
 
     <!-- Bootstrap CSS -->
@@ -78,6 +80,7 @@
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- <script src="/js/all.js"></script> -->
+    <script src="https://kit.fontawesome.com/011069fc2a.js" crossorigin="anonymous"></script>
 	
 	<?php 
         if(!isset($isLogres)) {

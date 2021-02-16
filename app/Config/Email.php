@@ -47,21 +47,21 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPHost = 'smtp.googlemail.com';
+	public $SMTPHost = 'mail.automateall.id';
 
 	/**
 	 * SMTP Username
 	 *
 	 * @var string
 	 */
-	public $SMTPUser = 'dummydum240@gmail.com';
+	public $SMTPUser = 'noreply@automateall.id';
 
 	/**
 	 * SMTP Password
 	 *
 	 * @var string
 	 */
-	public $SMTPPass = 'dummydum123';
+	public $SMTPPass = 'Automateallstartup';
 
 	/**
 	 * SMTP Port

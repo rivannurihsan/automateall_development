@@ -6,7 +6,7 @@ class Bayar extends Model
 {
     protected $table = 'bayar';
     protected $returnType = 'array';
-    protected $allowedFields = ['id','idDaftar','idCoupon','metode','tglBayar','hargaAwal','diskon','total','bukti','keterangan'];
+    protected $allowedFields = ['id','idDaftar','idCourseDaftar','idCoupon','metode','tglBayar','hargaAwal','diskon','total','bukti','keterangan'];
     
     public function getBayar($data=false, $column=false, $orderBy=false, $typeOrder='desc'){
         // Where

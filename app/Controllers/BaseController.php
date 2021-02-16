@@ -16,12 +16,11 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use CodeIgniter\Pager\Exceptions\PagerException;
-
+use setasign\Fpdi\Fpdi;
 use function PHPSTORM_META\type;
 
 class BaseController extends Controller
 {
-
 	/**
 	 * An array of helpers to be loaded automatically upon
 	 * class instantiation. These helpers will be available
@@ -30,7 +29,7 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
-
+	
 	/**
 	 * Constructor.
 	 */
@@ -38,12 +37,11 @@ class BaseController extends Controller
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
-
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
-		// E.g.:
-		// $this->session = \Config\Services::session();
+		
+        // Load own Model
 		$this->News = new \App\Models\News();
 		$this->Academy = new \App\Models\Academy();
 		$this->User = new \App\Models\User();
@@ -55,12 +53,24 @@ class BaseController extends Controller
 		$this->Bayar = new \App\Models\Bayar();
 		$this->Coupon = new \App\Models\Coupon();
 		$this->Kupon = new \App\Controllers\Kupon();
-
+		
+		$this->CourseDaftar = new \App\Models\CourseDaftar();
+		$this->CourseEpisode = new \App\Models\CourseEpisode();
+		$this->CourseInstructur = new \App\Models\CourseInstructur();
+		$this->CourseOnline = new \App\Models\CourseOnline();
+		$this->CourseProgress = new \App\Models\CourseProgress();
+		$this->CourseSection = new \App\Models\CourseSection();
+		
+		$this->CourseSertifikat = new \App\Models\CourseSertifikat();
+		
+        // Load own Libraries
+        
+        $this->pdf = new Fpdi();
 		$this->email = \Config\Services::email();
-		$this->sKeyLink = 'keylink';
+		$this->sKeyLink = 'passwordLink';
 		session();
 	}
-
+	
 	public function randomGenerator($len){
 		$rand='';
 		for ($i=0; $i < $len; $i++) { 
@@ -73,7 +83,7 @@ class BaseController extends Controller
 		}
 		return $rand;
 	}
-
+	
 	public function dateToString($date)
 	{
 		if (gettype($date) == 'array') {
@@ -167,6 +177,7 @@ class BaseController extends Controller
 		return $date;
 	}
 	
+	
 	public function timeToString($date)
 	{
 		if (gettype($date) == 'array') {
@@ -189,18 +200,18 @@ class BaseController extends Controller
 	 * Contoh '10:08:53' menjadi '10:08'
      * 
      * @return true|false
-     */  	
+     */
 	public function sendEmail($fromEmail, $from, $to, $subject=null, $message=null){
 		session();
 		$this->email->setFrom($fromEmail, $from);
 		$this->email->setTo($to);
-
 		$this->email->setSubject($subject);
 		$this->email->setMessage($message);
     
  		return $this->email->send();
-		// echo $this->email->printDebugger();
+		//echo $this->email->printDebugger();
 	}
+	
 	
 	public function tranposeArray($data){
 		$result = array_fill_keys( array_keys($data[0]) , array() );
@@ -209,38 +220,94 @@ class BaseController extends Controller
 		}
 		return ($result);
     }
-
+	
 	public function encryption($text, $key){
 		$metode = "AES-128-CTR"; 
 		$options = 0; 
 		$iv = '1234567890123456';
-
 		$encryption = openssl_encrypt($text, $metode, $key, $options, $iv);
 		return base64_encode($encryption);
 	}
-
+	
 	public function decryption($text, $key){
 		$metode = "AES-128-CTR"; 
 		$options = 0; 
 		$iv = '1234567890123456';
-
 		$decryption = openssl_decrypt(base64_decode($text), $metode, $key, $options, $iv);
 		return $decryption;
 	}
-
+	
 	public function intToMoney($int){
-		$int = strrev($int);
-		$int = str_split($int, 3);
-
-		$hasil = null;
-		for ($i=count($int); $i > 0; $i--) { 
-			if ($i-1 == count($int)-1) {
-				$hasil = strrev($int[$i-1]);
-			}else {
-				$hasil = $hasil.'.'.strrev($int[$i-1]);
+		if(gettype($int) == 'array') {
+			$hasilArr = [];
+			foreach ($int as $key => $value) {
+				$value = strrev($value);
+				$value = str_split($value, 3);
+		
+				$hasil = null;
+				for ($i=count($value); $i > 0; $i--) { 
+					if ($i-1 == count($value)-1) {
+						$hasil = strrev($value[$i-1]);
+					}else {
+						$hasil = $hasil.'.'.strrev($value[$i-1]);
+					}
+				}
+				$hasilArr[$key] = $hasil;
 			}
+			return $hasilArr;
+		}else{
+			$int = strrev($int);
+			$int = str_split($int, 3);
+	
+			$hasil = null;
+			for ($i=count($int); $i > 0; $i--) { 
+				if ($i-1 == count($int)-1) {
+					$hasil = strrev($int[$i-1]);
+				}else {
+					$hasil = $hasil.'.'.strrev($int[$i-1]);
+				}
+			}
+			return $hasil;
 		}
-		return $hasil;
+	}
+	
+	
+	public function intToBerlangganan($int){
+		if (gettype($int) == 'array') {
+			$hasilArr = [];
+			foreach ($int as $key => $value) {
+				if (gettype($value) != 'array') {
+					if ($value < 0) {
+						$hasil = 'Sekali bayar';
+					}elseif ($value == 12) {
+						$hasil = 'Berlangganan selama setahun';
+					}elseif ($value > 12){
+						$tahun = floor($value/12);
+						$bulan = $value%12;
+						$hasil = 'Berlangganan '.$tahun.' tahun '.$bulan.' bulan';
+					}else{
+						$hasil = 'Berlangganan selama '.$value.' bulan';
+					}
+				}
+				$hasilArr[$key] = $hasil;
+			}
+			return ($hasilArr);
+		}else{
+			if (gettype($int) != 'array') {
+				if ($int < 0) {
+					$hasil = 'Sekali bayar';
+				}elseif ($int == 12) {
+					$hasil = 'Berlangganan selama setahun';
+				}elseif ($int > 12){
+					$tahun = floor($int/12);
+					$bulan = $int%12;
+					$hasil = 'Berlangganan '.$tahun.' tahun '.$bulan.' bulan';
+				}else{
+					$hasil = 'Berlangganan selama '.$int.' bulan';
+				}
+			}
+			return $hasil;
+		}
 	}
 	
 }

@@ -1,62 +1,63 @@
-# This is Automate All Website Source Code
+# CodeIgniter 4 Application Starter
 
-## This website uses
-- CodeIgniter 4 (PHP Framework)
-- Bootstrap 4 (CSS Framework)
+## What is CodeIgniter?
 
-## Our website is already hosted, visit the following link
-[Automate All](https://automateall.id)
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
+More information can be found at the [official site](http://codeigniter.com).
 
-## Edit and try this website locally
-1. Make sure these are installed 
-    - XAMPP/WAMP/LAMP
-    - Git
-    - Composer
-2. Open the Git Bash App, write `cd C:/xampp/htdocs/` and press enter
-3. Then, write `git clone https://github.com/alcoffeeocha/automateall` and press enter
-4. Check your 'C:/xampp/htdocs/', make sure the 'automateall' folder is there. Open that folder using your code editor
-5. You can create your own environment, there is 'env' file in root directory, just rename it with '.env'.
-    - Here are some parts that you can change:
-      - CI_ENVIRONMENT 
-      - app.baseURL
-      - DATABASE
-      - and dont forget to save the file!
-6. Open your XAMPP Control Panel, start Apache and MySQL modules
-7. Click the Admin button in MySQL module, this will take you to phpMyAdmin. In phpMyAdmin Create a database called automateall_db (or with database name in .env)
-and just skip the table creation
-8. Back to your Git Bash. write `php spark migrate` and press enter. If the process is complete, write `php spark db:seed messages` and press enter
-write `php spark db:seed news` and press enter, last, write `php spark db:seed product` and press enter.
-9. You can run the application by executing `php spark serve` in Git Bash. Open your browser, and browse 'localhost:8080'
+This repository holds a composer-installable app starter.
+It has been built from the
+[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-For more, you can visit CodeIgniter 4 Documentation.
+More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
 
-## Branch explanation
-- Back-end
+The user guide corresponding to this version of the framework can be found
+[here](https://codeigniter4.github.io/userguide/).
 
-What you have to do in this branch :
-1. You must code your task in the folder: 
-    - app/Controllers
-    - app/Models
-    - app/Controllers/CustomRules.php
-    - app/Controllers/Validation.php
-2. Then push to this branch
-3. The project manager will proofread your work
-4. If all pass, the project manager will merge it to the master branch
+## Installation & updates
 
-- Front-end
+`composer create-project codeigniter4/appstarter` then `composer update` whenever
+there is a new release of the framework.
 
-What you have to do in this branch :
-1. You must code your task in the folder: 
-    - app/view
-    - public/css
-    - public/img
-    - public/js
-    - public/videos
-2. Then push to this branch
-3. The project manager will proofread your work
-4. If all pass, the project manager will merge it to the master branch
+When updating, check the release notes to see if there are any changes you might need to apply
+to your `app` folder. The affected files can be copied or merged from
+`vendor/codeigniter4/framework/app`.
 
+## Setup
 
-Copyright © 2020 Automate All.
+Copy `env` to `.env` and tailor for your app, specifically the baseURL
+and any database settings.
 
+## Important Change with index.php
 
+`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+for better security and separation of components.
+
+This means that you should configure your web server to "point" to your project's *public* folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+framework are exposed.
+
+**Please** read the user guide for a better explanation of how CI4 works!
+
+## Repository Management
+
+We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+FEATURE REQUESTS.
+
+This repository is a "distribution" one, built by our release preparation script.
+Problems with it can be raised on our forum, or as issues in the main repository.
+
+## Server Requirements
+
+PHP version 7.3 or higher is required, with the following extensions installed:
+
+- [intl](http://php.net/manual/en/intl.requirements.php)
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+
+Additionally, make sure that the following extensions are enabled in your PHP:
+
+- json (enabled by default - don't turn it off)
+- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
+- xml (enabled by default - don't turn it off)

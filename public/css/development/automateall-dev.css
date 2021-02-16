@@ -9,6 +9,7 @@
     --biryani-700: 700;
     --biryani-800: 800;
     --biryani-900: 900;
+    font-size: 62.5%;
 }
 
 body {
@@ -565,6 +566,7 @@ section.headline .landingvideo{
 section.headline p {
     margin-top: 35px;
     font-family: 'Varela', sans-serif;
+    font-size: 2.4rem;
 }
 
 /*#endregion Section Headline */
@@ -605,13 +607,16 @@ section.why {
 
 section.why .card {
     box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.25), 8px 8px 12px rgba(174, 205, 226, 0.5);
-    border-radius: 0px 75px;
+    border-radius: 0 75px;
     transition: 0.3s ease;
+    padding: 30px;
+    height: 30rem;
+    margin-top: 3rem;
 }
 
 section.why h3 {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 43px;
 }
 
@@ -638,19 +643,22 @@ section.why .two-card {
 section.why p {
     font-family: 'Varela', sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 23px;
+    width: 80%;
+    margin: 0 auto;
 }
 
-section.why .card:hover {
-    transform: scale(1.1);
-    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.7), 8px 8px 12px rgba(174, 205, 226, 0.9);
-}
+/*section.why .card:hover {*/
+/*    transform: scale(1.1);*/
+/*    box-shadow: -8px -8px 12px rgba(174, 205, 226, 0.7), 8px 8px 12px rgba(174, 205, 226, 0.9);*/
+/*}*/
 
 section.why .card-img-top {
-    width: 100%;
+    width: 70%;
     height: auto;
     padding: 10px 15px !important;
+    margin: 0 auto;
 }
 
 /*#endregion Section Why */
@@ -856,6 +864,10 @@ section.article_list img {
     padding: 0 5px;
 }
 
+.article-content p{
+    font-size: 1.4rem;
+}
+
 .date {
     font-size: 13px;
     color: grey;
@@ -961,6 +973,7 @@ section.services h2 {
     font-family: 'Varela', sans-serif;
     line-height: 23.4px;
     text-align: justify;
+    font-size: 1.4rem;
 }
 
 .products a {
@@ -1048,6 +1061,10 @@ section.detail h1 {
 
 section.detail h3 {
     font-weight: 600;
+}
+
+section.detail .detail__action>*{
+    font-size: 1.4rem;
 }
 
 /*#endregion Section Detail */
@@ -1195,6 +1212,10 @@ section.contact-us span {
     display: block;
 }
 
+section.contact-us small{
+    font-size: 1.5rem;
+}
+
 section.contact-us .spaceatas1,
 section.contact-us .spaceatas2 {
     margin-top: 120px;
@@ -1256,7 +1277,8 @@ section.contact-us .invalid-feedback {
 }
 
 #map iframe {
-    border-radius: 0px 75px;
+    width: 100%;
+    
 }
 
 /*#endregion Section Contact Us */
@@ -1575,7 +1597,7 @@ section.referral .disabled{
 
 /*#region Section academy list  */
 .academy-list-title p {
-  font-size: 1.9rem;
+  font-size: 3.2rem;
   margin-top: 30px;
   font-weight: 600;
   color: #0f4c75;
@@ -1944,9 +1966,23 @@ section.logres h1{
     .v1 {
         display: inline;
     }
+    
+    section.why .card{
+        margin-top: 0;
+        height: auto;
+    }
+    
+    section.why .card-img-top {
+        width: 100%;
+    }
+
 
     section.solution h2 {
         font-size: 48px;
+    }
+    
+    section.why p{
+        width: 100%;
     }
 
     section.why .two-card {
@@ -1957,6 +1993,10 @@ section.logres h1{
     section.why h1 {
         font-size: 220px;
         line-height: 200px;
+    }
+    
+    section.why h3{
+        font-size: 20px;
     }
 
     #aa {
@@ -2031,7 +2071,7 @@ section.logres h1{
     }
 
     #card-width {
-        width: 15rem !important;
+        width: 24rem !important;
     }
     
     section.blog h1 {
@@ -2059,6 +2099,9 @@ section.logres h1{
     .smaller-p {
         font-size: 12px !important;
     }
+    #map iframe{
+        border-radius: 0px 75px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -2081,6 +2124,9 @@ section.logres h1{
     section.why h1 {
         font-size: 250px;
         line-height: 0.9em;
+    }
+    section.why p{
+        font-size: 18px;
     }
 
     #aa {
@@ -2110,7 +2156,7 @@ section.logres h1{
     }
 
     #card-width {
-        width: 18rem !important;
+        width: 27rem !important;
     }
 
     section.why .two-card {
@@ -2163,6 +2209,7 @@ section.logres h1{
     .v2 {
         top: 1870px;
     }
+    
 }
 
 /* ANIMATIONS */
@@ -2177,4 +2224,1341 @@ section.logres h1{
 }
 /*#endregion Responsive Breakpoints */
 
-/* Akhir PRODUCTS AND SERVICES PAGE*/
+/* ONLINE COURSE */
+/* PUBLIC */
+.onlinecourse .transition-after-page-load {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+.onlinecourse .modal__overlayy {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  padding-right: 17px;
+}
+
+.onlinecourse .modal__box {
+  width: 35%;
+  height: 80%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+  padding: 3.2rem;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  z-index: 1050;
+}
+
+.onlinecourse .modal__overlayy:target,
+.onlinecourse .modal__overlayy:target .modal__box {
+  opacity: 1;
+  visibility: visible;
+}
+
+.onlinecourse .modal__overlayy:target {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+
+/* -- HALAMAN UTAMA KURSUS -- */
+.onlinecourse {
+    box-sizing: border-box;
+    font-family: "Biryani", sans-serif;
+    color: #000;
+}
+.onlinecourse .learning__category {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #0f4c75;
+  font-weight: 700;
+  font-size: 3.2rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 0.4rem solid #0f4c75;
+  margin: 3rem auto 1rem;
+}
+
+/* Section: Course (Landing) */
+.onlinecourse .course-home {
+  margin-top: 7.5rem;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+/* Profile */
+.onlinecourse .profile {
+  display: flex;
+  position: absolute;
+  color: inherit;
+  right: 6.3rem;
+  cursor: pointer;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+}
+
+.onlinecourse .profile__img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.onlinecourse .profile__text {
+  margin-top: 0.8rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #0f4c75;
+}
+
+.onlinecourse .profile:hover {
+  color: inherit;
+}
+
+.onlinecourse .modal__close:link,
+.onlinecourse .modal__close:visited {
+  text-decoration: none;
+  color: #808080;
+  font-size: 4rem;
+  position: absolute;
+  top: 1.2rem;
+  right: 2.8rem;
+}
+
+.onlinecourse .modal__heading {
+  font-weight: 900;
+  font-size: 2.4rem;
+  color: #0f4c75;
+  margin-top: 2rem;
+  margin-bottom: 2.6rem;
+  text-align: center;
+}
+
+.onlinecourse .profile-form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.onlinecourse .profile-form__group label {
+  font-family: "Varela", sans-serif;
+  font-size: 1.8rem;
+  color: #0f4c75;
+  margin-bottom: 0.5rem;
+}
+
+.onlinecourse .profile-form__group input {
+  box-shadow: 0 0 0 2px #90acbf;
+  outline: none;
+  border: none;
+  border-radius: 5rem;
+  height: 4rem;
+  padding: 1rem 2.5rem;
+  font-family: "Varela", sans-serif;
+  font-size: 1.4rem;
+  color: #0f4c75;
+}
+
+.onlinecourse .profile-form__group input::placeholder {
+  font-family: "Varela", sans-serif;
+  font-size: 1.4rem;
+  color: #90acbf;
+}
+
+.onlinecourse .profile-form__group input:focus {
+  box-shadow: 0 0 0 4px #90acbf;
+}
+
+.onlinecourse .update-btn-container {
+  position: relative;
+  height: 7rem;
+}
+
+.onlinecourse .update-btn {
+  background-color: #0f4c75;
+  border: none;
+  border-radius: 1.5rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 1rem 4rem 0.8rem;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.8rem;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s;
+}
+
+.onlinecourse .update-btn:focus {
+  outline: none;
+  border: none;
+}
+
+.onlinecourse .update-btn:hover {
+  background-color: rgba(15, 76, 117, 0.8);
+}
+
+/* Akhir Profile */
+
+/* Filtering */
+.onlinecourse .course__filter-wrapper {
+  margin-bottom: 5rem;
+}
+
+.onlinecourse .course__filter-by {
+  display: inline-block;
+  font-family: "Varela", sans-serif;
+  font-size: 1.8rem;
+  position: relative;
+  align-self: center;
+  transform: translateY(-10%);
+}
+
+.onlinecourse .course__category {
+  text-align: center;
+  padding-right: 0;
+}
+
+.onlinecourse .course__category>li:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.onlinecourse .category-btn,
+.onlinecourse .category-btn:link,
+.onlinecourse .category-btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 1rem 2.5rem 0.8rem 2.5rem;
+  background-color: rgba(144, 172, 191, 0.6);
+  font-weight: 800;
+  font-size: 1.6rem;
+  transition: all 0.2s;
+}
+
+.onlinecourse .category-btn:hover {
+  background-color: rgba(144, 172, 191, 1);
+}
+
+.onlinecourse .category-btn--active {
+  background-color: rgba(144, 172, 191, 1);
+}
+
+.onlinecourse .category-text,
+.onlinecourse .category-text:link,
+.onlinecourse .category-text:visited {
+  display: inline-block;
+  text-decoration: none;
+  list-style: none;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #3c3b37;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(144, 172, 191, 0);
+  transition: all 0.4s;
+}
+
+.onlinecourse .category-text:hover {
+  border-bottom: 2px solid rgba(144, 172, 191, 1);
+}
+
+.onlinecourse .category-text--active {
+  border-bottom: 2px solid rgba(144, 172, 191, 1);
+}
+
+.onlinecourse .search-box {
+  display: inline-block;
+  width: 30rem;
+  height: 3.5rem;
+  position: relative;
+  transform: translateY(1.2rem);
+}
+
+.onlinecourse .search-box__input {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 1px rgba(144, 172, 191, 1);
+  padding: 0.7rem 1.2rem;
+}
+
+.onlinecourse .search-box__input[type="text"],
+.onlinecourse .search-box__input::placeholder {
+  font-family: "Varela", sans-serif;
+  font-size: 1.4rem;
+  color: #3c3b37;
+}
+
+.onlinecourse .search-box__input::placeholder {
+  color: rgba(60, 59, 55, 0.5);
+}
+
+.onlinecourse .search-box__input:focus {
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(144, 172, 191, 1);
+}
+
+.onlinecourse .search-box__btn {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: -4.2rem;
+  width: 15%;
+  height: 100%;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: #90acbf;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #90acbf;
+}
+
+.onlinecourse .search-box__input:focus+.search-box__btn {
+  box-shadow: 0 0 0 3px #90acbf;
+}
+
+.onlinecourse .search-box__btn .magnifier {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Akhir Filtering */
+
+.onlinecourse .course__heading-secondary {
+  font-weight: 900;
+  font-size: 3rem;
+  color: #505050;
+  margin-bottom: 3rem;
+  display: inline-block;
+}
+
+/* Course image */
+.onlinecourse .course__img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.onlinecourse .course__img-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* My Courses */
+.onlinecourse .my-course {
+  margin-bottom: 6rem;
+}
+
+.onlinecourse .card--no-border {
+  border: none;
+}
+
+.onlinecourse .my-course__img-wrapper {
+  height: 15rem;
+  width: 100%;
+  position: relative;
+}
+
+.onlinecourse .card-body {
+  padding: 1.5rem 1.5rem;
+}
+
+.onlinecourse .my-course__title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  height: 4rem;
+}
+
+.onlinecourse .my-course__episode {
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 3px;
+  height: 5rem;
+}
+
+.onlinecourse .my-course__mentor {
+  font-family: "Varela", sans-serif;
+  font-size: 1.2rem;
+  color: #505050;
+  margin-bottom: 1rem;
+}
+
+.onlinecourse .my-course__mentor .mentor-profession {
+  display: block;
+}
+
+.onlinecourse .my-course__access {
+  font-family: "Varela", sans-serif;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.onlinecourse .stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.onlinecourse #expander {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #0f4c75;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  right: 0.75rem;
+  cursor: pointer;
+}
+
+.onlinecourse #expander:hover {
+  color: rgba(15, 76, 117, 0.8);
+}
+
+.onlinecourse #expander i {
+  margin-left: 0.5rem;
+}
+
+#my-items .card {
+    box-shadow: none;
+    padding: 0 !important;
+}
+
+/* Next Course */
+#next-items .card {
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, .4);
+  border-radius: 0;
+  padding: 0 !important;
+}
+
+.onlinecourse .next-course {
+  margin-bottom: 9rem;
+}
+
+.onlinecourse .next-course__img-wrapper {
+  height: 17rem;
+  width: 100%;
+  position: relative;
+}
+
+.onlinecourse .next-course__title {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.4rem;
+  height: 7rem;
+}
+
+.onlinecourse .next-course__mentor {
+  font-weight: 400;
+  font-size: 1.5rem;
+  height: 4.5rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.onlinecourse .next-course__mentor .mentor-profession {
+  display: block;
+  font-size: 1.3rem;
+  color: #949494;
+}
+
+.onlinecourse .next-course__additional {
+  height: 5.5rem;
+}
+
+.onlinecourse .next-course__price {
+  font-weight: 700;
+  color: #0f4c75;
+  font-size: 1.5rem;
+  transform: translateY(4px);
+}
+
+.onlinecourse .next-course__access {
+  font-family: "Varela", sans-serif;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.onlinecourse .course__not-exist {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #505050;
+  margin-top: 3rem;
+  display: block;
+}
+
+/* Benefit */
+.onlinecourse .benefit__img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  margin-bottom: 3rem;
+}
+
+.onlinecourse .benefit__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  transform: translate(-50%, -50%);
+}
+
+.onlinecourse .benefit__text {
+  font-weight: 400;
+  font-size: 1.9rem;
+  position: relative;
+  text-align: center;
+}
+
+.onlinecourse .benefit__content {
+  padding: 5rem 0;
+  border-top: 1px solid #dcdacb;
+  border-bottom: 1px solid #dcdacb;
+}
+
+/* -- AKHIR HALAMAN UTAMA KURSUS -- */
+
+/* -- HALAMAN DETIL KURSUS -- */
+.onlinecourse .course-detail {
+  /* margin-top: 20rem; */
+  margin-top: 18rem;
+  position: relative;
+  counter-reset: ol-counter;
+}
+
+.course-detail .breadcrumb{
+    background-color: #dcdcdc !important;
+    padding-left: 0;
+}
+
+.onlinecourse .course-detail__highlight {
+  padding: 3rem 0;
+  margin-bottom: 2.5rem;
+  background-color: #dcdcdc;
+}
+
+.onlinecourse .course-detail .breadcrumb-item,
+.onlinecourse .course-detail .breadcrumb-item a {
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.onlinecourse .course-detail .breadcrumb-item a {
+  color: #0f4c75;
+}
+
+.onlinecourse .course-detail .breadcrumb-item a:hover {
+  color: rgba(15, 76, 117, 0.8);
+}
+
+.onlinecourse .course-detail [aria-label="breadcrumb"] {
+  margin-bottom: 3rem;
+}
+
+.onlinecourse .course-detail__title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-top: 1rem;
+}
+
+.onlinecourse .course-detail__short-desc {
+  font-family: "Varela", sans-serif;
+  font-size: 1.8rem;
+  margin-top: 0.5rem;
+}
+
+.onlinecourse .course-detail__mentor,
+.onlinecourse .course-detail__updated {
+  font-family: "Varela", sans-serif;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.onlinecourse .course-detail__updated img {
+  margin-right: 4px;
+}
+
+.onlinecourse .course-detail__heading-secondary {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin: 3rem 0 1.5rem 0;
+}
+
+.onlinecourse .course-detail__target {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding-left: 1.2rem;
+  max-height: 25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  content: "";
+  position: relative;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.onlinecourse .course-detail__target::before {
+  background: linear-gradient(transparent 150px, white);
+}
+
+.onlinecourse .course-detail__long-desc {
+  max-height: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  content: "";
+  position: relative;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.onlinecourse .course-detail__long-desc::before {
+  background: linear-gradient(transparent 90px, white);
+}
+
+.onlinecourse .course-detail__target::before,
+.onlinecourse .course-detail__long-desc::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.onlinecourse .course-detail__target.no-before::before,
+.onlinecourse .course-detail__long-desc.no-before::before {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.onlinecourse .course-detail__target,
+.onlinecourse .course-detail__long-desc {
+  font-family: "Varela", sans-serif;
+  font-size: 1.4rem;
+}
+
+.onlinecourse .course-detail__target>li {
+  list-style: "\2713";
+  font-weight: bolder;
+  width: 48%;
+  padding: 1rem;
+}
+
+.onlinecourse .course-detail__target>li>span {
+  font-weight: normal;
+}
+
+.onlinecourse .course-detail__show-or-hide {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  color: #0f4c75;
+}
+
+.onlinecourse .course-detail__show-or-hide:hover {
+  color: rgba(15, 76, 117, 0.8);
+}
+
+.onlinecourse .course-detail__show-or-hide i {
+  margin-left: 0.5rem;
+}
+
+.onlinecourse .requirements__list {
+  '
+font-family: 'Varela', sans-serif;
+  font-size: 1.4rem;
+  list-style-type: square;
+}
+
+/* accordions */
+.streaming__intro-button,
+.accordion__button {
+  width: 100%;
+  background-color: whitesmoke;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  text-align: left;
+  padding: 1.5rem 2rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+  float: right;
+}
+
+.accordion__button::after {
+  content: "\f055";
+  font-family: "fontawesome";
+  font-size: 1.4rem;
+  float: right;
+}
+
+.accordion__button.not-use-after::after {
+  display: none;
+}
+
+.accordion__button.is-open::after {
+  content: "\f056";
+}
+
+.accordion__button.not-use-after.is-open::after {
+  display: none;
+}
+
+.accordion__button:hover,
+.accordion__button.is-open,
+.streaming__intro-button:hover {
+  background-color: #ddd;
+}
+
+.accordion__button.not-use-after.is-open,
+.accordion__button.not-use-after:hover {
+  background-color: whitesmoke;
+
+}
+
+.accordion__button:focus,
+.streaming__intro-button:focus {
+  outline: none;
+}
+
+.accordion__content {
+  box-sizing: border-box;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion__content ol {
+  padding: 1.5rem 2rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.accordion__content ol li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.accordion__list {
+  list-style: none;
+}
+
+.accordion__list li::before {
+  counter-increment: ol-counter;
+  content: counter(ol-counter) ".";
+  margin-right: 1rem;
+}
+
+/* fixed card */
+.onlinecourse .course-detail__card {
+  padding: 3rem 2rem;
+  width: 40rem;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  z-index: 100;
+}
+
+
+.onlinecourse .course-detail__thumbnail {
+  display: block;
+  height: 20rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.onlinecourse .course-detail__content {
+  padding: 0 2rem;
+}
+
+.onlinecourse .course-detail__price {
+  text-align: center;
+  font-weight: 700;
+  font-size: 3.2rem;
+  margin-top: 2.5rem;
+}
+
+.onlinecourse .course-detail__checkout:link,
+.onlinecourse .course-detail__checkout:visited {
+  color: #0f4c75;
+  font-weight: 700;
+  font-size: 2.2rem;
+  padding: 1rem 4.5rem;
+  text-decoration: none;
+  border: 3px solid #0f4c75;
+  border-radius: 5px;
+  display: inline-block;
+  transition: all .2s;
+}
+
+.onlinecourse .course-detail__checkout:hover {
+  background-color: #0f4c75;
+  color: white;
+}
+
+.onlinecourse .course-detail__info {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-top: 3rem;
+  list-style-type: square;
+}
+
+.onlinecourse .course-detail__info-list li,
+.onlinecourse .course-detail__info-text {
+  font-family: "Varela", sans-serif;
+  font-size: 1.5rem;
+}
+
+.onlinecourse .course-detail__info-list li {
+  list-style-type: square;
+}
+
+.onlinecourse .course-detail__info-list li:not(:last-child) {
+  margin-bottom: 0.6rem;
+}
+
+/* Modal Introduction Video */
+#video-introduction .modal__heading {
+  margin-bottom: 2.2rem;
+}
+
+.modal__overlayy#video-introduction .modal__box {
+  width: 50%;
+  height: 85%;
+}
+
+.onlinecourse .introduction__title {
+  font-weight: 800;
+  font-size: 1.8rem;
+  padding: 1.5rem 0 1rem;
+  text-align: center;
+}
+
+.onlinecourse .introduction__video-wrapper {
+  text-align: center;
+}
+
+.onlinecourse .introduction__video {
+  border: none;
+  outline: none;
+}
+
+.onlinecourse .buy-now {
+  position: fixed;
+  width: 30rem;
+  bottom: 30%;
+  right: 8.5%;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, .25);
+  padding: 2rem;
+}
+
+.onlinecourse .buy-now__title {
+  font-weight: 800;
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+  line-height: 3rem;
+}
+
+.onlinecourse .buy-now .course-detail__price {
+  font-size: 2.2rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* AKHIR HALAMAN DETIL KURSUS */
+/* HALAMAN STREAMING */
+.streaming {
+  margin: 18rem 0;
+  counter-reset: section-counter;
+  background-color: ;
+}
+
+#streaming__main {
+  padding: 0 3rem;
+  flex-basis: 70vw;
+}
+
+#streaming__main.large {
+  flex-basis: 94vw;
+  padding: 0 8rem;
+}
+
+#streaming__main.large .streaming__header-player {
+  height: 45rem;
+}
+
+.streaming__header {
+  position: relative;
+  padding-bottom: .5rem;
+}
+
+.streaming__header-content {
+  max-width: 48.8rem;
+}
+
+.streaming__header-episode-title {
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.streaming__header-section-title {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.streaming__header-btn:link,
+.streaming__header-btn:visited {
+  color: white;
+  background-color: rgba(15, 76, 117, 1);
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  float: right;
+  position: absolute;
+  top: 40%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.streaming__header-btn:hover,
+.streaming__header-btn:active {
+  background-color: rgba(15, 76, 117, .7);
+}
+
+.streaming__header-player {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  height: 40rem;
+  margin: 1rem 0 2rem 0;
+}
+
+/* main.streaming__header-player.expanded {
+  height: 80.5vh;
+} */
+
+.streaming__header-video {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.streaming__btn:link,
+.streaming__btn:visited {
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 1.4rem;
+  color: #000;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.streaming__btn:link,
+.streaming__btn:visited {
+  margin-right: 1.4rem;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px #0f4c75;
+  color: #0f4c75;
+  transition: .3s all;
+}
+
+.streaming__btn:hover,
+.streaming__btn:active {
+  background-color: #0f4c75;
+  color: #fff;
+}
+
+
+.streaming__sidebar {
+  background-color: #EEE;
+  z-index: 10;
+  padding: 2rem 0;
+  counter-reset: episode-counter;
+  flex-basis: 30vw;
+  height: 90vh;
+}
+
+.streaming__sidebar.narrow {
+  overflow: hidden;
+  flex-basis: 7vw;
+}
+
+
+.collapser-btn {
+  cursor: pointer;
+  background-color: #C4C4C4;
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  margin-left: 2rem;
+  position: relative;
+}
+
+.short-bar {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .5s linear;
+}
+
+.collapser-btn::before,
+.collapser-btn::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all .5s linear;
+}
+
+.collapser-btn::before {
+  top: 36%;
+}
+
+.collapser-btn::after {
+  bottom: 36%;
+}
+
+.collapser-btn.be-left-arrow::before {
+  transform: rotate(-45deg) translate(-6px, -22px) scaleX(1.04);
+  transform-origin: right top;
+}
+
+.collapser-btn.be-left-arrow::after {
+  transform: rotate(45deg) translate(-6px, 22px);
+  transform-origin: right bottom;
+}
+
+.collapser-btn.be-left-arrow .short-bar {
+  width: 0;
+  height: 0;
+}
+
+.go-home {
+  display: inline-block;
+  font-family: 'Varela', sans-serif;
+  font-size: 2.2rem;
+  cursor: pointer;
+  height: 5rem;
+  line-height: 5rem;
+  margin: 0 5rem;
+  text-decoration: none;
+  color: #000;
+  transform: translateY(-1.6rem);
+}
+
+.go-home:hover {
+  color: #000;
+}
+
+.unseen {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.streaming__videos-list {
+  margin-top: 2rem;
+  height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+
+.streaming__intro-button,
+.streaming__videos-list .accordion__button {
+  font-size: 1.6rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgb(222, 223, 224);
+}
+
+.streaming__videos-list .accordion__button {
+  counter-increment: section-counter;
+}
+
+.streaming__videos-list .accordion__button.is-open {
+  background-color: whitesmoke;
+}
+
+.streaming__videos-list .accordion__button:hover {
+  background-color: whitesmoke;
+}
+
+.streaming__videos-list .accordion__button::after {
+  display: none;
+}
+
+.streaming__intro-button:hover {
+  background-color: #ddd;
+}
+
+.section-title {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.section-title::before {
+  content: "Section "Counter(section-counter)": ";
+}
+
+.accordion__button.is-open .section-title~i::before {
+  content: "\f056";
+}
+
+.section-total {
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-family: 'Varela', sans-serif;
+}
+
+.streaming__videos-list .accordion__content {
+  padding: 0;
+}
+
+.streaming__videos-list .accordion__list {
+  font-size: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.streaming__videos-list li::before {
+  content: none;
+}
+
+.streaming__videos-list li {
+  padding: 1.5rem 1.4rem;
+  transition: all .2s linear;
+  counter-increment: episode-counter;
+}
+
+.streaming__videos-list li:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.streaming__videos-list li>input {
+  margin-right: 1rem;
+}
+
+.streaming__intro-button.is-selected,
+.streaming__videos-list li.is-selected {
+  background-color: #ddd;
+}
+
+.streaming__videos-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.streaming__videos-list::-webkit-scrollbar {
+  width: 16px;
+  background-color: #F5F5F5;
+}
+
+.streaming__videos-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #0f4c75;
+}
+.episode-is-done {
+  padding: .4rem 1rem 0;
+  cursor: pointer;
+  color: #008080;
+  width: 3rem;
+}
+
+.episodes {
+  font-family: 'Varela', sans-serif;
+
+}
+
+.episodes__title {
+  font-size: 1.5rem;
+
+}
+
+.episodes__title::before {
+  content: counter(episode-counter) ".";
+}
+
+.episodes__duration {
+  font-size: 1.3rem;
+  display: inline;
+}
+
+.episodes__duration::before {
+  content: "\f017";
+  font-family: "fontawesome";
+  display: inline;
+  font-size: 1.3rem;
+  margin-right: .3rem;
+  font-weight: 900;
+}
+
+/* Modal Ulasan Kelas */
+#review-course .modal__box {
+  width: 40%;
+}
+
+#review-course .modal__heading {
+  margin-top: 3rem;
+}
+
+#review-course .rating__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#review-course .star-widget {
+  margin-bottom: 2rem;
+}
+
+#review-course .star-widget input {
+  display: none;
+}
+
+#review-course .star-widget label {
+  font-size: 3.5rem;
+  color: #444;
+  padding: .5rem;
+  transition: all .2s ease;
+  float: right;
+}
+
+#review-course .star-widget input:not(:checked)~label:hover,
+#review-course .star-widget input:not(:checked)~label:hover~label {
+  color: #FF6347;
+}
+
+#review-course .star-widget input:checked~label {
+  color: #FF6347;
+}
+
+#review-course .star-widget input#rate-5:checked~label {
+  color: #FF7D61;
+}
+
+#review-course form .review-text {
+  height: 15rem;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+#review-course form .review-text textarea {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 1px solid #333;
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-family: 'Varela', sans-serif;
+  resize: none;
+}
+
+#review-course .modal__heading {
+  margin-bottom: 1rem;
+}
+
+.modal__heading-secondary {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #0F4C75;
+  margin-bottom: 1.6rem;
+}
+
+/* AKHIR HALAMAN STREAMING */
+
+.streaming__videos-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.streaming__videos-list::-webkit-scrollbar {
+  width: 16px;
+  background-color: #F5F5F5;
+}
+
+.streaming__videos-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #0f4c75;
+}
+/* AKHIR ONLINE COURSE */

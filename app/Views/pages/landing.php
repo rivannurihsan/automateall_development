@@ -69,11 +69,11 @@
     <div class="container">
         <div class="row text-center">
             <div class="p-0 col-7 offset-2 order-last offset-md-0 order-md-first col-md-4 col-lg-3 col-xl-3 one-card">
-                <div class="card p-3"
-                data-sal="slide-up" data-sal-easing="ease-out-sine" data-sal-duration="1000" id="card-width" style="width: 16rem;">
-                    <img src="/img/vector/wallet.png" class="card-img-top" alt="wallet" width="340" height="250">
+                <div class="card px-1 py-4 p-lg-5"
+                data-sal="slide-up" data-sal-easing="ease-out-sine" data-sal-duration="1000" id="card-width" >
+                    <img src="/img/vector/wallet.png" class="card-img-top" alt="wallet">
                     <div class="card-body p-0">
-                        <h3 class="card-text">
+                        <h3 class="card-text mt-3">
                             Cost Saving
                         </h3>
                         <p>Pembuatan bot lebih murah dibanding gaji karyawan</p>
@@ -91,11 +91,11 @@
                 </div>
                 <div class="row two-card">
                     <div class="p-0 mb-5 mb-md-0 col-12 offset-4 offset-md-0 align-self-start col-md-6 col-lg-4 offset-lg-1">
-                        <div class="card p-3" 
-                        data-sal="slide-up" data-sal-easing="ease-out-sine" data-sal-duration="1000" id="card-width" style="width: 16rem;">
-                            <img src="/img/vector/savetime.png" class="card-img-top" alt="savetime" width="340" height="250">
+                        <div class="card px-1 py-4 p-lg-5" 
+                        data-sal="slide-up" data-sal-easing="ease-out-sine" data-sal-duration="1000" id="card-width">
+                            <img src="/img/vector/savetime.png" class="card-img-top" alt="savetime">
                             <div class="card-body p-0">
-                                <h3 class="card-text">
+                                <h3 class="card-text mt-3">
                                     Save Time
                                 </h3>
                                 <p>Pekerjaan otomatis dilakukan oleh bot</p>
@@ -103,11 +103,11 @@
                         </div>
                     </div>
                     <div class="p-0 mb-5 mb-md-0 col-12 offset-4 offset-md-0 align-self-center align-self-lg-end col-md-6 col-lg-4 offset-lg-1">
-                        <div class="card p-3"
-                        data-sal="slide-up" data-sal-easing="ease-out-sine" data-sal-duration="1000" id="card-width" style="width: 16rem;">
-                            <img src="/img/vector/humanerror.png" class="card-img-top" alt="humanerror" width="340" height="250">
+                        <div class="card px-1 py-4 p-lg-5"
+                        data-sal="slide-up" data-sal-easing="ease-out-sine" data-sal-duration="1000" id="card-width" ">
+                            <img src="/img/vector/humanerror.png" class="card-img-top" alt="humanerror">
                             <div class="card-body p-0">
-                                <h3 class="card-text">
+                                <h3 class="card-text mt-3">
                                     No Human Error
                                 </h3>
                                 <p>Bot yang terprogram tidak akan melakukan kesalahan</p>

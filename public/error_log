@@ -43,3 +43,59 @@ Stack trace:
 [24-Nov-2020 03:06:04 Asia/Jakarta] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/autz8571/automateall/app/Controllers/Pages.php on line 1
 [24-Nov-2020 03:06:28 Asia/Jakarta] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/autz8571/automateall/app/Controllers/Pages.php on line 1
 [24-Nov-2020 03:06:37 Asia/Jakarta] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/autz8571/automateall/app/Controllers/Pages.php on line 1
+[30-Jan-2021 05:19:53 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '}' in /home/autz8571/public_html/automateall/index.php on line 51
+[04-Feb-2021 01:46:11 Asia/Jakarta] PHP Warning:  Uncaught ErrorException: require_once(\App\Libraries\fpdf\fpdf.php): failed to open stream: No such file or directory in /home/autz8571/automateall/app/Controllers/BaseController.php:67
+Stack trace:
+#0 /home/autz8571/automateall/app/Controllers/BaseController.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(\\A...', '/home/autz8571/...', 67, Array)
+#1 /home/autz8571/automateall/app/Controllers/BaseController.php(67): require_once()
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#4 /home/autz8571/automateall/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/autz8571/public_ht in /home/autz8571/automateall/app/Controllers/BaseController.php on line 67
+[04-Feb-2021 01:46:11 Asia/Jakarta] PHP Fatal error:  App\Controllers\BaseController::initController(): Failed opening required '\App\Libraries\fpdf\fpdf.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/automateall/app/Controllers/BaseController.php on line 67
+[04-Feb-2021 01:46:15 Asia/Jakarta] PHP Warning:  Uncaught ErrorException: require_once(\App\Libraries\fpdf\fpdf.php): failed to open stream: No such file or directory in /home/autz8571/automateall/app/Controllers/BaseController.php:67
+Stack trace:
+#0 /home/autz8571/automateall/app/Controllers/BaseController.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(\\A...', '/home/autz8571/...', 67, Array)
+#1 /home/autz8571/automateall/app/Controllers/BaseController.php(67): require_once()
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/CodeIgniter.php(891): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#4 /home/autz8571/automateall/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/autz8571/public_ht in /home/autz8571/automateall/app/Controllers/BaseController.php on line 67
+[04-Feb-2021 01:46:15 Asia/Jakarta] PHP Fatal error:  App\Controllers\BaseController::initController(): Failed opening required '\App\Libraries\fpdf\fpdf.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/automateall/app/Controllers/BaseController.php on line 67
+[04-Feb-2021 01:47:45 Asia/Jakarta] PHP Warning:  Uncaught ErrorException: require_once(\App\Libraries\fpdf\fpdf.php): failed to open stream: No such file or directory in /home/autz8571/automateall/app/Controllers/BaseController.php:20
+Stack trace:
+#0 /home/autz8571/automateall/app/Controllers/BaseController.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(\\A...', '/home/autz8571/...', 20, Array)
+#1 /home/autz8571/automateall/app/Controllers/BaseController.php(20): require_once()
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(365): require_once('/home/autz8571/...')
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/autz8571/...')
+#4 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#5 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+# in /home/autz8571/automateall/app/Controllers/BaseController.php on line 20
+[04-Feb-2021 01:47:45 Asia/Jakarta] PHP Fatal error:  CodeIgniter\Autoloader\Autoloader::main(): Failed opening required '\App\Libraries\fpdf\fpdf.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/automateall/app/Controllers/BaseController.php on line 20
+[04-Feb-2021 01:47:46 Asia/Jakarta] PHP Warning:  Uncaught ErrorException: require_once(\App\Libraries\fpdf\fpdf.php): failed to open stream: No such file or directory in /home/autz8571/automateall/app/Controllers/BaseController.php:20
+Stack trace:
+#0 /home/autz8571/automateall/app/Controllers/BaseController.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(\\A...', '/home/autz8571/...', 20, Array)
+#1 /home/autz8571/automateall/app/Controllers/BaseController.php(20): require_once()
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(365): require_once('/home/autz8571/...')
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/autz8571/...')
+#4 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#5 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+# in /home/autz8571/automateall/app/Controllers/BaseController.php on line 20
+[04-Feb-2021 01:47:46 Asia/Jakarta] PHP Fatal error:  CodeIgniter\Autoloader\Autoloader::main(): Failed opening required '\App\Libraries\fpdf\fpdf.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/automateall/app/Controllers/BaseController.php on line 20
+[04-Feb-2021 01:48:03 Asia/Jakarta] PHP Warning:  Uncaught ErrorException: require_once(\App\Libraries\fpdf\fpdf.php): failed to open stream: No such file or directory in /home/autz8571/automateall/app/Controllers/BaseController.php:20
+Stack trace:
+#0 /home/autz8571/automateall/app/Controllers/BaseController.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(\\A...', '/home/autz8571/...', 20, Array)
+#1 /home/autz8571/automateall/app/Controllers/BaseController.php(20): require_once()
+#2 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(365): require_once('/home/autz8571/...')
+#3 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/home/autz8571/...')
+#4 /home/autz8571/automateall/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#5 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+# in /home/autz8571/automateall/app/Controllers/BaseController.php on line 20
+[04-Feb-2021 01:48:03 Asia/Jakarta] PHP Fatal error:  CodeIgniter\Autoloader\Autoloader::main(): Failed opening required '\App\Libraries\fpdf\fpdf.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/automateall/app/Controllers/BaseController.php on line 20
+[05-Feb-2021 02:30:29 Asia/Jakarta] PHP Warning:  require(/home/autz8571/automateall/app/Config/../../vendor/codeigniter4/framework/system/bootstrap.php): failed to open stream: No such file or directory in /home/autz8571/public_html/automateall/index.php on line 39
+[05-Feb-2021 02:30:29 Asia/Jakarta] PHP Warning:  require(/home/autz8571/automateall/app/Config/../../vendor/codeigniter4/framework/system/bootstrap.php): failed to open stream: No such file or directory in /home/autz8571/public_html/automateall/index.php on line 39
+[05-Feb-2021 02:30:29 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/autz8571/automateall/app/Config/../../vendor/codeigniter4/framework/system/bootstrap.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/autz8571/public_html/automateall/index.php on line 39
+[05-Feb-2021 13:58:33 Asia/Jakarta] PHP Fatal error:  Cannot declare class App\Models\CourseDaftar, because the name is already in use in /home/autz8571/automateall/app/Models/CourseSertifikat.php on line 0
+[05-Feb-2021 13:58:49 Asia/Jakarta] PHP Fatal error:  Cannot declare class App\Models\CourseDaftar, because the name is already in use in /home/autz8571/automateall/app/Models/CourseSertifikat.php on line 0
+[05-Feb-2021 14:27:18 Asia/Jakarta] PHP Fatal error:  Cannot declare class App\Models\CourseDaftar, because the name is already in use in /home/autz8571/automateall/app/Models/CourseSertifikat.php on line 0
+[05-Feb-2021 14:29:10 Asia/Jakarta] PHP Fatal error:  Cannot declare class App\Models\CourseDaftar, because the name is already in use in /home/autz8571/automateall/app/Models/CourseSertifikat.php on line 0

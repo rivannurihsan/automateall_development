@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="row text-lg-left text-center mt-5">
-                    <div class="col">
+                    <div class="col detail__action">
                         <a href='<?php if($isDelete == 0 && isset($userdata)){echo $fileLocation;}?>' 
                             class="btn pt-2 px-4 <?php if($isDelete == 1 || !isset($userdata) || !$userdata['isVerifikasi']){echo 'disable';}?>"
                             >Try For Free

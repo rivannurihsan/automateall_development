@@ -21,7 +21,7 @@
 
             foreach ($emailList as $val) {
                 $splitedEmail = preg_split('/@/', $val);
-                $email = $splitedEmail[0].'@'.$splitedEmail[1];
+                $email = $this->decryption($splitedEmail[0]).'@'.$splitedEmail[1];
                 if ($str == $email) {
                     return false;
                 }
@@ -39,8 +39,10 @@
         public function isLogedIn($str, $error, $data){
             if ($data['emailLogin']) {
                 $emailS = preg_split('/@/', $data['emailLogin']);
-                $emailS = $emailS[0].'@'.$emailS[1];
-                $passwS = $str;
+                $emailS = $this->encryption($emailS[0]).'@'.$emailS[1];
+                $passwS = $this->encryption($str);
+                print_r($emailS);
+                print_r($passwS);
                 
                 $confirm = $this->User->getEmail_by_login($emailS, $passwS);
                 if (gettype($confirm) != 'NULL') {

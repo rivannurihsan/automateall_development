@@ -52,9 +52,9 @@
                     </div>
                 </form>
             </div>
-            <div class="col-10 offset-1 col-md-8 offset-md-2 offset-lg-0 col-lg-6 spaceatas1">
+            <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-6 spaceatas1">
                 <div id="map">
-                    <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=640&height=409&hl=en&q=Jl.%20Telekomunikasi%20Jl.%20Terusan%20Buah%20Batu,%20Sukapura,%20Kec.%20Dayeuhkolot%20Bandung+(Telkom%20University)&t=p&z=13&ie=UTF8&iwloc=B&output=embed" width="100%" height="300" frameborder="0"></iframe> 
+                    <iframe width="600" height="380" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJX82f4qzpaC4RZTkSgpH6b_o&key=AIzaSyAFHo3vtubW2nIxxG0-CcSqTvJSAFwlRBk" allowfullscreen></iframe> 
                 </div>
             </div>
         </div>

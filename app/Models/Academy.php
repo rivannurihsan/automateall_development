@@ -44,7 +44,7 @@ class Academy extends Model
     }
     
     /**
-    * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
+     * Method untuk mengambil data sebuah kolom (sesuai input diparameter)
      * dari tabel 'referral' yang diurutkan secara descending
      * berdasarkan kolom 'progress'
      * 

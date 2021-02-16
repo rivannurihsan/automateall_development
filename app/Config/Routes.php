@@ -50,6 +50,18 @@ $routes->post('/academy/checkout','Pages::sendAcademyCheckout'); # System pembel
 $routes->post('/academy/useCoupon','Pages::sendAcademyCoupon'); # System pembelian workshop
 $routes->post('/academy/delCoupon','Pages::deleteAcademyCoupon'); # System pembelian workshop
 
+$routes->get('/onlineCourse/detail','Pages::onlineCourseDetail'); # System pembelian online course
+$routes->post('/onlineCourse/daftar','Pages::sendOnlineCourseDaftar'); # System pembelian online course
+$routes->get('/onlineCourse/streaming','Pages::onlineCourseStreaming'); # System pembelian online course
+$routes->post('/onlineCourse/kirimUlasan','Pages::sendOnlineCourseUlasan'); # System Pembelian Online course
+$routes->get('/onlinecourse/tandaiSelesai','Pages::sendOnlineCourseSelesai'); # System pembelian online course
+$routes->get('/onlineCourse/getSertifikat','Pages::sendOnlineCourseSertifikat'); # System pembelian online course
+
+$routes->get('/checkout','Pages::checkout'); # System checkout
+$routes->post('/checkout','Pages::sendCheckout'); # System checkout
+$routes->post('/useCoupon','Pages::useCoupon'); # System checkout
+$routes->post('/delCoupon','Pages::unUseCoupon'); # System checkout
+
 $routes->post('/regis', 'Pages::sendRegis');
 $routes->post('/login', 'Pages::sendLogin');
 $routes->get('/sendVerifyMessage', 'Pages::sendVerifyMessage');
@@ -61,7 +73,7 @@ $routes->post('/lupaPass', 'Pages::lupaPass');
 $routes->get('/logout', 'Pages::logout');
 
 $routes->get('/coba', 'Pages::coba');
-
+$routes->get('/founder','Founders::showLinktree');
 
 /**
  * --------------------------------------------------------------------

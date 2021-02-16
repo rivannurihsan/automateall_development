@@ -7,7 +7,9 @@
 	"require": {
 		"php": ">=7.2",
 		"codeigniter4/framework": "^4",
-		"alrik11es/cowsayphp": "^1.2"
+		"alrik11es/cowsayphp": "^1.2",
+		"setasign/fpdf": "^1.8",
+		"setasign/fpdi": "^2.3"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "^1.9@dev",
